@@ -1,6 +1,6 @@
 # TowerDrop Design Wiki
 
-**TowerDrop is a stylized single-lane tower-defense game.** A lone tower stands in a lush field. Enemies stream in from the surrounding terrain, walk to the tower, and climb it. You defend it from a **cart that rides a circular rail around the tower** — you pick up crafting items, aim, and drop or throw them onto the horde below. Between waves you spend gold on an upgrade shop that branches the tower, the cart, and six elemental damage trees.
+**TowerDrop is a stylized tower-defense game.** A lone tower stands in a lush field. Enemies stream in from the surrounding terrain, walk to the tower, and climb it. You defend it from a **cart that rides a circular rail around the tower** — you pick up crafting items, aim, and drop or throw them onto the horde below. Between waves you spend gold on an upgrade shop that branches the tower, the cart, and six elemental damage trees.
 
 Built in **Godot 4.7**.
 
