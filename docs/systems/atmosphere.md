@@ -4,10 +4,7 @@ The big visual/mood systems that make the siege feel alive. These were a major p
 
 ## Fire
 
-Stylized **fire** that erodes with a tiled noise texture (which killed earlier square artifacts). Spider **body-fire** is done: a packed `spider_fire.tscn` with an **external baked process material** (`spider_fire_process.tres`, 512 surface points, `local_coords = true`). The bake sticks because the material is external/shared; `enemy.gd` just toggles emitting.
-
-!!! note "Lesson: don't world-coord the spider fire"
-    The spider fire uses local coordinates so the flame rides the moving body correctly. Earlier world-coord attempts left the fire behind the enemy.
+Stylized **fire** that erodes with a tiled noise texture (which killed earlier square artifacts). Spider **body-fire** is done: a packed `spider_fire.tscn` with an **external baked process material** (`spider_fire_process.tres`, 512 surface points, `local_coords = true`). The bake sticks because the material is external/shared; `enemy.gd` just toggles emitting. (See [Technical Solutions](../tech/solutions.md) for why it uses local coordinates.)
 
 ## Oil wall-fluid system
 

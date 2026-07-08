@@ -6,7 +6,6 @@ The cart is the player's body in TowerDrop. It rides a **circular rail around th
 
 - The cart's position is **theta-based** (cos/sin around the tower center), not a `PathFollow3D`.
 - The rail's radius and height are **derived from where the cart is placed** in the level: drag the cart in the editor and the rail updates. No manual radius tuning.
-- The camera rig follows outward-and-above with smoothed motion and scroll-wheel FOV zoom.
 
 ## Core verbs: drop, toss, pour, throw
 
@@ -19,7 +18,8 @@ The cart carries an **inventory** (a left-column loadout, drag-to-reorder), base
     - **Left-click** lobs it at a hovered enemy.
     - Throws are constrained to a ~60° arc, use a magical lift into a ballistic peak-arc, and land accurately (a `damp = 0` fix made the arc land where aimed). Items can trigger on enemies mid-flight.
 
-A faint aim line under the drop point appears only while the cart holds an item.
+!!! note
+    A faint aim line under the drop point exists in dev builds; it's a debug visualization for tuning throws, not a shipped player-facing feature.
 
 ## Feel details
 

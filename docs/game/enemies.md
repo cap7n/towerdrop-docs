@@ -1,24 +1,18 @@
 # Enemies
 
-Enemies spawn out in the terrain ring, **walk** to the tower, **climb** the wall, and **attack** the rim. The behavior lives on a shared `enemy.gd` (`class_name Enemy`) state machine: WALKING → CLIMBING → ATTACKING.
+Enemies spawn out in the terrain ring, **walk** to the tower, **climb** the wall, and **attack** it: enemies dig in and attack from a range of heights along the wall, not only the rim. The behavior lives on a shared `enemy.gd` (`class_name Enemy`) state machine: WALKING → CLIMBING → ATTACKING.
 
 ## Roster
 
 | Enemy | State |
 |---|---|
-| **Spider** | ✅ Live. IK walk (analytic 2-bone), speed-matched gait, climbs belly-to-wall. The primary enemy. Scene `Spider.tscn`. |
+| **Spider** | ✅ Live. Baked walk/climb animation, speed-matched gait, climbs belly-to-wall. The primary enemy. Scene `Spider.tscn`. |
 | **Pillbug** | ✅ Done + feels good. Boneless curl-morph roll (faces travel, rolls head-over-tail); gray gradient shell shader. **Ability:** orbits at 13–25m, every 5–10s charges in and bonks the tower, then flips onto its back and struggles stunned ~3s (immune while curled; a blast cracks it open). Not yet wired into waves. |
 | **Snail** | 🧪 Wired (appears ~wave 8). Blender rig + figure-8 crawl loop. **Shell-armor mechanic**: a 1-HP shell gates the body. Spider-only behaviors (web, ragdoll) gated off. Polish pending: UV/texture, progressive shell fracture, squish-death. |
 
 More subclasses exist as thin `extends Enemy` scripts (termite, bombardier, carrier, centipede) awaiting models/scenes; fly/worm/turtle exist as Blender source, not yet wired. See the [Backlog](../project/backlog.md).
 
-### Architecture note
-
-The monolithic `enemy.gd` is **kept for now**, using per-type `@export` flags (e.g. `web_shooter_chance`, `death_ragdoll`, `shell_hp`). The agreed future refactor, once ~3–4 types exist, is a split into a Core + Locomotion/Attack/Abilities components. Don't refactor early; add flags.
-
-## The spider walk & climb
-
-The spider was the big locomotion build: a speed-matched IK gait that plants feet and climbs belly-to-the-wall. Blender IK doesn't run headless, so the gait is baked via an **analytic 2-bone IK in Python** (iterate through `spider_walk_editable.blend` → the bake script). Collision is a **fitted sphere** (not a tall capsule); `walk_climb_radius` / `web_anchor_radius` control how deep climbers sit against the wall.
+New enemy types are added as per-type `@export` flags on the shared `enemy.gd` rather than new classes for now; see the [Decision Log](../project/decisions.md) for why, and [Technical Solutions](../tech/solutions.md) for implementation write-ups like the spider's gait.
 
 ## Endless wave generator + powerups
 

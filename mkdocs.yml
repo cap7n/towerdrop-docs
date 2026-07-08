@@ -53,6 +53,7 @@ nav:
       - Performance: tech/performance.md
       - Asset Pipeline: tech/asset-pipeline.md
       - Engine & Tooling: tech/engine.md
+      - Technical Solutions: tech/solutions.md
   - Project:
       - Backlog: project/backlog.md
       - Decision Log: project/decisions.md

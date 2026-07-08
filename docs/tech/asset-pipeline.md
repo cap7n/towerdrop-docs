@@ -18,9 +18,9 @@ Curated external + modeler assets live under `res://Imported/`:
 
 ## Blender → Godot: the extraction pattern
 
-The modeler works in one big `.blend` with everything named. A re-runnable Python export script pulls each named object into its own GLB, sorted into subfolders, and **never saves the `.blend`**. This is how the new tower was extracted.
+3D modeler **Jennifer** works in one big `.blend` with everything named. A re-runnable Python export script pulls each named object into its own GLB, sorted into subfolders, and **never saves the `.blend`**. This is how the new tower was extracted.
 
-- The export script sits next to the `.blend` and can be re-run when the modeler updates it.
+- The export script sits next to the `.blend` and can be re-run when Jennifer updates it.
 - Blender for these runs is the **Steam install** (Blender 5.1), not on PATH.
 - Godot imports the GLBs headlessly via the 4.7 console exe (`--headless --import`).
 

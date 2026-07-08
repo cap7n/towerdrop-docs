@@ -25,7 +25,7 @@ Decisions worth not re-litigating, **with the why**. When a real decision is mad
 
 - **Keep the monolithic `enemy.gd` for now**, with per-type `@export` flags. Agreed future split into Core + Locomotion/Attack/Abilities components once ~3–4 types exist (the component system is now built and opt-in; migration is pending A/B parity).
 - **Spider collision = fitted sphere**, not a tall capsule. `walk_climb_radius` / `web_anchor_radius` tune climb-sit depth.
-- **Blender IK doesn't run headless** → the spider gait is baked via analytic 2-bone IK in Python.
+- **Spider gait is a baked walk/climb animation**, not live IK. An earlier analytic 2-bone IK approach (worked around Blender IK not running headless) was superseded; see [Technical Solutions](../tech/solutions.md) for that history.
 
 ## Rendering & effects
 

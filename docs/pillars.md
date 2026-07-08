@@ -14,18 +14,14 @@ Prefer **physical, physics-driven feedback** to abstract bursts. A spider that r
 
 The look is **stylized, leaning faceted-flat / soft-matte**. Explicitly **no cartoon outlines**: they've been tried and disliked. The current nature/prop assets are placeholders; the real art pass waits for final models. Parked toon-shader experiments live in `VFX/Shaders/toon*.gdshader` but are not the committed direction. See **[Art Direction](tech/art-direction.md)**.
 
-## 4. No emojis in the game's own UI
-
-Player-facing copy (HUD, prompts, shop text, in-game tooltips) stays **emoji-free**. (Emojis in this wiki, chat, and dev docs are fine.) Keep the in-fiction surface clean.
-
-## 5. Hybrid workflow: code for systems, scenes for tunable visuals
+## 4. Hybrid workflow: code for systems, scenes for tunable visuals
 
 **Systems are built in code; tunable visual assets are built as scenes/resources** so they can be adjusted in the Godot editor without a code round-trip. As a rule of thumb: if a value wants to be felt and eyeballed (particle amounts, emission, colors, curves), it belongs on a `.tres`/scene the editor can tweak. If it's logic, it's code. See **[Asset Pipeline](tech/asset-pipeline.md)**.
 
 !!! warning "Editor-conflict rule"
     Don't edit a `.tscn`/`.tres` from tooling while it's open in the Godot editor: the editor will clobber it on save. When a change is to an open scene, hand over the edited resource / the exact steps instead of writing the file underneath the editor.
 
-## 6. Right-size the ambition
+## 5. Right-size the ambition
 
 The enemy count target is **200–250 on screen, smooth on most machines**, not thousands. This keeps the door open for the expensive, feel-rich effects (per-enemy fire, ragdolls, shell pop-offs) that a massive-horde architecture would force us to cut. See **[Performance](tech/performance.md)**.
 

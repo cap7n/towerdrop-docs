@@ -28,7 +28,7 @@ This wiki is the living record. For the detailed, changing task list see the **[
 | Signal-flare wave telegraph | ✅ Working |
 | Six elemental damage trees (rock/fire/electric/poison/frost/lure) | ✅ Built; tuning pass pending |
 | Tower & Cart (Tab) upgrade shop | ✅ Working |
-| Enemies: spider (IK walk + climb) | ✅ Working |
+| Enemies: spider (baked walk + climb animation) | ✅ Working |
 | Enemies: pillbug (curl-roll + charge-bonk-stun) | ✅ Done; not yet wired into waves |
 | Enemies: snail (shell armor) | 🧪 Wired (~wave 8), polish pending |
 | Endless wave generator (wave 11+, threat budget + powerups) | ✅ Built |

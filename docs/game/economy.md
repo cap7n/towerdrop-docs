@@ -9,8 +9,7 @@ Gold is the currency that connects the assault to the between-wave shop. Kills d
 - The pile is linked to `Globals.gold_changed`: spending gold (negative deltas) visibly **drains coins** back off the pile.
 - The coin shader is PBR metallic + fresnel rim + a triple-sine sparkle on the normal.
 
-!!! note "Why the RigidBody-then-MultiMesh split"
-    Keeping thousands of live RigidBodies would wreck performance. Keeping none would lose the satisfying arc-and-settle. The split (physics only during the fall, then baked into a pile) gets both. Fast-falling coins use continuous collision (`continuous_cd`) so they don't tunnel through the thin heightmap.
+See [Technical Solutions](../tech/solutions.md) for why coins are built this way (the RigidBody-then-MultiMesh split).
 
 ## Balance tooling
 

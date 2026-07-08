@@ -9,11 +9,11 @@ The run is a rhythm of **directional waves** with a clear tell, an assault, and 
 3. **Rest**: a breather between waves. The **between-wave shop** opens here for spending gold.
 
 !!! note "Why directional, not a ring"
-    A wave from *everywhere at once* removes the core positional decision. A wave from *somewhere specific* is what makes the cart's position on the rail matter: you can be caught on the wrong arc. The telegraph exists to make that a fair, readable choice rather than a memorization test.
+    The main driver was **motion sickness and pacing**: a wave from everywhere at once forces the player to keep circling the tower constantly, which is both nauseating and tiring to sustain. Directional waves mean the cart mostly sits still and only repositions when told to. This is a **base-loop default**, not a hard rule: multi-direction waves, or other reasons to force a relocation, may get added later as a *deliberate* spike in difficulty, not as the everyday rhythm.
 
-## HP ramp by run time
+## HP and size ramp by run time
 
-Enemy toughness scales with **run time**, driven by a size cap that ramps up: the base enemy `max_hp` is low, and the ramp (via `Globals.run_time`) increases effective HP as the run progresses. This keeps early waves crisp and late waves threatening without hand-authoring every wave's stats.
+Enemy toughness scales with **run time**, but the HP scaling is **capped** so enemies don't turn into flat damage sponges (see the [spider HP cap](enemies.md)). Toughness reads as more than a number, though: enemy **size also scales up** with run time, so late-run spiders look and feel bigger and tougher even where their HP has already hit its ceiling. This keeps early waves crisp and late waves threatening without hand-authoring every wave's stats.
 
 ## Curated waves 1–10, generated 11+
 
