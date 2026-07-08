@@ -15,7 +15,7 @@ An **oil / wall-fluid system** (`FluidField`) that creeps, stains, and pools dow
 
 ## Day/night cycle
 
-A **day/night cycle**: moon, twilight, torches, fireflies, depth fog, backdrop. (SDFGI was evaluated and **dropped**.) An autoload guard keeps the fluid/fog/lights/day-night systems **dormant in menus** — they only run when the current scene is an actual `Node3D` level (see the [Start Menu note](../project/decisions.md)).
+A **day/night cycle**: moon, twilight, torches, fireflies, depth fog, backdrop. (SDFGI was evaluated and **dropped**.) An autoload guard keeps the fluid/fog/lights/day-night systems **dormant in menus**: they only run when the current scene is an actual `Node3D` level (see the [Start Menu note](../project/decisions.md)).
 
 ## Blood & dissolve
 
@@ -28,6 +28,6 @@ The look is finished with **AGX tonemapping**, tuned glow that only catches HDR-
 
 ## Related
 
-- [Art Direction](../tech/art-direction.md) — the overall look these serve.
-- [Ultimates & Spellbook](ultimates.md) — oil/frost/slime built on these systems.
-- [Combat, Status & Feedback](combat.md) — where fire/poison/etc. get applied.
+- [Art Direction](../tech/art-direction.md): the overall look these serve.
+- [Ultimates & Spellbook](ultimates.md): oil/frost/slime built on these systems.
+- [Combat, Status & Feedback](combat.md): where fire/poison/etc. get applied.

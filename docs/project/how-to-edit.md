@@ -4,7 +4,7 @@ Every page is a plain Markdown file in the `docs/` folder of the wiki repo. Push
 
 ## Quickest way (browser)
 
-1. Click the **pencil icon** (top right of any page) — it opens the file on GitHub.
+1. Click the **pencil icon** (top right of any page): it opens the file on GitHub.
 2. Edit, then **Commit changes**.
 3. Wait a minute, refresh the site.
 
@@ -35,9 +35,9 @@ Then open `http://127.0.0.1:8000`. Auto-reloads as you edit.
 
 ## Formatting cheatsheet
 
-- `# Title`, `## Section` — headings
+- `# Title`, `## Section`: headings
 - `**bold**`, `*italic*`, `` `code` ``
-- `[link text](../game/cart.md)` — link to another page (relative path)
+- `[link text](../game/cart.md)`: link to another page (relative path)
 - Tables: `| a | b |` rows with `|---|---|` under the header
 - Task lists: `- [ ]` and `- [x]` render as checkboxes
 - Callout boxes:

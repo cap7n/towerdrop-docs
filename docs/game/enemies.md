@@ -14,7 +14,7 @@ More subclasses exist as thin `extends Enemy` scripts (termite, bombardier, carr
 
 ### Architecture note
 
-The monolithic `enemy.gd` is **kept for now**, using per-type `@export` flags (e.g. `web_shooter_chance`, `death_ragdoll`, `shell_hp`). The agreed future refactor — once ~3–4 types exist — is a split into a Core + Locomotion/Attack/Abilities components. Don't refactor early; add flags.
+The monolithic `enemy.gd` is **kept for now**, using per-type `@export` flags (e.g. `web_shooter_chance`, `death_ragdoll`, `shell_hp`). The agreed future refactor, once ~3–4 types exist, is a split into a Core + Locomotion/Attack/Abilities components. Don't refactor early; add flags.
 
 ## The spider walk & climb
 
@@ -29,16 +29,16 @@ From wave 11 on, an **endless threat-budget generator** (built from wave-50 stre
 - The threat budget buys **variety and powerups, not raw HP**. Powerups include:
     - **Elemental immunity** to a specific damage type.
     - A **breakable "pure shield"** (via `enemy.set_pure_shield`).
-- **Resistances are generator-assigned**, deliberate — not random.
+- **Resistances are generator-assigned**, deliberate, not random.
 
 This ties into the [Items & Elements](items.md) damage-typing system: an enemy immune to fire must be answered with another element.
 
 ## Enemy carry system
 
-Enemies can **carry artifacts** — the carry system was kept when the recipe system was deleted. See [Artifacts & Relics](../systems/artifacts.md).
+Enemies can **carry artifacts**; the carry system was kept when the recipe system was deleted. See [Artifacts & Relics](../systems/artifacts.md).
 
 ## Related
 
-- [Wave Loop](waves.md) — how enemies arrive (directional telegraph, HP ramp).
-- [Combat, Status & Feedback](../systems/combat.md) — how they die (ragdoll, chain lightning, corpses).
-- [Performance](../tech/performance.md) — the 200–250 target and why it's comfortable.
+- [Wave Loop](waves.md): how enemies arrive (directional telegraph, HP ramp).
+- [Combat, Status & Feedback](../systems/combat.md): how they die (ragdoll, chain lightning, corpses).
+- [Performance](../tech/performance.md): the 200–250 target and why it's comfortable.

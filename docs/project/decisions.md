@@ -12,12 +12,12 @@ Decisions worth not re-litigating, **with the why**. When a real decision is mad
 
 - **Damage numbers removed.** Both a taste call (physical feedback over floating UI) and a perf win (they were a top per-frame allocator).
 - **On-enemy HP bars + floating status text removed.** The body-tint hit-flash is the status read instead. Ragdoll deaths carry the "it died" feedback physically.
-- **Recipe / auto-combine system fully deleted.** Not parked — gone. Older notes about "~40 parked combos" or an "adjacency-combine minigame" are stale. The enemy **carry** system was kept.
+- **Recipe / auto-combine system fully deleted.** Not parked, gone. Older notes about "~40 parked combos" or an "adjacency-combine minigame" are stale. The enemy **carry** system was kept.
 
 ## Difficulty & generator (locked 2026-06-25)
 
-- **Spider HP cap = 15.** A maxed rock can't one-shot a late spider, but frozen enemies take 2× — so **frost is the setup tool** that brings them back into one-shot range. Keep `frozen` at 2×-all (it's load-bearing for this), don't scope it to rock-only yet.
-- **Breakable pure-shield.** Rock chips it, elements bypass. Introduced ~wave 15 once players have a few wizards — this is "rock immunity" reintroduced in breakable form.
+- **Spider HP cap = 15.** A maxed rock can't one-shot a late spider, but frozen enemies take 2×, so **frost is the setup tool** that brings them back into one-shot range. Keep `frozen` at 2×-all (it's load-bearing for this), don't scope it to rock-only yet.
+- **Breakable pure-shield.** Rock chips it, elements bypass. Introduced ~wave 15 once players have a few wizards; this is "rock immunity" reintroduced in breakable form.
 - **Budget buys variety + powerups, not raw HP.** The endless generator spends its threat budget on elemental immunities and shields, and assigns resistances deliberately (not randomly).
 - **Snowball killed by removing always-on TAB passives.** Spikes + poison spikes + HP regen were removed from the TAB tree (systems kept for re-wire as costed spells) because they made late runs unkillable.
 
@@ -30,16 +30,16 @@ Decisions worth not re-litigating, **with the why**. When a real decision is mad
 ## Rendering & effects
 
 - **SDFGI dropped** for the day/night cycle.
-- **Menus keep the heavy systems dormant** via an autoload guard (`current_scene is Node3D`) — fluid/fog/lights/day-night only run in real levels, not the 3D menu backdrop.
-- **Screen FX in one shader, one pass** — adding chromatic aberration / grain means adding a block in the same fragment shader, not stacking full-screen overlays (which would each overwrite the previous).
-- **Spider fire uses local coordinates**, not world — so the flame rides the moving body. The process material is baked externally/shared so the bake sticks.
+- **Menus keep the heavy systems dormant** via an autoload guard (`current_scene is Node3D`): fluid/fog/lights/day-night only run in real levels, not the 3D menu backdrop.
+- **Screen FX in one shader, one pass**: adding chromatic aberration / grain means adding a block in the same fragment shader, not stacking full-screen overlays (which would each overwrite the previous).
+- **Spider fire uses local coordinates**, not world, so the flame rides the moving body. The process material is baked externally/shared so the bake sticks.
 
 ## Art
 
 - **No outlines.** Tried and disliked. Stylized faceted-flat / soft-matte instead. Toon-shader experiments are parked, not committed.
-- **Full art pass waits for real models** — don't over-tune placeholder materials.
+- **Full art pass waits for real models**: don't over-tune placeholder materials.
 
 ## Workflow
 
 - **Hybrid: code for systems, scenes/resources for tunable visuals** so values can be felt in the editor. Don't edit a scene/resource from tooling while it's open in the editor (it clobbers on save).
-- **This wiki is the single point of truth** for planning, replacing scattered `.md`/HTML notes — mirroring the OTR project's approach.
+- **This wiki is the single point of truth** for planning, replacing scattered `.md`/HTML notes, mirroring the OTR project's approach.

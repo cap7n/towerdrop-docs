@@ -1,6 +1,6 @@
 # TowerDrop Design Wiki
 
-The single point of truth for **TowerDrop** — design, systems, and project state.
+The single point of truth for **TowerDrop**: design, systems, and project state.
 
 Source is plain Markdown in `docs/`. Push to `main` and GitHub Actions rebuilds and
 deploys the site in ~1 minute (see `.github/workflows/deploy.yml`).
