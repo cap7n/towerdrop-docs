@@ -1,0 +1,60 @@
+site_name: TowerDrop Design Wiki
+site_url: https://cap7n.github.io/towerdrop-docs/
+site_description: Design wiki and single point of truth for TowerDrop, a stylized tower-defense game built in Godot.
+repo_url: https://github.com/cap7n/towerdrop-docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: green
+    accent: amber
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: index.md
+  - Design Pillars: pillars.md
+  - The Game:
+      - Wave Loop: game/waves.md
+      - The Cart: game/cart.md
+      - The Tower & Base Defenses: game/tower.md
+      - Items & Elements: game/items.md
+      - Enemies: game/enemies.md
+      - Economy & Gold: game/economy.md
+  - Systems:
+      - Combat, Status & Feedback: systems/combat.md
+      - Ultimates & Spellbook: systems/ultimates.md
+      - Atmosphere & VFX: systems/atmosphere.md
+      - Artifacts & Relics: systems/artifacts.md
+  - Tech:
+      - Art Direction: tech/art-direction.md
+      - Performance: tech/performance.md
+      - Asset Pipeline: tech/asset-pipeline.md
+      - Engine & Tooling: tech/engine.md
+  - Project:
+      - Backlog: project/backlog.md
+      - Decision Log: project/decisions.md
+      - Roadmap & Priorities: project/roadmap.md
+      - How to Edit This Wiki: project/how-to-edit.md
