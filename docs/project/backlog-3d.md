@@ -18,6 +18,8 @@ Everything that lives in the 3D world: models, rigs, animation, VFX, shaders, li
 
 ## Tower (mesh, brick shell, damage states)
 
+- [ ] **Cracked brick variants for damage states** — model bricks that are cracked into pieces (grouped), so damaged bricks show real fracture geometry instead of just the current colour-tint damage indication. Progressive: swap to more-broken variants as a brick's HP drops.
+
 - [ ]
 
 ## Enemies (models, rigs, animation)
