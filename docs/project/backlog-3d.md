@@ -40,6 +40,8 @@ Audit (2026-07-18) against the "code for systems, scenes for tunable visuals" ru
 
 ## Environment (terrain, foliage, skybox)
 
+- [ ] **Flag design instead of a plain colour** — the banner on the flag post is currently a flat solid orange; give it an actual flag design / emblem (crest, sigil, pattern) via a texture or material. See the [lantern concept shot](../assets/images/lantern-flagpost-concept.png) for the current plain banner.
+
 - [ ]
 
 ## Wizards & cart (3D)
