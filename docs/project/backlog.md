@@ -195,7 +195,7 @@ One element sets up (a coat/status), another pays off (a trigger).
 
 ## Ship prep (before any public launch)
 
-- [ ] **RBL: clear or replace the Roll-Call assets** (`Imported/RollCall/`: PureNature rocks/grass, JMO CartoonFX textures, skyboxes). Unverified Asset Store licences = treated as copyrighted. Either confirm the packs were bought on our own Unity account (then keep, private repo only) or swap for owned/CC0 art. Inventory + rules: `Imported/RollCall/RBL_ASSETS.md` and [Asset Pipeline](../tech/asset-pipeline.md). Currently in active use: the rock item visuals + placed boulders/grass/VFX textures.
+- [ ] **RBL: replace the Roll-Call assets** (`Imported/RollCall/`: PureNature rocks/grass, JMO CartoonFX textures, skyboxes). CONFIRMED not ours: the packs were bought on a teammate's Unity account (per-account licence, non-transferable), so replacement with owned/CC0 art is required — no licence-clearing path. Inventory: `Imported/RollCall/RBL_ASSETS.md` and [Asset Pipeline](../tech/asset-pipeline.md). Currently in active use: the rock item visuals (6 rocks + atlas — easiest swap, a small Jennifer ask) + placed boulders/grass/VFX textures.
 - [ ] Keep the game repo **private** while any RBL asset is tracked in it (pushing raw Asset Store files publicly = redistribution).
 
 ---
