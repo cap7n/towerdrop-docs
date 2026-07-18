@@ -8,6 +8,10 @@ Everything that lives in the 3D world: models, rigs, animation, VFX, shaders, li
 
 ## Lighting & atmosphere
 
+- [ ] **Lantern on the flag post (night lighting)** — the tower reads too dark at night. Add a lantern to the flag post as a warm light source. Needs some kind of hook / bracket / arm off the post to hang the lantern from. (Pairs with the "light the top of the tower at night" high-prio item.)
+
+    ![Lantern + flag post concept](../assets/images/lantern-flagpost-concept.png)
+
 - [ ]
 
 ## Tower (mesh, brick shell, damage states)
