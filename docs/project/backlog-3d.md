@@ -26,6 +26,14 @@ Everything that lives in the 3D world: models, rigs, animation, VFX, shaders, li
 
 - [ ]
 
+## Items & props (3D)
+
+- [ ] **~6 different small throwable rocks** (RBL replacement — needed before launch). The rock item currently uses 6 placeholder rocks from a Unity Asset Store pack we are NOT licensed for (see the [Backlog ship-prep](backlog.md) / `Imported/RollCall/RBL_ASSETS.md`), so we need our own set. Brief:
+    - Around 6 loose rocks, each a distinct silhouette (round, flat, chunky, angular...) so a stream of thrown rocks doesn't repeat.
+    - Low-poly, faceted style, ~500 tris or less each; any size is fine (the game auto-scales them to 0.4m).
+    - One shared texture is enough — greyscale with worn-edge highlights works great, the game tints it.
+    - **Double duty:** the ICE item reuses the exact same rock models with an ice shader, so this one ask covers both the Rock and Ice item visuals. Dropping the models into the picker scene is a 1-minute wire-up.
+
 ## VFX & shaders
 
 ### Hybrid-workflow cleanup (externalize code-built visuals) — do later, not urgent
