@@ -56,6 +56,8 @@ nav:
       - Technical Solutions: tech/solutions.md
   - Project:
       - Backlog: project/backlog.md
+      - 3D Backlog: project/backlog-3d.md
+      - 2D / UI Backlog: project/backlog-ui.md
       - Decision Log: project/decisions.md
       - Roadmap & Priorities: project/roadmap.md
       - How to Edit This Wiki: project/how-to-edit.md
