@@ -193,6 +193,11 @@ One element sets up (a coat/status), another pays off (a trigger).
 - [ ] **(WIP)** Restart-run crash (build-only, doesn't repro in editor). Crash logging added (`user://logs/godot.log` bundled into `balance_logs/engine_logs/`); waiting on a captured crash log.
 - [ ] Game file size + lag pass (overlaps Perf Phase 0).
 
+## Ship prep (before any public launch)
+
+- [ ] **RBL: clear or replace the Roll-Call assets** (`Imported/RollCall/`: PureNature rocks/grass, JMO CartoonFX textures, skyboxes). Unverified Asset Store licences = treated as copyrighted. Either confirm the packs were bought on our own Unity account (then keep, private repo only) or swap for owned/CC0 art. Inventory + rules: `Imported/RollCall/RBL_ASSETS.md` and [Asset Pipeline](../tech/asset-pipeline.md). Currently in active use: the rock item visuals + placed boulders/grass/VFX textures.
+- [ ] Keep the game repo **private** while any RBL asset is tracked in it (pushing raw Asset Store files publicly = redistribution).
+
 ---
 
 ## Recently done

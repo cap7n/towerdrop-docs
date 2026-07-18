@@ -13,7 +13,10 @@ The governing rule (see [Design Pillars](../pillars.md)): **code for systems, sc
 
 Curated external + modeler assets live under `res://Imported/`:
 
-- **Roll-Call pack** (`res://Imported/RollCall/`): JMO cartoon-FX particle textures, PureNature rocks/boulders, replacement grass, two cartoon equirect skyboxes. Grass shadow fix: `cast_shadow` Off. (Licensing caveat noted with the import.)
+- **Roll-Call pack** (`res://Imported/RollCall/`): JMO cartoon-FX particle textures, PureNature rocks/boulders, replacement grass, two cartoon equirect skyboxes. Grass shadow fix: `cast_shadow` Off.
+
+!!! danger "RBL: Replace Before Launch"
+    The Roll-Call assets are **paid Unity Asset Store packs** (Pure Nature by BK-PROD, Cartoon FX Remaster by JMO) whose licence we haven't verified against our accounts. Policy: **unverified licence = treated as copyrighted = tagged RBL.** Full inventory and how to clear the tag: `Imported/RollCall/RBL_ASSETS.md`. Two hard rules meanwhile: fine to use in dev/playtests, **not in a public launch**; and **never push the raw files to a public repo** (that's redistribution even with a valid licence). Known-safe by contrast: Jennifer's models, Quaternius (CC0), ambientCG/Poly Haven textures (CC0).
 - **New modeler tower** (`res://Imported/NewTower/`): see below.
 
 ## Blender → Godot: the extraction pattern
