@@ -15,8 +15,51 @@ The guided intro we already built becomes a dedicated MODE, and the main game ge
 - [x] **1. Duplicate the level**: copy `level_1.tscn` → `tutorial_level.tscn`, near enough 1:1 — we already have most tutorial bits (TutorialDirector beats, rock-first gate, shop onboarding) and they simply move house.
 - [x] **2. Start-menu "Tutorial" button** → launches the tutorial level with the guided intro FORCED on (a `Globals.tutorial_run` flag the TutorialDirector reads).
 - [x] **3. Strip the main game**: `FORCE_EACH_RUN = false`; TutorialDirector goes fully dormant outside tutorial runs. Decide per beat: does it die in the main game or move to the tutorial? (The rock-first element gate is the big one — in the main game it likely DIES in favour of the opening element pick below.)
-- [ ] **4. Slow the tutorial down**: longer grace, gentler waves, one system per wave — drop/pour → shop + first upgrade → element trees → repair → artifact placement → spellbook. No game-over pressure (tower can't die, or respawns free).
+- [ ] **4. Slow the tutorial down** — the full curriculum below, one lesson block per wave, target **10–15 minutes total**. No game-over pressure (tower can't die, or respawns free).
 - [ ] **5. Completion flag**: `tutorial done` saved to disk; first launch nudges new players toward the Tutorial button (but never forces it).
+
+### The tutorial curriculum (target 10–15 min)
+
+Everything a player must be SHOWN, grouped into wave-sized lessons. Ticks = wired into the tutorial level.
+
+**Block 0 — Grace period (~1 min): you and the cart**
+
+- [ ] 1. **Movement**: ride the rail with A/D.
+- [ ] 2. **Camera tilt**: hold S to look down the wall (the beat exists in the director already — keep it here).
+
+**Block 1 — Wave 1 (~2 min): fight**
+
+- [ ] 3. **Dropping materials**: tap Space = one item, hold = pour the bin.
+- [ ] 4. **Inventory selection**: scroll wheel picks which item drops next (the red-rimmed slot).
+- [ ] 5. **Enemy telegraph**: the flare + the windrose point at where the wave comes from — get your cart to that side.
+- [ ] 6. **Dealing with enemies**: rocks on heads; climbers get knocked off the wall (fall damage is your friend).
+- [ ] 7. **Gold**: kills drop coins that arc to the pile on the tower top — the pile IS your bank.
+
+**Block 2 — Rest 1 (~2 min): spending**
+
+- [ ] 8. **The wave rhythm**: rest = shopping time; Enter calls the next wave early; the Auto next checkbox exists.
+- [ ] 9. **TAB shop**: tower & cart upgrades (buy one, feel it), and the Wizards button bridges to the wizard shops.
+- [ ] 10. **Wizard shop**: W or click a wizard; pick your element (rock-first gate teaches the flow here); buy Bigger Rock; the profile cards + Stats page.
+
+**Block 3 — Wave 2 + Rest 2 (~3 min): defense**
+
+- [ ] 11. **Brick armour**: let a few spiders dig in — bricks tint, crack and tumble; the wall soaks damage before your HP bar.
+- [ ] 12. **Repair tool**: R or the button, click the damaged bricks, 1 gold per HP.
+- [ ] 13. **Aimed throw**: right-click lobs the selected item at the ground, left-click at a hovered enemy (60° arc).
+
+**Block 4 — Wave 3 + Rest 3 (~3 min): the toys**
+
+- [ ] 14. **Artifacts**: grant one mid-wave — read the tooltip in the ✦ bag, place it on the tower, move it with the mover, double-click back to the bag. Mention the brick-break risk (wall = close to the action, top = safe).
+- [ ] 15. **Second wizard**: hire from the TAB shop once gold allows; different wizards can take different elements (respec refunds 75%).
+
+**Block 5 — Wave 4 (~2 min): graduation**
+
+- [ ] 16. **Ultimates**: buy the ultimate node in a tree, watch it get scribed into the Spellbook, cast it.
+- [ ] 17. **Enemy diversity**: an immune/resistant enemy shows up telegraphed — resistance icons, why one damage type stops working, answer = switch what you throw.
+- [ ] 18. **Combo teaser**: one scripted moment of Frost then Rock (the brittle oneshot) — "elements combine; go find the rest."
+- [ ] 19. **Wrap-up card**: "waves keep coming and grow endless, rest is for spending, good luck" → continue playing or return to menu.
+
+**Deliberately NOT taught** (discovery is the fun): deep combos (oil+fire, lure stacking), enemy specials (pillbug charge, snail shells), trap-family artifacts, the balance-note key.
 
 ## Track 2 — The main game (all out, asap)
 
