@@ -19,7 +19,7 @@ The cart carries an **inventory** (a left-column loadout, drag-to-reorder), base
     - Throws are constrained to a ~60° arc, use a magical lift into a ballistic peak-arc, and land accurately (a `damp = 0` fix made the arc land where aimed). Items can trigger on enemies mid-flight.
 
 !!! note
-    A faint aim line under the drop point exists in dev builds; it's a debug visualization for tuning throws, not a shipped player-facing feature.
+    The debug aim visuals are gone (2026-07-19): both the magenta throw-target beam and the vertical drop line under the cart were removed as clutter. The green/red ground reticle for aimed throws is the one remaining aim UI. The drop-line's anchor node still exists invisibly (items pour down its column). The cart also got its v2 model (seat, handle, chain), wheel-centred to the same rail fit.
 
 ## Feel details
 

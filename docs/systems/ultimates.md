@@ -1,29 +1,43 @@
-# Ultimates & Spellbook
+# Ultimates & the Spellbook
 
-A right-edge **spellbook UI** (`UltimateBook` autoload) lets the player cast tower-coating **ultimates**: big, screen-changing effects that coat the tower and punish everything climbing it.
+The **Spellbook** (`UltimateBook` autoload) is an actual open **book**: a two-page spread with **element ribbon tabs** along its bottom edge, opened instantly from a right-edge pull tab. It is deliberately **non-modal** — no backdrop dim, the game keeps running visibly behind it — and tab switches are instant (the page-flip animation waits for the artist's real book art; the current parchment/leather look is a code-built placeholder).
 
-## The three coats
+## Gating: spells are earned in the trees (live since 2026-07-19)
 
-The player **casts each ultimate from the Spellbook for 15 gold, 10 seconds each**. Each coats the tower wall in a fluid that affects climbers, **including dug-in attackers** at the rim (`FluidField._apply_coat_effects` reaches them, not just surface climbers).
+A spell appears in the book **only after a wizard of that element buys its `ultimate_*` node in their upgrade tree**. Unowned spells are **fully hidden** (showing everything up front read as overwhelming — Cap7n call); an empty page says *"Nothing scribed yet. Ultimates learned in the wizard trees appear here."* Spells whose node exists but whose effect code isn't built yet show as "(spell not built yet)".
 
-| Ultimate | Wizard | Effect |
-|---|---|---|
-| **Oil** | None | Coats the wall; enemies enter a slowed "bubble mode" (slowed ~3×, volume up ~3×). Oil **ignites** into a fire wave when hit by fire (`ignite_world`). |
-| **Frost** | Frost | Freezes the tower in an **ice-rock crust** (6 reshaded rocks as a MultiMesh climbing base→top). Frozen enemies: speed 0 and take **2× all damage**. |
-| **Slime** | Poison | A thick green translucent **jiggly mucus** coat (noise blobs, time-driven wobble, crawling flow, wet fresnel rim) that **slows + poisons** climbers. |
+A **respec** (switching a wizard's element) can re-lock its spells; the book handles that live.
 
-All three mirror the same oil/ice coat system in `FluidField`. (Dev-only fluid-tuning keys `O`/`I`/`P` still exist behind `DEBUG_TOOLS`, but the player-facing cast is the Spellbook.)
+!!! note "Onboarding gap"
+    Because unowned spells are hidden, nothing currently teaches players the book exists. A tutorial beat on the first ultimate purchase is a backlog item.
 
-!!! warning "Open: final home for ultimates"
-    Right now ultimates are always-available from the Spellbook. The intended end-state is to **gate them deep in each element's wizard tree** rather than an always-on spellbook: undecided/unbuilt. See the [Backlog](../project/backlog.md).
+## The spells
+
+Casts cost **15 gold, 10 seconds** each (flat placeholders to balance later).
+
+| Spell | Element (tree node) | Effect | Status |
+|---|---|---|---|
+| **Oil Slick** | Rock (`ultimate_oil`) | Coats the wall; enemies slow into "bubble mode." **Ignites** into a fire wave when hit by fire (`ignite_world`). | ✅ Castable |
+| **Meteor Shower** | Rock (`ultimate_meteors`) | Rains real rock items over the incoming sector for 10 s (`MeteorShower`, drip-spawned, fog-capped band, perf-capped). Rocks **crumble** on impact (`fx_crumble`). | ✅ Castable |
+| **Deep Freeze** | Frost (`ultimate_freeze`) | Ice-rock crust climbs the tower; frozen enemies stop and take bonus damage from Rock/Electric/falls. | ✅ Castable |
+| **Slime Coat** | Poison (`ultimate_slimey_walls`) | Jiggly mucus coat that **slows + poisons** climbers. | ✅ Castable |
+| **FireWave** | Fire (`ultimate_firewave`) | The tower torches everything on it. | 📋 Effect not built |
+| **Arc Storm** | Electric (`ultimate_arc`) | The tower arcs lightning from itself. | 📋 Effect not built |
+| **Black-hole Lure** | Lure (`black_hole_lure`) | Yanks the whole sector into one pile. | 📋 Effect not built |
+
+The three coats all run through `FluidField`, and reach **dug-in attackers** at the rim, not just surface climbers (`_apply_coat_effects`). Spikes are planned to fold in as another Rock spell (cast-for-gold with a duration).
+
+!!! warning "Planned: granting-wizard bonuses"
+    Decided but not implemented: a cast inherits the tree bonuses of the **wizard whose node added it to the book** (a rock wizard's rock upgrades apply to every meteor). This is what makes duplicate wizards taking different paths matter. See the [Decision Log](../project/decisions.md).
 
 ## Shaders
 
 - `ice.gdshader`: fresnel-rim ice crust. (Planned extension: ice wall-coat + steam via a `FrostFx`.)
 - Slime uses noise-blob geometry with a wobble driven by `TIME` and a wet rim.
+- `fx_crumble.tscn`: the reusable no-glow debris burst (chunks + dust) rocks leave on impact.
 
 ## Related
 
 - [The Tower & Base Defenses](../game/tower.md): what's being coated.
 - [Atmosphere & VFX](atmosphere.md): the oil fluid system and fire that ignites it.
-- [Items & Elements](../game/items.md): the per-element trees; ultimates currently live as tree data and are **not yet gated**.
+- [Items & Elements](../game/items.md): the per-element trees the ultimates are bought in.

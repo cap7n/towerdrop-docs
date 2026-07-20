@@ -43,3 +43,16 @@ Decisions worth not re-litigating, **with the why**. When a real decision is mad
 
 - **Hybrid: code for systems, scenes/resources for tunable visuals** so values can be felt in the editor. Don't edit a scene/resource from tooling while it's open in the editor (it clobbers on save).
 - **This wiki is the single point of truth** for planning, replacing scattered `.md`/HTML notes, mirroring the OTR project's approach.
+
+## Spells & spellbook (agreed 2026-07-19, build pending)
+
+- **The spellbook becomes an actual BOOK** (reference: the Age-of-Darkness-style two-page spread with round spell icons): element-coloured ribbon TABS along the bottom edge, each element's pages listing its castables — the ultimate plus other spells (spikes, repair, meteors...). Not only ultimates.
+- **Opening must be FAST and non-modal**: one button press, and NO greyed-out backdrop like the shops/menus use — the game stays fully visible behind it.
+- **V1 skips the page-flip animation** — instant tab switches; the artist hasn't made the book art yet, so no point polishing the flip.
+- **Spellbook casts inherit the GRANTING wizard's tree bonuses** — the wizard whose ultimate node added the spell to the book lends it his buffs (a rock wizard's rock upgrades apply to every meteor in the shower). This is what makes different wizards taking different tree paths matter. NOT implemented yet.
+
+## Open questions (parked, decide later)
+
+- **Win condition: none for now (parked 2026-07-19).** Runs stay endless — no "you win at wave 10" state. Still wanted eventually: a **run-summary screen** (waves survived, kills, gold earned/spent, per-wizard numbers — the wizard shop's Stats screen already gathers the per-wizard half). To decide when picked up: does the summary replace/extend the game-over screen, and do milestone waves (10/25/50) deserve a banner moment without ending the run?
+- **Mana (2026-07-19):** should spells cost a regenerating MANA resource instead of (or next to) gold? The reference spellbook UI shows per-spell mana costs. Open: does TowerDrop want a second currency, how does it regenerate (time / kills / per-wizard), and does gold stay the cost for coats while mana covers actives?
+- **Thief flyers (2026-07-19, Cap7n idea — thinking more before committing):** flying enemies that STEAL from the tower — gold from the pile and/or placed artifacts — and flee with the loot; killing them mid-escape drops it. Assessment: medium, not an overhaul — reuses the Fly model, the enemy carry system, coin-pile APIs and the artifact unmount plumbing; the new work is flight locomotion + the steal/flee AI, and it collides with the parked **anti-air question** (moth waits on aimed-throw feel). Open: steal gold, artifacts, or both? Can they take MOUNTED artifacts or only loose loot? Does the dropped artifact become a physical pickup (the parked drop-on-knock-off upgrade)? Is this THE moth/fly enemy or a separate thief type?

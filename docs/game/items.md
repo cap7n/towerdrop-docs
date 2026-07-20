@@ -26,7 +26,7 @@ Elements are delivered through **per-wizard summons**, each wizard configured fo
 The trees are authored in `Tools/skill_tree_maker.html`, a standalone browser tool that stays **in sync** with the in-game shop (it has a "↺ Baked" button to reflect the committed tree data). This is the design surface for the trees before they're wired.
 
 !!! warning "Wiring status varies by node"
-    Not every tree node is effect-wired yet. Some node ids are live in the shop; others are **tree-data-only** (they render and cost points but don't yet apply an effect) and need a wiring pass. **Ultimates are currently tree-data-only and not gated.** Check the current shop script before assuming a node does something.
+    Not every tree node is effect-wired yet. Some node ids are live in the shop; others are **tree-data-only** (they render and cost points but don't yet apply an effect) and need a wiring pass. **Ultimate nodes now gate the Spellbook** (2026-07-19): buying one scribes its spell into the book — Oil, Meteor Shower, Deep Freeze and Slime cast for real; FireWave, Arc Storm and Black-hole Lure are still effect-less. Check the current shop script before assuming a node does something.
 
 ## Damage typing
 
@@ -36,4 +36,4 @@ There is a **damage-typing system** so elements interact with enemy resistances/
 
 - [The Cart](cart.md): how items are delivered.
 - [Combat, Status & Feedback](../systems/combat.md): the status framework the elements drive.
-- [Ultimates & Spellbook](../systems/ultimates.md): the tower-coat ultimates (oil/frost/slime).
+- [Ultimates & Spellbook](../systems/ultimates.md): the book UI and the tree-gated spells (oil/frost/slime coats + meteor shower).

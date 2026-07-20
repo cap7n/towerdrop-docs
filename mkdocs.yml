@@ -26,12 +26,16 @@ markdown_extensions:
   - admonition
   - tables
   - attr_list
+  - md_in_html
   - toc:
       permalink: true
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Home: index.md
@@ -58,6 +62,7 @@ nav:
       - Backlog: project/backlog.md
       - 3D Backlog: project/backlog-3d.md
       - 2D / UI Backlog: project/backlog-ui.md
+      - Steam Store Assets: project/steam-store-assets.md
       - Decision Log: project/decisions.md
       - Roadmap & Priorities: project/roadmap.md
       - How to Edit This Wiki: project/how-to-edit.md

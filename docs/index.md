@@ -29,12 +29,12 @@ This wiki is the living record. For the detailed, changing task list see the **[
 | Six elemental damage trees (rock/fire/electric/poison/frost/lure) | ✅ Built; tuning pass pending |
 | Tower & Cart (Tab) upgrade shop | ✅ Working |
 | Enemies: spider (baked walk + climb animation) | ✅ Working |
-| Enemies: pillbug (curl-roll + charge-bonk-stun) | ✅ Done; not yet wired into waves |
+| Enemies: pillbug (curl-roll + charge-bonk-stun) | ✅ In waves (from wave 6 + generator) |
 | Enemies: snail (shell armor) | 🧪 Wired (~wave 8), polish pending |
 | Endless wave generator (wave 11+, threat budget + powerups) | ✅ Built |
-| Ultimates: oil / frost / slime tower coats + spellbook | ✅ Working |
+| Spellbook (book UI, tree-gated spells): oil / frost / slime coats + meteor shower | ✅ Working; 3 spell effects still to build |
 | Atmosphere: fire, oil fluid, day/night, blood/dissolve | ✅ Built |
-| Artifact / relic drops | 🧪 Scaffold |
+| Artifacts: placeable relics on the tower (bag grid, mover, 6 live effects) | ✅ Working; trap effects + real models pending |
 | New modeler tower + brick-shell MultiMesh | ✅ Imported |
 | Guided intro tutorial | ⚠️ Built, stopgap, untested |
 | Performance (target: smooth at 200–250 enemies) | 📋 Phase 0 quick wins not yet applied |
