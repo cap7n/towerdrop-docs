@@ -12,9 +12,9 @@ This is a **two steps back, five steps forward** operation, so it gets its own t
 
 The guided intro we already built becomes a dedicated MODE, and the main game gets stripped clean.
 
-- [ ] **1. Duplicate the level**: copy `level_1.tscn` → `tutorial_level.tscn`, near enough 1:1 — we already have most tutorial bits (TutorialDirector beats, rock-first gate, shop onboarding) and they simply move house.
-- [ ] **2. Start-menu "Tutorial" button** → launches the tutorial level with the guided intro FORCED on (a `Globals.tutorial_run` flag the TutorialDirector reads).
-- [ ] **3. Strip the main game**: `FORCE_EACH_RUN = false`; TutorialDirector goes fully dormant outside tutorial runs. Decide per beat: does it die in the main game or move to the tutorial? (The rock-first element gate is the big one — in the main game it likely DIES in favour of the opening element pick below.)
+- [x] **1. Duplicate the level**: copy `level_1.tscn` → `tutorial_level.tscn`, near enough 1:1 — we already have most tutorial bits (TutorialDirector beats, rock-first gate, shop onboarding) and they simply move house.
+- [x] **2. Start-menu "Tutorial" button** → launches the tutorial level with the guided intro FORCED on (a `Globals.tutorial_run` flag the TutorialDirector reads).
+- [x] **3. Strip the main game**: `FORCE_EACH_RUN = false`; TutorialDirector goes fully dormant outside tutorial runs. Decide per beat: does it die in the main game or move to the tutorial? (The rock-first element gate is the big one — in the main game it likely DIES in favour of the opening element pick below.)
 - [ ] **4. Slow the tutorial down**: longer grace, gentler waves, one system per wave — drop/pour → shop + first upgrade → element trees → repair → artifact placement → spellbook. No game-over pressure (tower can't die, or respawns free).
 - [ ] **5. Completion flag**: `tutorial done` saved to disk; first launch nudges new players toward the Tutorial button (but never forces it).
 
@@ -38,4 +38,6 @@ Attention spans are short. No easing in. The first minute must jingle the car ke
 
 ## Status log
 
-- **2026-07-19** — page created; feedback recorded in the [Backlog](backlog.md) (fellow-dev section). Nothing built yet.
+- **2026-07-19** — page created; feedback recorded in the [Backlog](backlog.md) (fellow-dev section).
+- **2026-07-20 (1 AM)** — Track 1 steps 1+2 DONE: tutorial_level.tscn duplicated (1:1, own uid pending editor save) + a Tutorial button on the start menu under Play (code-built, sets Globals.tutorial_run and loads the tutorial level). The TutorialDirector still runs in BOTH modes until step 3 strips the main game.
+- **2026-07-20 (1:30 AM)** — Track 1 step 3 DONE: the guided intro runs ONLY in tutorial runs (Globals.tutorial_run gates _maybe_begin); the ROCK-FIRST ELEMENT GATE is tutorial-only too — the main game opens all six elements immediately (the interim all-out state until Track 2's 3-card opening pick). Telegraphs (flare, windrose, conjure circles, W-reach hint, repair labels) untouched — they are gameplay, not tutorial.
