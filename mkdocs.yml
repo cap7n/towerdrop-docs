@@ -58,6 +58,7 @@ nav:
       - Asset Pipeline: tech/asset-pipeline.md
       - Engine & Tooling: tech/engine.md
       - Technical Solutions: tech/solutions.md
+  - ⚡ Revamp: project/revamp.md
   - Project:
       - Backlog: project/backlog.md
       - 3D Backlog: project/backlog-3d.md

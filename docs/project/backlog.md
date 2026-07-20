@@ -116,7 +116,7 @@ One element sets up (a coat/status), another pays off (a trigger).
 
 ## Feedback (2026-07-19, fellow game dev)
 
-Three points, really one arc: new players spend their attention decoding systems instead of fighting the horde.
+Three points, really one arc: new players spend their attention decoding systems instead of fighting the horde. **→ Grew into the [⚡ Revamp](revamp.md) plan (temporary tab): tutorial slows down as its own mode, the main game speeds up with VS-style in-your-face choices.** The bullets below are superseded by that page.
 
 - <span class="pill todo">Todo</span> **Separate the tutorial from the main game** — make Tutorial its own MODE (start-menu entry, scripted safe pacing, walks one system at a time). The main game starts clean. Cheap first step: `FORCE_EACH_RUN = false` + a menu "Tutorial" button that launches the level with the guided intro forced on. (Supersedes the "every run is a tutorial" playtest setting once testing settles.)
 - <span class="pill todo">Todo</span> **Systems overload: players think about menus more than enemies** — design theme, not one fix. Levers: progressive unlocking (fewer systems visible in the first waves — the spellbook already hides unearned spells, artifacts already arrive at wave 1's end; consider delaying the TAB tree / artifact bag a wave or two), consolidation (fewer separate shop surfaces), and defaults that let a player IGNORE a system and still survive early waves. Pairs with the [pillars](../pillars.md) "base-game fun first" rule.
