@@ -12,11 +12,11 @@ The two **Binbun Effects Collections** (Vol.1 = 20 kits, Vol.2 = 9 packs, all **
 
 | Moment | Status | Pack effect to use |
 |---|---|---|
-| **Rock** impact on hit | <span class="pill wip">Partial</span> code-built `Vfx.spawn_impact` | `ImpactVFX/vfx_impact_*`, `vfx_hit_*`; `StatusFX/vfx_status_shatter` for a stony crack |
+| **Rock** impact on hit | <span class="pill done">Have</span> ImpactVFX `vfx_impact_01/03/05` (random) on thrown-rock hits | `Vfx.spawn_pack_impact` (vfx.gd), called from `rock_effect._hit_and_scatter`; pack at `res://assets/BinbunVFX/impact_explosions/`; recolored + auto-freed + material-localized |
 | **Fire** on enemy body | <span class="pill done">Have</span> hand-built spider fire | keep; `FlameFX` has cold/green/purple/void tints if other fires ever want a colour |
 | **Fire** ground patch | <span class="pill done">Have</span> FireVFX `fire_area_01` on the burning patch | wired in `fire_effect.gd::_attach_flame_visual` (`PATCH_FIRE` + `FIRE_SCALE` knobs); pack adopted to `res://assets/BinbunVFX/fire_effects/` |
 | **Electric** chain lightning | <span class="pill wip">Partial</span> code-built arcs | `ElectricFX/vfx_zap_lightning_*` (built for arc-to-arc), `vfx_impact_lightning_*` on the strike |
-| **Poison** cloud / spreading death | <span class="pill wip">Partial</span> custom clouds | `PoisonVFX/poison_cloud_*`, `poison_puddle_*`, `stink_*`; `poison_bubble_*` for the slime |
+| **Poison** cloud / spreading death | <span class="pill done">Have</span> PoisonVFX `poison_cloud_vfx_01` on the spreading-death burst | `Vfx.spawn_poison_cloud` (vfx.gd), called from `enemy._maybe_spread_death`; reusable for pools/other. Pack at `res://assets/BinbunVFX/poison_effects/` (also has `poison_puddle_*`, `stink_*`, `poison_bubble_*` for slime/pools) |
 | **Frost** freeze / shatter | <span class="pill wip">Partial</span> ice crust coat (custom) | `IceVFX/ice_shard_*` on freeze-shatter, `ice_mist_*` aura; `StatusFX/vfx_status_ice` |
 | **Lure** beacon pull | <span class="pill todo">Need</span> | `MagicAreaVFX/pulse_area_*` or `rim_area_*` (a pulsing ground ring = the pull radius) |
 
