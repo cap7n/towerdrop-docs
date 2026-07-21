@@ -71,7 +71,7 @@ The two **Binbun Effects Collections** (Vol.1 = 20 kits, Vol.2 = 9 packs, all **
 | **3-card draft / element pick** juice | <span class="pill todo">Need</span> | `CardFX` — purpose-built for card reveals; pairs with the revamp's slam-in cards |
 | Menu → game **screen wipe** | <span class="pill todo">Need</span> | `Transitions` kit |
 | Shop / spellbook **panel treatment** | <span class="pill idea">Nice</span> | `GlassUI`, `FrostedGlassFX`, `HologramFX` |
-| Alternate **skyboxes** | <span class="pill idea">Nice</span> | `Skies` kit (compare against the current day/night sky) |
+| **Sky** (mood backdrop) | <span class="pill done">Have</span> Skies `stylized_cloudy_sky_01` swapped over the procedural sky | wired in `day_night_cycle.gd` (`SKY_OVERRIDE` picks the sky, `SKY_NIGHT_DIM` fades it toward night); sun/moon/ambient/fog still cycle. Pack at `res://assets/BinbunSky/` |
 
 ## Not for us (leave in the box)
 
