@@ -32,7 +32,7 @@ The two **Binbun Effects Collections** (Vol.1 = 20 kits, Vol.2 = 9 packs, all **
 
 | Moment | Status | Pack effect to use |
 |---|---|---|
-| **Laser Lens** beam | <span class="pill wip">Partial</span> code-built box-mesh beam | `BeamVFX/laser_vfx_*` or `beam_vfx_*` — a real beam, Cap7n flagged this one |
+| **Beam** artifacts (slow beam) | <span class="pill done">Have</span> BeamVFX `laser_vfx_01` wired in, recolored per element | first pack **adopted into the game** (`res://assets/BinbunVFX/beam_vfx/`); `artifact_laser.gd` drives it via `end_point` + runtime `beam_color`; six `element:beam` placeholder artifacts in the catalogue (rock/fire/electric/poison/frost/lure), all slow for now |
 | **Dart Spitter** projectile | <span class="pill wip">Partial</span> | `PoisonVFX` dart + `MagicProjectiles/mprojectile_basic_*` |
 | **Artifact drop / pickup** shine | <span class="pill todo">Need</span> (drops are visually mute) | `LootVFX` — rarity-tiered common→mythic, so relic tiers can read at a glance; `ground_loot_vfx_*` on the ground pickup |
 | **Crest Shield** mount glint | <span class="pill idea">Nice</span> | `BattleFX/vfx_*_shield_*` (a shield-flash on hang or when it soaks a hit) |
