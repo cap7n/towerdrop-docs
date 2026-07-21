@@ -195,7 +195,7 @@ Cel-shading with tinted shadows + patterns. **Outline-based — conflicts with o
 ## World & Environment Shaders
 
 ### Skies <span class="pill done">Wired</span>
-Customizable sky shader with seamless day/sunset/night. We drive it via the sun in `day_night_cycle.gd` — `stylized_cloudy_sky_01` is the current pick.
+Customizable sky shader with seamless day/sunset/night. We drive it via the sun in `day_night_cycle.gd` — current pick is **`TD_Sky_01`**, our tunable copy of stylized_cloudy_01 with the cloud parallax enabled (the shipped preset had it off).
 
 - Sun follows the scene's directional light; noise-texture clouds w/ parallax; customizable stars
 - **24 preset skies** (10 realistic, 10 stylized, 4 experimental). CC0.

@@ -71,7 +71,7 @@ The two **Binbun Effects Collections** (Vol.1 = 20 kits, Vol.2 = 9 packs, all **
 | **3-card draft / element pick** juice | <span class="pill todo">Need</span> | `CardFX` — purpose-built for card reveals; pairs with the revamp's slam-in cards |
 | Menu → game **screen wipe** | <span class="pill todo">Need</span> | `Transitions` kit |
 | Shop / spellbook **panel treatment** | <span class="pill idea">Nice</span> | `GlassUI`, `FrostedGlassFX`, `HologramFX` |
-| **Sky** (mood backdrop) | <span class="pill done">Have</span> Skies `stylized_cloudy_sky_01`, seamless day/night | wired in `day_night_cycle.gd` (`SKY_OVERRIDE` picks the sky, null = old procedural). The sky shader reads the sun's direction and blends day/sunset/night + stars itself; the moon is kept off the sky (`SKY_MODE_LIGHT_ONLY`). Colours tune on the sky's ShaderMaterial in `res://assets/BinbunSky/src/material/stylized/`. Pack at `res://assets/BinbunSky/` |
+| **Sky** (mood backdrop) | <span class="pill done">Have</span> `TD_Sky_01` (our copy of stylized_cloudy_01), all pack features on | wired in `day_night_cycle.gd` (`SKY_OVERRIDE`, null = old procedural). Feature status: sun-follow ✓ (sun drives the shader, moon `SKY_MODE_LIGHT_ONLY`), seamless day/sunset/night + stars ✓ (shader-side), cloud **parallax ✓ enabled in the TD copy** (`cloud_depth 2.0`, the pack preset shipped it off). ALL knobs (6 sky colours, clouds, stars, sun disc) on `res://assets/BinbunSky/src/material/TD_sky_material_01.tres` — tune freely, it's ours. Pack at `res://assets/BinbunSky/` |
 
 ## Not for us (leave in the box)
 
