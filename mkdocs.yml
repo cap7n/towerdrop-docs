@@ -63,6 +63,7 @@ nav:
       - Backlog: project/backlog.md
       - 3D Backlog: project/backlog-3d.md
       - 2D / UI Backlog: project/backlog-ui.md
+      - VFX Checklist: project/vfx-checklist.md
       - Steam Store Assets: project/steam-store-assets.md
       - Decision Log: project/decisions.md
       - Roadmap & Priorities: project/roadmap.md

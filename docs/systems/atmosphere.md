@@ -23,8 +23,13 @@ A **day/night cycle**: moon, twilight, torches, fireflies, depth fog, backdrop. 
 
 The look is finished with **AGX tonemapping**, tuned glow that only catches HDR-bright emissives (no global haze), SSAO, contrast/saturation lift, and a warm sun. A single-pass `screen_fx.gdshader` CanvasLayer (below the HUDs) does vignette, structured so chromatic aberration / grain can be added in the same pass rather than stacking overlays.
 
+## Effect library (CC0)
+
+Beyond the hand-built systems above, the project has two **Binbun Effects Collections** (Vol.1 + Vol.2, all CC0, native Godot) staged at `Tower-Cart-Game-Claude\AssetPacks\` — beams, fire, electric, poison, ice, impacts, status auras, loot shines, explosions, portals, card/UI FX. The **[VFX Checklist](../project/vfx-checklist.md)** maps every one to the game moment it fills (need vs have).
+
 ## Related
 
+- [VFX Checklist](../project/vfx-checklist.md): what we need vs have, and which pack effect fills each gap.
 - [Art Direction](../tech/art-direction.md): the overall look these serve.
 - [Ultimates & Spellbook](ultimates.md): oil/frost/slime built on these systems.
 - [Combat, Status & Feedback](combat.md): where fire/poison/etc. get applied.
