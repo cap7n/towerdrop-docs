@@ -36,7 +36,7 @@ Dropped items aren't all instant-hit. The design space includes **trigger, vanis
 ## Test scenes
 
 - `cart_test.tscn` (F6): isolated cart/drop iteration.
-- `item_bench.tscn` (F6): lists every item; drop on the ground or onto stationary dummy spiders through the real effect path.
+- `vfx_bench.tscn` (F6): THE test bench (replaced item_bench 2026-07-21). Two tabs: VFX triggers (statuses/auras/impacts on dummy spiders + ground effects) and every item, dropped through the real effect path.
 
 ## Related
 

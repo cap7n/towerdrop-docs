@@ -16,7 +16,7 @@ Goal: a stable, understandable build that's beatable to ~wave 10.
 - <span class="pill done">Done</span> Disable the snail wave-1 test hook (wave 1 = spiders via curated list; pillbugs W6, snails W8).
 - <span class="pill wip">WIP</span> Cheat keys → **DEBUG SANDBOX panel** (F4 opens a button panel instead of dumping gold). `DEBUG_TOOLS` kept ON for testers deliberately. Fold remaining raw keys into the panel before a wider build.
 - <span class="pill done">Done</span> Kill debug overlays + `Globals.DEBUG` console spam (only the BalanceLogger per-wave line prints).
-- <span class="pill todo">Todo</span> Exclude test scenes (`item_bench`, `cart_test`) from the player flow.
+- <span class="pill todo">Todo</span> Exclude test scenes (`vfx_bench`, `enemy_bench`, `cart_test`) from the player flow (export filter already excludes them).
 - <span class="pill done">Done</span> Visible version/build label on the menu ("Tower Drop" + version string). Bump per build.
 
 ### Tier 1: core loop (must work)
@@ -197,7 +197,7 @@ Three points, really one arc: new players spend their attention decoding systems
 - <span class="pill done">Done</span> Tower HP bar shrink / reposition.
 - <span class="pill done">Done</span> Flame VFX: visible ignite/burning on enemies.
 - <span class="pill done">Done</span> Cart inventory cap → 9.
-- <span class="pill todo">Todo</span> item_bench: fix (spawn frozen dummies) or remove.
+- <span class="pill done">Done</span> item_bench: REPLACED (2026-07-21) by `vfx_bench.tscn`, the unified test bench (VFX triggers tab + real-path item drops tab, dummy spider row).
 - <span class="pill todo">Todo</span> Tuning pass on the 6 element trees + TAB base tree + lure feel.
 - <span class="pill todo">Todo</span> Day/night cadence (currently 240s), refine later.
 
