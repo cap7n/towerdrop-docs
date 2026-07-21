@@ -13,13 +13,16 @@ The cart carries an **inventory** (a left-column loadout, drag-to-reorder), base
 
 - **Tap = toss one**: release a single item.
 - **Hold = pour all**: dump the whole stack of that item.
-- **Aimed throw** (prototype, in testing): instead of just dropping straight down:
-    - **Right-click** lobs the selected item at a point on the terrain.
-    - **Left-click** lobs it at a hovered enemy.
-    - Throws are constrained to a ~60° arc, use a magical lift into a ballistic peak-arc, and land accurately (a `damp = 0` fix made the arc land where aimed). Items can trigger on enemies mid-flight.
+- **The cannon shot** (reworked 2026-07-21, was the "aimed throw"): a hold-release skill shot alongside the drop:
+    - **Right-click HOLD = arm**: the selected item is magically pulled up out of the cart (higher and forward of the rim) and hovers in its arcane bubble, leaning toward wherever you aim. Arming takes `throw_lift_time` seconds — the "reload", with an `arm_time_mult` hook already wired for a future reload-speed upgrade.
+    - **RELEASE = fire**: the item is SHOT ballistically at the aim point — a flat cannon trajectory (`throw_shot_speed`, 30 m/s), not a lob; from the tower top most shots angle down at the field with a small residual arc. Lands exactly on the mark and triggers on enemies mid-flight. A quick click still auto-fires the moment arming completes.
+    - **The magical trajectory line**: while arming, a ribbon traces the *actual* flight path — arcane purple when the flight is clear, cut short and red where it would strike the tower. It is **advisory only**: nothing hard-blocks the shot (item hitboxes vary, so it's the player's read and their risk — a bad shot bonks the wall and drops). Releasing over the tower or sky tucks the item back into the bin (the cancel). A proper VFX pass for the line is in the [Backlog](../project/backlog.md) ("VFX for aim line").
+    - **No fixed arc anymore**: the old ~60° cone gate is deleted; you can fire anywhere the flight physically clears the tower.
+    - **Left-click** is still an instant throw at a hovered enemy (same cannon solve).
+    - Planned next: **per-element impact identities** for aimed shots (drop = damage, shot = impact; rock pushback first).
 
 !!! note
-    The debug aim visuals are gone (2026-07-19): both the magenta throw-target beam and the vertical drop line under the cart were removed as clutter. The green/red ground reticle for aimed throws is the one remaining aim UI. The drop-line's anchor node still exists invisibly (items pour down its column). The cart also got its v2 model (seat, handle, chain), wheel-centred to the same rail fit.
+    The debug aim visuals are gone (2026-07-19): the magenta throw-target beam, the vertical drop line under the cart, and later (2026-07-21) the green/red ground reticle — replaced by the trajectory line above. The drop-line's anchor node still exists invisibly (items pour down its column). The cart also got its v2 model (seat, handle, chain), wheel-centred to the same rail fit.
 
 ## Feel details
 

@@ -4,7 +4,7 @@
 
 ## The loop
 
-1. **Get artifacts**: enemies have a small drop chance on kill (4% placeholder), and the **Coin Maker is granted to every player at the end of wave 1** (the standard starter relic). The F4 debug panel can grant randoms for testing.
+1. **Get artifacts**: the main faucet is **the DRAFT (2026-07-21)** — after **every wave**, three artifact cards slam into the centre of the screen (the reusable `CardPick` chooser, time crushed to 5% while you decide) and the player **picks 1**, which lands in the bag. Wave 1's offer always includes the Coin Maker (the economy starter); duplicates across waves are welcome, since copies stack additively and the game leans hoard-of-many over few-but-powerful. Enemies also keep a small drop chance on kill (4% placeholder), and the F4 debug panel can grant randoms for testing. (The old fixed wave-1 Coin Maker grant is gone.)
 2. **The bag** (right-edge ✦ tab, below the Spellbook): a **3×3 slot grid**. Owned-and-unplaced artifacts show as colour-tinted icons with a ×N badge for stacks; hover an icon for a tooltip (name, effect, bag/mounted counts); **click an icon to start placing it**. A mounted copy *leaves* the bag — the grid shows only what you can still place.
 3. **Placement**: a ghost preview snaps to valid surfaces; left-click mounts, right-click/Esc cancels, and with more copies in the bag placement **continues automatically** until you run dry or cancel. A **double-click banks the held copy** back to the bag.
 4. **Surfaces** — two flags per artifact: **`hang`** (the side wall: any upright surface in the wall ring, bricks included) and **`top`** (upward faces on the tower's upper half: the floor, the rim the wizards stand on, the side bits).
@@ -17,7 +17,7 @@ Tick effects (the Coin Maker) run **only during telegraph/assault** — rest, gr
 
 | Artifact | Effect while mounted |
 |---|---|
-| **Coin Maker** | Drops a coin (arcs to the pile) every 5 s during waves |
+| **Coin Maker** | Drops a coin (arcs to the pile) every 2.5 s during waves (halved from 5 s in the 2026-07-21 pacing pass) |
 | **Lucky Coin** | +1 gold per kill |
 | **Swift Wheels** | +5% cart speed |
 | **Sharp Edge** | +1 rock damage (next summons; scatter shards unboosted) |
@@ -25,14 +25,14 @@ Tick effects (the Coin Maker) run **only during telegraph/assault** — rest, gr
 | **Thick Bark** | +50 tower max HP (applies on mount, reverts on pickup) |
 | **Laser Lens** | Beams the nearest enemy in range (15 m) and slows it while the beam holds |
 | **Dart Spitter** | Spits a poison dart at the nearest enemy (18 m) every 3 s |
-| **Oil Dripper** | Pours the tower's oil coat for 6 s every 25 s (v1 whole-tower; water variant waits on a water fluid existing) |
+| **Oil Dripper** | Dribbles a streak of oil down the wall from its own spot while a wave is live (localized pour, 2026-07-21; not the whole-tower Oil ultimate). Water variant waits on a water fluid existing |
 
 The passives use the placeholder **0.5³ cube** tinted the artifact's colour; the three turrets have their **own scenes** (red lens with a live beam, green spitter, brass dripper) — the first users of the per-artifact `scene` key. Each catalogue entry can name its **own scene** (`scene` key; root script extends `TowerArtifact`, a `mount_offset` export seats the mesh on the surface) — that's the path to real relic models.
 
 ## Tech notes
 
 - `Items/Scenes/tower_artifact.tscn` + `TowerArtifact` (`Items/Scripts/tower_artifact.gd`); pick colliders live on collision layer 8 **ArtifactPick**.
-- `WaveManager.wave_completed` (emitted on entering REST) drives the wave-1 grant; `CoinSpawner.spawn_bonus_coin(pos)` is the single-coin payout.
+- `WaveManager.wave_completed` (emitted on entering REST) drives the after-wave draft (`ArtifactInventory._on_wave_completed` builds the 3-card offer and calls `CardPick.present`); `CoinSpawner.spawn_bonus_coin(pos)` is the single-coin payout.
 - Catalogue + placement + bag state all live in the `ArtifactInventory` autoload; everything resets on game over (meta-progression persistence = an open call).
 
 !!! warning "Still open"

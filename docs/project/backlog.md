@@ -188,6 +188,7 @@ Three points, really one arc: new players spend their attention decoding systems
 
 ## Polish / quick wins
 
+- <span class="pill todo">Todo</span> **VFX for aim line** — the cannon-shot trajectory line (hold right-click) is currently a plain translucent ribbon that reads like a debug draw. Give it a proper magical treatment: shader with flow/scroll along the path, soft glow, maybe dashes or sparkle drift; keep the purple = clear / red = blocked language. Lives in `cart.gd` (`_make_aim_line` / `_draw_aim_line`, camera-facing ImmediateMesh ribbon, `aim_line_width` export).
 - <span class="pill todo">Todo</span> **Per-wizard damage tracking** — record damage dealt per wizard (attribute each summon's hits to its wizard) and show it on the shop's Stats screen. The Stats screen itself (gold invested + owned upgrades per wizard) shipped 2026-07-19.
 - <span class="pill todo">Todo</span> **Goblin wizard: more animations** — a real Idle (a procedural one already ships unused inside `Goblin.glb`), hat-tip on purchase, ear wiggle (ear bones exist), a "ta-dah" when an item finishes. The archer model in the same folder can reuse the whole rig pipeline.
 - <span class="pill todo">Todo</span> **Grass trample: smooth the pop-back** — blades still rise a touch fast right behind a walker (the just-left spot only ever got the stamp's soft skirt). Ideas: max-blend stamping, ease the shader response (str²), widen the flat core.
