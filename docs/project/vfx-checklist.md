@@ -14,7 +14,7 @@ The two **Binbun Effects Collections** (Vol.1 = 20 kits, Vol.2 = 9 packs, all **
 |---|---|---|
 | **Rock** impact on hit | <span class="pill wip">Partial</span> code-built `Vfx.spawn_impact` | `ImpactVFX/vfx_impact_*`, `vfx_hit_*`; `StatusFX/vfx_status_shatter` for a stony crack |
 | **Fire** on enemy body | <span class="pill done">Have</span> hand-built spider fire | keep; `FlameFX` has cold/green/purple/void tints if other fires ever want a colour |
-| **Fire** ground ignite / trail | <span class="pill wip">Partial</span> custom flame patch | `FireVFX/fire_area_*`, `fire_trail`; `FireVFX/fire_ball_*` for a thrown fire arc |
+| **Fire** ground patch | <span class="pill done">Have</span> FireVFX `fire_area_01` on the burning patch | wired in `fire_effect.gd::_attach_flame_visual` (`PATCH_FIRE` + `FIRE_SCALE` knobs); pack adopted to `res://assets/BinbunVFX/fire_effects/` |
 | **Electric** chain lightning | <span class="pill wip">Partial</span> code-built arcs | `ElectricFX/vfx_zap_lightning_*` (built for arc-to-arc), `vfx_impact_lightning_*` on the strike |
 | **Poison** cloud / spreading death | <span class="pill wip">Partial</span> custom clouds | `PoisonVFX/poison_cloud_*`, `poison_puddle_*`, `stink_*`; `poison_bubble_*` for the slime |
 | **Frost** freeze / shatter | <span class="pill wip">Partial</span> ice crust coat (custom) | `IceVFX/ice_shard_*` on freeze-shatter, `ice_mist_*` aura; `StatusFX/vfx_status_ice` |
@@ -24,7 +24,8 @@ The two **Binbun Effects Collections** (Vol.1 = 20 kits, Vol.2 = 9 packs, all **
 
 | Moment | Status | Pack effect to use |
 |---|---|---|
-| Wizard **cast** flash (conjure / fire) | <span class="pill todo">Need</span> | `ElementalMagicFX/vfx_<elem>_cast_*` (fire/electric/water/nature), `MuzzleFlashVFX` |
+| **Conjure ring** under the summoned item | <span class="pill done">Have</span> PortalVFX ring, recolored per element | replaced the barely-visible quad rune in `goblin_shop.gd`; pack at `res://assets/BinbunVFX/portal_vfx/`. Size/orientation knobs in `_make_conjure_circle` |
+| Wizard **cast** flash | <span class="pill todo">Need</span> | `ElementalMagicFX/vfx_<elem>_cast_*` (fire/electric/water/nature), `MuzzleFlashVFX` |
 | Summoned **projectile** | <span class="pill todo">Need</span> | `MagicProjectiles/mprojectile_basic_*` + `_javelin_*`; `ElementalMagicFX/vfx_<elem>_projectile_*` |
 | Conjured item **spawn orb** | <span class="pill idea">Nice</span> | `MagicOrbsVFX/magic_orb_*` (the parked "distortion-ball around the conjured item" idea) |
 
@@ -44,7 +45,8 @@ The two **Binbun Effects Collections** (Vol.1 = 20 kits, Vol.2 = 9 packs, all **
 | Enemy **hit** spark | <span class="pill wip">Partial</span> body hit-flash only | `HitFX/vfx_hit_*`, `vfx_strike_*` (small, per-hit) |
 | Big / killing blow | <span class="pill todo">Need</span> | `HitFX/vfx_big_impact_*` |
 | **Explosive item** blast (explosive rock, molotov) | <span class="pill todo">Need</span> | `ExplosionFX/vfx_burst_*`, `vfx_ground_explosion_*`; `ImpactVFX/vfx_explosion_*` |
-| **Status active** aura on enemy (poisoned / frozen / burning) | <span class="pill todo">Need</span> | `StatusFX/vfx_status_poison` · `_ice` · `_flame` · `_rot` · `_sleep` — small loops, plug into StatusDB |
+| **Immunity / resistance** aura on enemy | <span class="pill done">Have</span> StatusFX `vfx_status_glow`, recolored to the resisted element | wired in `enemy.gd` `set_immunity` / `set_pure_shield` (shows the resist colour); pack at `res://assets/BinbunVFX_Vol2/StatusFX/`. `RESIST_AURA` swaps the variant |
+| **Status active** aura (poisoned / frozen / burning) | <span class="pill todo">Need</span> | `StatusFX/vfx_status_poison` · `_ice` · `_flame` — same pattern, plug into StatusDB apply/clear |
 | Death **smoke / dust** | <span class="pill idea">Nice</span> | `SmokeVFX/smoke_thin_*`, `smoke_big_*` |
 
 ## Ultimates
