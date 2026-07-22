@@ -15,19 +15,9 @@
 
 Tick effects (the Coin Maker) run **only during telegraph/assault** — rest, grace and menus pause the timer (no farming the downtime). Stat bonuses aggregate via `ArtifactInventory.bonus(type)` counting **mounted copies only**, and stack **additively from base** (two +5% = +10%, not compounding — decided 2026-07-19).
 
-| Artifact | Effect while mounted |
-|---|---|
-| **Coin Maker** | Drops a coin (arcs to the pile) every 2.5 s during waves (halved from 5 s in the 2026-07-21 pacing pass) |
-| **Lucky Coin** | +1 gold per kill |
-| **Swift Wheels** | +5% cart speed |
-| **Sharp Edge** | +1 rock damage (next summons; scatter shards unboosted) |
-| **Quick Hands** | −5% conjure time (stack floored at 25% of base) |
-| **Thick Bark** | +50 tower max HP (applies on mount, reverts on pickup) |
-| **Laser Lens** | Beams the nearest enemy in range (15 m) and slows it while the beam holds |
-| **Dart Spitter** | Spits a poison dart at the nearest enemy (18 m) every 3 s |
-| **Oil Dripper** | Dribbles a streak of oil down the wall from its own spot while a wave is live (localized pour, 2026-07-21; not the whole-tower Oil ultimate). Water variant waits on a water fluid existing |
+**The full list of artifacts and their effects lives on the [Artifact Catalogue](artifact-catalogue.md) page.** In short: six passive stat bonuses (Coin Maker, Lucky Coin, Swift Wheels, Sharp Edge, Quick Hands, Thick Bark), a set of element turrets/emitters (Frost Beam, Fire Beam, Lure Beacon, Poison Vent, Shock Coil, Dart Spitter, Oil Dripper), and one defensive relic (Crest Shield, +10 armour HP to the brick it hangs on).
 
-The passives use the placeholder **0.5³ cube** tinted the artifact's colour; the three turrets have their **own scenes** (red lens with a live beam, green spitter, brass dripper) — the first users of the per-artifact `scene` key. Each catalogue entry can name its **own scene** (`scene` key; root script extends `TowerArtifact`, a `mount_offset` export seats the mesh on the surface) — that's the path to real relic models.
+The passives use the placeholder **0.5³ cube** tinted the artifact's colour; the turrets have their **own scenes** — the first users of the per-artifact `scene` key. Each catalogue entry can name its **own scene** (`scene` key; root script extends `TowerArtifact`, a `mount_offset` export seats the mesh on the surface) — that's the path to real relic models.
 
 ## Tech notes
 

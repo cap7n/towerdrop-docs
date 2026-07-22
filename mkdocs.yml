@@ -52,6 +52,7 @@ nav:
       - Ultimates & Spellbook: systems/ultimates.md
       - Atmosphere & VFX: systems/atmosphere.md
       - Artifacts & Relics: systems/artifacts.md
+      - Artifact Catalogue: systems/artifact-catalogue.md
   - Tech:
       - Art Direction: tech/art-direction.md
       - Performance: tech/performance.md
