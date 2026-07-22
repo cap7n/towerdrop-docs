@@ -38,6 +38,8 @@ Everything that lives in the 3D world: models, rigs, animation, VFX, shaders, li
 
 ## VFX & shaders
 
+- <span class="pill todo">Todo</span> **"Frozen IN ice" effect** — a fully `frozen`/`deep_frozen` enemy should read as encased in a solid block of ice (crystal shell over the body, refraction/frosted-glass look), not just glowing. Interim (2026-07-22): frozen enemies show only the StatusFX ice **Aura** (`vfx_status_ice.tscn`, Particles stripped) as a placeholder; the `slow`/"frosted" state already gets the full ice overlay + effect. This item is the real ice-block visual to replace that placeholder.
+
 ### Hybrid-workflow cleanup (externalize code-built visuals) — do later, not urgent
 
 Audit (2026-07-18) against the "code for systems, scenes for tunable visuals" rule. The codebase mostly follows it; these are the genuine stragglers — whole visual assets built in code with `.new()` and no editable resource behind them. Deferred deliberately: fine to leave while iterating fast, revisit when settling the look. Good patterns to copy: `night_lights → tiki_torch.tscn`, `spider_fire_process.tres`, `burning_ash`/`billboard_fog` (`@tool` + `@export`).
