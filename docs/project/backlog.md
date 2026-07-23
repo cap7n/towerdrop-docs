@@ -34,6 +34,8 @@ Goal: a stable, understandable build that's beatable to ~wave 10.
 - <span class="pill todo">Todo</span> **Tutorial overhaul**: walk the actual systems (cart drop/pour + aimed throw, element trees, base + wizard shops, build/traps, tower ultimates), not just intro hints.
 - <span class="pill todo">Todo</span> **Spellbook onboarding** — since unowned spells are hidden (2026-07-19), nothing teaches the book exists. Wanted: a tutorial beat when the FIRST ultimate is bought (point at the right-edge tab / auto-open the book on its new spell).
 - <span class="pill todo">Todo</span> **Controls reference** card (move / drop / throw / shop keys), a pause-screen list at minimum.
+- <span class="pill todo">Todo</span> **Quick Tutorial Screen** — a fast, single-screen quick-reference (the essentials: move / drop / throw / shop / repair) for players who skip the full guided mode.
+- <span class="pill todo">Todo</span> **New-player tutorial** — the dedicated guided new-player tutorial mode (the revamp's [Track 1](revamp.md)): slow, its own thing, walks each system.
 
 ### Tier 3: game shell (mostly exists, verify + fill gaps)
 
@@ -56,6 +58,11 @@ Goal: a stable, understandable build that's beatable to ~wave 10.
 
 ---
 
+## Meta-progression
+
+- <span class="pill todo">Todo</span> **Meta-progression is a MUST** — the game needs a persistent meta layer across runs (right now everything resets on game over). Must-have, not a maybe. Settles the long-standing "do relics persist across runs?" question in favour of persistence.
+- <span class="pill todo">Todo</span> **Meta unlock of artifacts** — artifacts unlock progressively through meta-progression: start with a small pool and unlock more of the [catalogue](../systems/artifact-catalogue.md) across runs (the meta reward loop). The UNLOCK persists between runs; the per-run draft still draws from your unlocked pool.
+
 ## Tower ultimates
 
 - <span class="pill done">Done</span> **Rock: Oil the tower** (oil coat + fire-wave). Key `O` / `L` ignite.
@@ -66,6 +73,17 @@ Goal: a stable, understandable build that's beatable to ~wave 10.
 - <span class="pill todo">Todo</span> Tower ultimates gated **deep in the wizard tree** rather than the always-on spellbook.
 
 ## Bigger features (later)
+
+- <span class="pill todo">Todo</span> **Save system (run checkpoints)** — feasibility checked 2026-07-21: cleanly doable. Model: **checkpoint at REST** (between waves — no live enemies or in-flight items, so the transient mess never gets saved). Auto-save on entering rest + on quit-to-menu; delete the file on game over; menu gets a **Continue** button when a save exists. One `SaveSystem` autoload writing versioned JSON to `user://save_run.json`. The full state surface, all confirmed serializable:
+    - *Globals*: gold, run_time, unlocked/discovered items (by name), guaranteed spawns, damage bonuses.
+    - *WaveManager*: wave index (resume into that wave's rest), kills + kills-by-type (stats).
+    - *Wizards*: hired count is TAB-tree driven (`turret_stack.place_next_wizard()` × N restores the bodies), then per wizard: `element`, `specialized`, `_tree_levels` dict, gold-invested stat. Tree effects are query-based (`node_level()` reads), so restoring the dict restores the behaviour.
+    - *TAB shop*: `ShopGraph._count` (id → levels) + re-apply hooks for buy-time side effects (spike ring, item unlocks).
+    - *Artifacts*: `_collected` counts + per-placed `{id, transform, linked_brick}` — re-mount through the normal commit path so effects/brick links rewire themselves.
+    - *Tower*: core HP current/max stored RAW (avoids double-applying upgrade bonuses) + per-brick armour state/bonus arrays (shell API exists).
+    - *Cart*: held item names (+ selected index).
+    - Risk spots: purchases with buy-time side effects need idempotent re-apply; load order (level ready → apply state deferred). Both manageable. NOT in v1: mid-assault saves, cross-run meta progression (separate decision).
+- <span class="pill todo">Todo</span> **Menu tower wears your saved artifacts** (parked idea, Cap7n 2026-07-21) — while the cart orbits the menu tower, the player sees THEIR artifacts from the save file mounted on it, scrolling by. Implementation sketch: the save file already stores placed artifacts as `{id, transform, linked_brick}` relative to the tower axis — `menu_world.tscn` (the 3D backdrop) reads `user://save_run.json` on menu load and instances each artifact's **visual scene only** (no `mounted=true`, no effects — the autoload level-guard already keeps gameplay dormant in menus) at the saved transform on the menu tower. Needs: the menu tower to share the game tower's dimensions (it does — same model), a small "spawn visuals from save" helper in the menu world script, and skipping brick-linked artifacts if the menu tower has no brick shell (or just mounting them at the transform anyway — it's cosmetic). Depends on: the save system above.
 
 - <span class="pill wip">WIP</span> **Tower-damage rework**: spiders dig in & attack at a random wall height. Pass 1 done (band 40→95% of top, `attack_height_min/max_frac`). TODO: HP/damage rebalance.
 - <span class="pill done">Done</span> **Visible tower damage** — DONE (2026-07-16) via the brick-ARMOUR rework: the 110-brick shell is a real armour layer (local coverage radius) that soaks attacks BEFORE the HP bar; bricks tint, crack and tumble off (physical debris) where enemies dig in; the repair tool rebuilds them. See [The Tower](../game/tower.md).
