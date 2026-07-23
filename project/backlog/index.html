@@ -1,0 +1,2262 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Design wiki and single point of truth for TowerDrop, a stylized tower-defense game built in Godot.">
+      
+      
+      
+        <link rel="canonical" href="https://cap7n.github.io/towerdrop-docs/project/backlog/">
+      
+      
+        <link rel="prev" href="../revamp/">
+      
+      
+        <link rel="next" href="../backlog-3d/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Backlog - TowerDrop Design Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#backlog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-header__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TowerDrop Design Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backlog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-nav__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TowerDrop Design Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Pillars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wave Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/tower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Tower & Base Defenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items & Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/enemies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enemies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/economy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy & Gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/combat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat, Status & Feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/ultimates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ultimates & Spellbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/atmosphere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atmosphere & VFX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifacts & Relics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifact-catalogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifact Catalogue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/art-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art Direction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asset Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine & Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ Revamp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#playtest-build-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Playtest build v0.1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Playtest build v0.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tier-0-build-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 0: build hygiene
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-1-core-loop-must-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 1: core loop (must work)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-2-onboarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 2: onboarding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-3-game-shell-mostly-exists-verify-fill-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 3: game shell (mostly exists, verify + fill gaps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-4-looks-finished-polish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 4: looks-finished polish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meta-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meta-progression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tower-ultimates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tower ultimates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bigger-features-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bigger features (later)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elemental-interactions-combos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elemental interactions / combos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator-difficulty-decisions-locked-2026-06-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator &amp; difficulty (decisions locked 2026-06-25)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-priority-from-playtest-2026-07-17-cap7n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High priority — from playtest (2026-07-17, Cap7n)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-2026-07-19-fellow-game-dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback (2026-07-19, fellow game dev)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-17-jen-v0016-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-17, Jen, v0.016 build)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-17-jennifers-sister-v0016-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-17, Jennifer's sister, v0.016 build)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-12-cap7n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-12, Cap7n)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-playtest-c4-wave-39-marathon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest C4 (wave 39+ marathon)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shop-trees-pass-2-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shop / trees: Pass 2 wiring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enemy-polish-parked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enemy polish (parked)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#artifacts-scaffold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifacts (scaffold)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#art-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Art / style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polish-quick-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polish / quick wins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-bug-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known bug watch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ship-prep-before-any-public-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ship prep (before any public launch)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recently-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recently done
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2D / UI Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-pack-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Pack Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steam-store-assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steam Store Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap & Priorities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Edit This Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#playtest-build-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Playtest build v0.1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Playtest build v0.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tier-0-build-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 0: build hygiene
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-1-core-loop-must-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 1: core loop (must work)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-2-onboarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 2: onboarding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-3-game-shell-mostly-exists-verify-fill-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 3: game shell (mostly exists, verify + fill gaps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-4-looks-finished-polish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 4: looks-finished polish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meta-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meta-progression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tower-ultimates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tower ultimates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bigger-features-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bigger features (later)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elemental-interactions-combos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elemental interactions / combos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator-difficulty-decisions-locked-2026-06-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator &amp; difficulty (decisions locked 2026-06-25)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-priority-from-playtest-2026-07-17-cap7n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High priority — from playtest (2026-07-17, Cap7n)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-2026-07-19-fellow-game-dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback (2026-07-19, fellow game dev)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-17-jen-v0016-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-17, Jen, v0.016 build)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-17-jennifers-sister-v0016-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-17, Jennifer's sister, v0.016 build)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-12-cap7n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-12, Cap7n)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-playtest-c4-wave-39-marathon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest C4 (wave 39+ marathon)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shop-trees-pass-2-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shop / trees: Pass 2 wiring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enemy-polish-parked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enemy polish (parked)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#artifacts-scaffold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifacts (scaffold)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#art-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Art / style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polish-quick-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polish / quick wins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-bug-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known bug watch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ship-prep-before-any-public-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ship prep (before any public launch)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recently-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recently done
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/cap7n/towerdrop-docs/edit/main/docs/project/backlog.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="backlog">Backlog<a class="headerlink" href="#backlog" title="Permanent link">&para;</a></h1>
+<p>A living to-do list. Edit freely: tick boxes, add items, reorder.</p>
+<p><strong>Status tags:</strong> <span class="pill done">Done</span> shipped · <span class="pill wip">WIP</span> in progress · <span class="pill todo">Todo</span> not started · <span class="pill idea">Idea</span> undecided · <span class="pill check">Check</span> may already be done.</p>
+<hr />
+<h2 id="playtest-build-v01">Playtest build v0.1<a class="headerlink" href="#playtest-build-v01" title="Permanent link">&para;</a></h2>
+<p>Goal: a stable, understandable build that's beatable to ~wave 10.</p>
+<h3 id="tier-0-build-hygiene">Tier 0: build hygiene<a class="headerlink" href="#tier-0-build-hygiene" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill done">Done</span> Bake the ProtonScatter foliage in <code>level_1</code> and <code>menu_world</code> (kills load-time pop-in); set <code>force_rebuild_on_load = false</code>.</li>
+<li><span class="pill done">Done</span> Disable the snail wave-1 test hook (wave 1 = spiders via curated list; pillbugs W6, snails W8).</li>
+<li><span class="pill wip">WIP</span> Cheat keys → <strong>DEBUG SANDBOX panel</strong> (F4 opens a button panel instead of dumping gold). <code>DEBUG_TOOLS</code> kept ON for testers deliberately. Fold remaining raw keys into the panel before a wider build.</li>
+<li><span class="pill done">Done</span> Kill debug overlays + <code>Globals.DEBUG</code> console spam (only the BalanceLogger per-wave line prints).</li>
+<li><span class="pill todo">Todo</span> Exclude test scenes (<code>vfx_bench</code>, <code>enemy_bench</code>, <code>cart_test</code>) from the player flow (export filter already excludes them).</li>
+<li><span class="pill done">Done</span> Visible version/build label on the menu ("Tower Drop" + version string). Bump per build.</li>
+</ul>
+<h3 id="tier-1-core-loop-must-work">Tier 1: core loop (must work)<a class="headerlink" href="#tier-1-core-loop-must-work" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill wip">WIP</span> Shops:<ul>
+<li><span class="pill done">Done</span> <strong>Ultimates castable + home decided</strong> — the SPELLBOOK is the home (decided 2026-07-19; see the book plan under "Shop / trees: Pass 2 wiring"). Oil/Frost/Slime/Meteors castable from the book v1.</li>
+<li><span class="pill done">Done</span> <strong>Conjuring-time UI</strong> — DONE (2026-07-19) as a QoL settings toggle ("Conjure timers", off by default): an element-coloured countdown above each conjuring wizard's item. The subtle conjure circle stays the default look.</li>
+<li><span class="pill done">Done</span> Per-level costs wired (<code>wizard_shop_ui._node_cost</code> uses the <code>costs[]</code> array). Rebalance still open.</li>
+<li><span class="pill wip">WIP</span> Tooltips / descriptions: hover tooltips wired; copy still needs filling in + spellcheck.</li>
+</ul>
+</li>
+<li><span class="pill todo">Todo</span> <strong>Waves beatable to ≥10</strong>: tune size/HP ramp and make sure defenses keep up.</li>
+<li><span class="pill todo">Todo</span> <strong>Item→effect coverage</strong>: every buyable/usable item must actually do something (no dead items).</li>
+</ul>
+<h3 id="tier-2-onboarding">Tier 2: onboarding<a class="headerlink" href="#tier-2-onboarding" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Tutorial overhaul</strong>: walk the actual systems (cart drop/pour + aimed throw, element trees, base + wizard shops, build/traps, tower ultimates), not just intro hints.</li>
+<li><span class="pill todo">Todo</span> <strong>Spellbook onboarding</strong> — since unowned spells are hidden (2026-07-19), nothing teaches the book exists. Wanted: a tutorial beat when the FIRST ultimate is bought (point at the right-edge tab / auto-open the book on its new spell).</li>
+<li><span class="pill todo">Todo</span> <strong>Controls reference</strong> card (move / drop / throw / shop keys), a pause-screen list at minimum.</li>
+<li><span class="pill todo">Todo</span> <strong>Quick Tutorial Screen</strong> — a fast, single-screen quick-reference (the essentials: move / drop / throw / shop / repair) for players who skip the full guided mode.</li>
+<li><span class="pill todo">Todo</span> <strong>New-player tutorial</strong> — the dedicated guided new-player tutorial mode (the revamp's <a href="../revamp/">Track 1</a>): slow, its own thing, walks each system.</li>
+</ul>
+<h3 id="tier-3-game-shell-mostly-exists-verify-fill-gaps">Tier 3: game shell (mostly exists, verify + fill gaps)<a class="headerlink" href="#tier-3-game-shell-mostly-exists-verify-fill-gaps" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill done">Done</span> Start menu, pause menu, game-over, export preset exist → verify end-to-end.</li>
+<li><span class="pill done">Done</span> Title screen rebuilt: live 3D backdrop (cart orbits tower) + button column + day/night + fog. Settings/Compendium/Profiles buttons are stubs.</li>
+<li><span class="pill todo">Todo</span> Menu fog still looks a bit weird: revisit <code>menu_atmosphere</code> fog tuning.</li>
+<li><span class="pill done">Done</span> Bake the menu scatter (same as level_1) so the menu loads instant.</li>
+<li><span class="pill parked">Parked</span> <strong>Win / summary state</strong> — decided 2026-07-19: NO win condition, runs stay endless. A run-summary screen is still wanted someday; parked as an <a href="../decisions/">open question in Decisions</a>.</li>
+<li><span class="pill todo">Todo</span> Clean <strong>restart</strong> after game-over without relaunching.</li>
+<li><span class="pill done">Done</span> <strong>Settings</strong> — DONE (2026-07-16): music/sound volume (real audio buses), fullscreen, windowed resolution; persists to <code>user://settings.cfg</code>; reachable from the start AND pause menus.</li>
+<li><span class="pill wip">WIP</span> Tester feedback channel: in-game note (press C) exists; still want a Discord/report link visible.</li>
+</ul>
+<h3 id="tier-4-looks-finished-polish">Tier 4: looks-finished polish<a class="headerlink" href="#tier-4-looks-finished-polish" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill done">Done</span> <strong>Wizards replaced (2026-07-12):</strong> the rigged goblin wizard (<code>Blender/Goblin.glb</code>) stands in for every shop wizard — Conjure anim looping 24/7 with a 30° gaze-up, the shared <code>purple</code> cloth material recolors the whole outfit per element (darkened when specialized), power tier = hat size. More anims (real Idle, hat-tip, ear wiggle) = polish backlog. <em>(The item cubes for fire/electric/frost/lure items are separate and still placeholder.)</em></li>
+<li><span class="pill done">Done</span> Confirm hit feedback is clear without damage numbers: body hit-flash only.</li>
+<li><span class="pill todo">Todo</span> Tower HP bar shrink / reposition; HUD readability pass (wave / HP / gold / loadout).</li>
+<li><span class="pill wip">WIP 2026-07-16</span> Audio: key SFX + music balance. <code>Sfx</code> autoload built (UI = flat/centered, world = positional 3D, pitch wobble + throttle, auto-click on every button). Wired: clicks, coins, skill unlock, spider bite, pillbug slam, wall repair (Kenney CC0, <code>Game Sounds/UsedSounds/</code>). Still missing: ultimate casts, wave-warning tie-in, item impacts, enemy deaths. <em>(Volume settings: DONE via the settings menu, 2026-07-16.)</em></li>
+<li><span class="pill todo">Todo</span> <strong>Perf Phase 0 quick wins</strong> (shadows, alloc flood, ragdoll caps) so wave 10 doesn't chug.</li>
+</ul>
+<hr />
+<h2 id="meta-progression">Meta-progression<a class="headerlink" href="#meta-progression" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Meta-progression is a MUST</strong> — the game needs a persistent meta layer across runs (right now everything resets on game over). Must-have, not a maybe. Settles the long-standing "do relics persist across runs?" question in favour of persistence.</li>
+<li><span class="pill todo">Todo</span> <strong>Meta unlock of artifacts</strong> — artifacts unlock progressively through meta-progression: start with a small pool and unlock more of the <a href="../../systems/artifact-catalogue/">catalogue</a> across runs (the meta reward loop). The UNLOCK persists between runs; the per-run draft still draws from your unlocked pool.</li>
+</ul>
+<h2 id="tower-ultimates">Tower ultimates<a class="headerlink" href="#tower-ultimates" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill done">Done</span> <strong>Rock: Oil the tower</strong> (oil coat + fire-wave). Key <code>O</code> / <code>L</code> ignite.</li>
+<li><span class="pill done">Done</span> <strong>Frost: Freeze the tower</strong> (ice rocks + ice wall coat). Key <code>I</code>.</li>
+<li><span class="pill done">Done</span> <strong>Poison: Slime the tower</strong> (jiggly mucus, slow+poison). Key <code>P</code>.</li>
+<li><span class="pill wip">WIP</span> <strong>Rock ultimate: Meteorite Shower</strong> — v1 CASTABLE (2026-07-19): <code>MeteorShower</code> (Levels/Scripts) rains real rock DroppedItems over the incoming sector (near→fog band, sqrt-area spread, drip-spawned, live-item perf cap; all knobs @export — 100/s × 10 s start values need tuning). Wired as a 4th card in the test spellbook. Still open: the rock-tree node for it, wizard-buff inheritance (see Decisions), and the real spellbook home.</li>
+<li><span class="pill idea">Idea</span> Do Fire / Electric / Lure want their own tower ultimates too? (6-element set)</li>
+<li><span class="pill todo">Todo</span> Tower ultimates gated <strong>deep in the wizard tree</strong> rather than the always-on spellbook.</li>
+</ul>
+<h2 id="bigger-features-later">Bigger features (later)<a class="headerlink" href="#bigger-features-later" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Save system (run checkpoints)</strong> — feasibility checked 2026-07-21: cleanly doable. Model: <strong>checkpoint at REST</strong> (between waves — no live enemies or in-flight items, so the transient mess never gets saved). Auto-save on entering rest + on quit-to-menu; delete the file on game over; menu gets a <strong>Continue</strong> button when a save exists. One <code>SaveSystem</code> autoload writing versioned JSON to <code>user://save_run.json</code>. The full state surface, all confirmed serializable:<ul>
+<li><em>Globals</em>: gold, run_time, unlocked/discovered items (by name), guaranteed spawns, damage bonuses.</li>
+<li><em>WaveManager</em>: wave index (resume into that wave's rest), kills + kills-by-type (stats).</li>
+<li><em>Wizards</em>: hired count is TAB-tree driven (<code>turret_stack.place_next_wizard()</code> × N restores the bodies), then per wizard: <code>element</code>, <code>specialized</code>, <code>_tree_levels</code> dict, gold-invested stat. Tree effects are query-based (<code>node_level()</code> reads), so restoring the dict restores the behaviour.</li>
+<li><em>TAB shop</em>: <code>ShopGraph._count</code> (id → levels) + re-apply hooks for buy-time side effects (spike ring, item unlocks).</li>
+<li><em>Artifacts</em>: <code>_collected</code> counts + per-placed <code>{id, transform, linked_brick}</code> — re-mount through the normal commit path so effects/brick links rewire themselves.</li>
+<li><em>Tower</em>: core HP current/max stored RAW (avoids double-applying upgrade bonuses) + per-brick armour state/bonus arrays (shell API exists).</li>
+<li><em>Cart</em>: held item names (+ selected index).</li>
+<li>Risk spots: purchases with buy-time side effects need idempotent re-apply; load order (level ready → apply state deferred). Both manageable. NOT in v1: mid-assault saves, cross-run meta progression (separate decision).</li>
+</ul>
+</li>
+<li>
+<p><span class="pill todo">Todo</span> <strong>Menu tower wears your saved artifacts</strong> (parked idea, Cap7n 2026-07-21) — while the cart orbits the menu tower, the player sees THEIR artifacts from the save file mounted on it, scrolling by. Implementation sketch: the save file already stores placed artifacts as <code>{id, transform, linked_brick}</code> relative to the tower axis — <code>menu_world.tscn</code> (the 3D backdrop) reads <code>user://save_run.json</code> on menu load and instances each artifact's <strong>visual scene only</strong> (no <code>mounted=true</code>, no effects — the autoload level-guard already keeps gameplay dormant in menus) at the saved transform on the menu tower. Needs: the menu tower to share the game tower's dimensions (it does — same model), a small "spawn visuals from save" helper in the menu world script, and skipping brick-linked artifacts if the menu tower has no brick shell (or just mounting them at the transform anyway — it's cosmetic). Depends on: the save system above.</p>
+</li>
+<li>
+<p><span class="pill wip">WIP</span> <strong>Tower-damage rework</strong>: spiders dig in &amp; attack at a random wall height. Pass 1 done (band 40→95% of top, <code>attack_height_min/max_frac</code>). TODO: HP/damage rebalance.</p>
+</li>
+<li><span class="pill done">Done</span> <strong>Visible tower damage</strong> — DONE (2026-07-16) via the brick-ARMOUR rework: the 110-brick shell is a real armour layer (local coverage radius) that soaks attacks BEFORE the HP bar; bricks tint, crack and tumble off (physical debris) where enemies dig in; the repair tool rebuilds them. See <a href="../../game/tower/">The Tower</a>.</li>
+<li><span class="pill todo">Todo</span> <strong>Buildable defenses</strong>: satellite towers + traps (TAB-shop → build tray → click-to-place). Iter-1 exists but free / no purchase.</li>
+<li><span class="pill todo">Todo</span> <strong>Traps</strong>: more placeable ground hazards (caltrops / grinder / conveyor / chain); new plan: buy at a wizard then throw into place (reuse aimed-throw).</li>
+<li><span class="pill wip">WIP</span> <strong>More enemy types</strong>: scripts done (thin <code>extends Enemy</code> subclasses); each needs a model + scene:<ul>
+<li><span class="pill done">Done</span> <strong>Pillbug</strong>: done + feels good (curl-morph roll, charge-bonk-stun ability). Polish: real leg-wiggle shape key, UV texture, wire into waves. Redesign: replace slow float-drop with a thrown "shot".</li>
+<li><span class="pill todo">Todo</span> <strong>Termite</strong>: fast ~1HP swarm, chews wall fast.</li>
+<li><span class="pill todo">Todo</span> <strong>Bombardier</strong>: death-cloud corrodes the tower; resists poison.</li>
+<li><span class="pill todo">Todo</span> <strong>Carrier</strong>: always hauls an item, tankier.</li>
+<li><span class="pill todo">Todo</span> <strong>Centipede</strong>: head tows follower segments; first pass exists. TODO: per-segment colliders, mid-split, status propagation.</li>
+<li><span class="pill done">Done</span> <strong>Snail</strong>: in-game (shell-armour gates the body). Polish parked below.</li>
+<li><span class="pill wip">WIP</span> <strong>Turtle / Fly / Worm</strong> (modeler's 3 creatures): models wired in (<code>Blender/Enemies/*.glb</code> + starter scenes on shared <code>enemy.gd</code>; static / unrigged / untextured, placeholder scale + rough sphere collision). No behaviour yet — design each (turtle = heavy/tanky "alfa predator", shell armour?; fly = likely home for the flying/moth enemy; worm = burrower / segmented crawler), tune scale/collision/orientation, wire into waves.</li>
+<li><span class="pill todo">Todo</span> Verify materials/colours imported on the 3 new models (blends had flat colours, no textures) — add per-mesh <code>mesh_tints</code> if they arrive grey. Re-export via <code>export_creature.py</code>.</li>
+<li><span class="pill todo">Todo</span> Per-element resistance/weakness system (quick-test version exists).</li>
+</ul>
+</li>
+<li><span class="pill todo">Todo</span> <strong>Flying enemy (moth)</strong>: parked on the anti-air question; answer agreed: aimed-throw = skill-shot AA + an AA tower upgrade. Build after aimed-throw feel is locked. <em>(Related: the </em><em>thief flyer</em><em> idea — steals gold/artifacts and flees — is an <a href="../decisions/">open question in Decisions</a>.)</em></li>
+<li><span class="pill wip">WIP</span> <strong>Enemy component system</strong>: built (<code>EnemyLocomotion</code> + <code>EnemyAttack</code> + <code>EnemyAbility[]</code>), opt-in inside <code>enemy.gd</code>. TODO: A/B <code>Spider_v2</code> vs <code>Spider</code>, port Snail, migrate the 5 subclasses, then delete the legacy inline path.</li>
+<li><span class="pill todo">Todo</span> <strong>Jumping spiders</strong>: leapers.</li>
+<li><span class="pill wip">WIP</span> <strong>Aimed throw</strong> (in testing): right-click lobs the selected item at a terrain point, left-click at a hovered enemy, within a 60° arc of the cart's facing (green/red reticle); SPACE drop kept. Prototype in <code>cart.gd</code>. TODO: enemy highlight for left-click, tune arc/lob feel. <em>(See also: "Remove the debug aim line" in High priority.)</em></li>
+</ul>
+<h2 id="elemental-interactions-combos">Elemental interactions / combos<a class="headerlink" href="#elemental-interactions-combos" title="Permanent link">&para;</a></h2>
+<p>One element sets up (a coat/status), another pays off (a trigger).</p>
+<ul>
+<li><span class="pill done">Done</span> <strong>Oil + Fire = ignite</strong> (fire spreads a burn-wave on the oil slick).</li>
+<li><span class="pill done">Done</span> <strong>Frost + Rock = brittle</strong> — SCOPED (2026-07-17): frozen amplifies the shatter types only — PURE (rock + fall damage) and ELECTRIC, 2× (Deep Freeze 4×). Fire/poison no longer boosted; tooltips match. The frost→rock oneshot combo the HP-cap design leans on still works.</li>
+<li><span class="pill done">Done</span> <strong>Oiled enemy + Fire = instant torch</strong> (bigger burst + fiercer burn).</li>
+<li><span class="pill todo">Todo</span> <strong>Electric + Oil/wet = arc conductor</strong>: chain lightning jumps further to oiled neighbors.</li>
+<li><span class="pill idea">Idea</span> Frost + Fire = thermal shock; Oil + Frost = ice slick; Slime/Poison + Fire = toxic flare; Frozen + heavy hit = shatter shrapnel; Lure = the universal setup.</li>
+<li>Pick-first recommendation: the two nearly-free ones, Oiled+Fire (done) and Electric+Oil.</li>
+</ul>
+<h2 id="generator-difficulty-decisions-locked-2026-06-25">Generator &amp; difficulty (decisions locked 2026-06-25)<a class="headerlink" href="#generator-difficulty-decisions-locked-2026-06-25" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Spider HP cap = 15</strong>: a maxed rock can't one-shot a late spider, but frost (2× dmg) brings it back into one-shot range. Frost = the setup tool.</li>
+<li><strong>Breakable pure-shield = yes</strong> (rock chips it, elements bypass), introduced ~wave 15. This is "rock immunity" in breakable form.</li>
+<li><strong>Powerups bought from budget</strong>: elemental immunity (~wave 12) + pure-shield (~wave 15), ramping.</li>
+<li><span class="pill todo">Todo</span> <strong>New mechanic</strong>: "only THIS element penetrates" layer (inverse of immunity). Visual not figured out.</li>
+<li><span class="pill idea">Idea</span> Mix-2-specializations wizard tier (combine two elements).</li>
+</ul>
+<h2 id="high-priority-from-playtest-2026-07-17-cap7n">High priority — from playtest (2026-07-17, Cap7n)<a class="headerlink" href="#high-priority-from-playtest-2026-07-17-cap7n" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill parked,">Parked, lower prio</span> <strong>Night lighting: tower top + wizard lights</strong> — an interim light is placed (2026-07-19); the final version waits on the lantern/flag-post 3D prop. Tracked in the <a href="../backlog-3d/">3D backlog</a> (Lighting &amp; atmosphere).</li>
+<li><span class="pill done">Done</span> <strong>Remove the debug aim line</strong> (aimed-throw prototype leftover) from tester builds. <em>(Done 2026-07-18: the magenta beam + its spawn call deleted from cart.gd.)</em></li>
+<li><span class="pill done">Done</span> <strong>Wave direction indicator is hidden by grass</strong> — DONE (2026-07-19): a standalone HUD <strong>windrose</strong> top-centre; the arrow points at the incoming sector relative to the camera, pulses during the telegraph, steady through the assault, fades in rest. (Other ideas parked: flag rotating toward the enemy, mini-rose on the cart.)</li>
+<li><span class="pill done">Done</span> <strong>Show money invested per wizard</strong> — DONE (2026-07-19) via the wizard shop's new <strong>Stats screen</strong> (Stats button by the profile cards): a panel per wizard with gold invested + every owned upgrade. Damage-done-per-wizard = backlogged under Polish.</li>
+<li><span class="pill done">Done</span> <strong>Jump from the TAB shop straight into a wizard's tree</strong> — DONE (2026-07-19): a "Wizards" button in the TAB shop hands off to the wizard shop on the first wizard; the profile cards select from there.</li>
+<li><span class="pill todo">Todo</span> <strong>Improve the onboarding tutorial</strong> (see the Tutorial overhaul items).</li>
+</ul>
+<h2 id="feedback-2026-07-19-fellow-game-dev">Feedback (2026-07-19, fellow game dev)<a class="headerlink" href="#feedback-2026-07-19-fellow-game-dev" title="Permanent link">&para;</a></h2>
+<p>Three points, really one arc: new players spend their attention decoding systems instead of fighting the horde. <strong>→ Grew into the <a href="../revamp/">⚡ Revamp</a> plan (temporary tab): tutorial slows down as its own mode, the main game speeds up with VS-style in-your-face choices.</strong> The bullets below are superseded by that page.</p>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Separate the tutorial from the main game</strong> — make Tutorial its own MODE (start-menu entry, scripted safe pacing, walks one system at a time). The main game starts clean. Cheap first step: <code>FORCE_EACH_RUN = false</code> + a menu "Tutorial" button that launches the level with the guided intro forced on. (Supersedes the "every run is a tutorial" playtest setting once testing settles.)</li>
+<li><span class="pill todo">Todo</span> <strong>Systems overload: players think about menus more than enemies</strong> — design theme, not one fix. Levers: progressive unlocking (fewer systems visible in the first waves — the spellbook already hides unearned spells, artifacts already arrive at wave 1's end; consider delaying the TAB tree / artifact bag a wave or two), consolidation (fewer separate shop surfaces), and defaults that let a player IGNORE a system and still survive early waves. Pairs with the <a href="../../pillars/">pillars</a> "base-game fun first" rule.</li>
+<li><span class="pill todo">Todo</span> <strong>Telegraph that upgrading exists</strong> — players sit on gold without realizing they can/should spend it. Quick wins: a rest-phase nudge when gold is high ("Spend your gold: TAB for tower, W for wizards"), affordable-upgrade glow on the shop entry points, tutorial beat pointing at the first shop visit.</li>
+</ul>
+<h2 id="from-playtest-2026-07-17-jen-v0016-build">From playtest (2026-07-17, Jen, v0.016 build)<a class="headerlink" href="#from-playtest-2026-07-17-jen-v0016-build" title="Permanent link">&para;</a></h2>
+<p>5 waves / ~9 min / clean log. Loved the brick armour: <em>"i love how the tower bricks fall off btw! and you see colors for how damaged it is."</em> Discovered artifacts + ultimates on her own.</p>
+<ul>
+<li><span class="pill done">Done</span> <strong>BUG: Repair mode blocked ALL other clicking</strong> (couldn't buy wizards / use the debug panel) — FIXED (2026-07-17): repair only consumes clicks that hit a damaged brick; clicks over any UI pass through; the highlight no longer glows behind panels.</li>
+<li><span class="pill done">Done</span> <strong>BUG: lure(?) dropped a clump of climbers who sat "stuck but alive" at the tower base</strong> — FIXED via a full redesign (2026-07-18, Cap7n's design call): <strong>the lure is now a PLAIN dropped item with the lure AoE attached</strong> — no special bait body at all. <code>LureBeacon</code> DELETED; <code>LureEffect</code> runs the pull / one-bite-per-enemy / edible-HP decay directly on the standard lingering item. Standard physics + standard throw arc (the interim RigidBody beacon's <code>linear_damp</code> shortened throws: same lob 12.9 m damped vs 23.5 m as a normal item; the original Node3D raycast version buried the orb ~3 m under the field = the stuck clump). New reusable pipeline hook: <code>DroppedItem.linger_hold</code> pauses the 6 s linger timer for effects that own their lifetime. Visual: <code>Items/Scenes/lure_orb.tscn</code> (the beacon's emissive pink sphere, editor-tunable) replaced the pink cube for world + held; the OmniLight still attaches in code on drop (held copies stay light-free) and is now CENTRED in the orb — its old 0.6 m offset swung around the tumbling item and buried the glow in the floor ("light disconnects on landing").</li>
+<li><span class="pill done">Done</span> <strong>W far from a goblin did nothing</strong> — FIXED (2026-07-17): flashes "No wizard in reach — ride the cart under one and press W, or just click a wizard."</li>
+<li><span class="pill done">Done</span> <strong>"I misunderstood repair wall"</strong> — FIXED (2026-07-17): button reads "Repair Wall (click bricks)" / "Repairing: click bricks" + tooltip and status line state the 1g/HP rule.</li>
+</ul>
+<h2 id="from-playtest-2026-07-17-jennifers-sister-v0016-build">From playtest (2026-07-17, Jennifer's sister, v0.016 build)<a class="headerlink" href="#from-playtest-2026-07-17-jennifers-sister-v0016-build" title="Permanent link">&para;</a></h2>
+<p>26 min / 12 waves / zero errors / 20 in-game notes. Economy data cheat-tainted (used the F4 gold — BalanceLogger now flags that).</p>
+<ul>
+<li><span class="pill done">Done</span> <strong>"Double tower coats causes some lag"</strong> — first-use shader-compile stutter addressed with the <strong>ShaderPrewarm autoload</strong> (2026-07-17: every VFX shader + instanced variant + particle sim renders sub-pixel during the grace phase). If lag persists it's the sustained cost of two coats at once → profile FluidField.</li>
+<li><span class="pill done">Done</span> <strong>Hold-to-pour should stop on release</strong> — DONE (2026-07-17): releasing SPACE mid-pour ends the stream; the rest stays in the bin. Tap = one, hold = pour-while-held.</li>
+<li><span class="pill done">Done</span> <strong>Click-outside-to-close menus</strong> — DONE (2026-07-19), scoped by Cap7n to the ESC/pause menu + the F4 cheat panel (not the wizard trees): clicking the world outside either closes it.</li>
+<li><span class="pill done">Done</span> <strong>F4 debug panel overlaps the inventory UI</strong> — DONE (2026-07-19): moved right of the inventory column and raised.</li>
+<li><span class="pill todo">Todo</span> <strong>"Can I save my progress?"</strong> — decide: mid-run save, or an in-game hint that runs are one-shot.</li>
+<li><strong>Idea pile</strong> (curate): water element · wizard idle/flavor animations · intro/milestone cutscenes · wizard-slot counts as difficulty (hard = 3 slots) · ultimates pricier as the run progresses · biomes/levels · skins for wizards/mobs/cart · chicken mob · <strong>ranged mobs that shoot up at the tower</strong> · achievements that unlock things · surprise chests · flag leagues/clans · <strong>music intensifies as waves ramp</strong> · cherry blossom trees.</li>
+</ul>
+<h2 id="from-playtest-2026-07-12-cap7n">From playtest (2026-07-12, Cap7n)<a class="headerlink" href="#from-playtest-2026-07-12-cap7n" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill done">Done</span> <strong>Tutorial: force ROCK as the first wizard pick</strong> — DONE, then REWORKED (2026-07-17) into a standalone per-run rule: non-Rock elements lock until the run's FIRST tree purchase (any rock node; Bigger Rock lvl 1 costs 1g so the first shop visit always affords it), unlocking live the moment it's bought. Decoupled from tutorial beats entirely (<code>TutorialDirector.rock_gate_active</code>); locked buttons say "(buy a Rock upgrade first)".</li>
+<li><span class="pill done">Done</span> <strong>Wave-skip (Enter) → wizards instantly finish their current conjure</strong> — DONE (2026-07-12): every wizard snaps its conjure on <code>wave_started</code> (any wave start, not just skips) and delivers via the normal flow.</li>
+<li><span class="pill done">Done</span> <strong>BUG: grass trample stops working on wave 2+</strong> — fixed TWICE: (1) coverage — the map only covered ±90 m vs the 110–150 m spawn band, now ±160 m @ 768 px (2026-07-12); (2) cache eviction — the wired grass material was FREED while the (grass-free) start menu was up, so any menu→Play run had trample dead from wave 1; the autoload now holds a strong ref + re-wires on level entry (2026-07-16). Editor F5-the-level runs masked bug 2 by keeping the cache alive.</li>
+<li><span class="pill done">Done</span> <strong>REPAIR system (hammer cursor)</strong> — DONE (2026-07-16), upgraded beyond the spec: the brick shell became a two-layer HP system (armour that soaks before the core bar), click-to-repair with per-brick static colliders, 1g/HP, hammer cursor that swings on click. Still open from the spec: repair amount/speed upgrades in the TAB shop + a pricier full-rebuild surcharge.</li>
+</ul>
+<h2 id="from-playtest-c4-wave-39-marathon">From playtest C4 (wave 39+ marathon)<a class="headerlink" href="#from-playtest-c4-wave-39-marathon" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill wip">WIP</span> <strong>Kill the snowball</strong>: went unkillable past wave 10 (spikes insta-kill + regen heals all back). Done: removed spikes / poisoned spikes / HP regen from the TAB tree (systems kept). Next: budget wave generator, late-game tuning.</li>
+<li><span class="pill todo">Todo</span> <strong>Spikes → Rock-wizard ULTIMATE</strong> (decided 2026-07-12: cast-for-gold with a duration, like Oil/Frost/Slime — not a permanent upgrade). Folds into the ultimates-gating pass; <code>base_spikes</code>/<code>poisoned_spikes</code> tree nodes + the SpikeRing mechanics (still in shop_graph) are the ingredients.</li>
+<li><span class="pill todo">Todo</span> <strong>HP regen → upgradeable spell</strong>, not a forever passive. <em>(Or superseded by the new REPAIR-hammer idea, see 2026-07-12 playtest notes.)</em></li>
+<li><span class="pill todo">Todo</span> <strong>Frost is underpowered</strong>: concept: snow-storm on hit (slow + DoT AoE), "avalanche" upgrade.</li>
+<li><span class="pill todo">Todo</span> <strong>Fire &amp; lightning too cheap vs rock</strong>: element cost rebalance.</li>
+<li><span class="pill todo">Todo</span> <strong>BUG: lightning's spread fires on ROCK kills</strong>: element effect bleeding across equipped wizards.</li>
+<li><span class="pill todo">Todo</span> <strong>Roller (pillbug) aiming is un-fun</strong>: make the path visible or the orbit predictable.</li>
+</ul>
+<h2 id="shop-trees-pass-2-wiring">Shop / trees: Pass 2 wiring<a class="headerlink" href="#shop-trees-pass-2-wiring" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill done">Done</span> <strong>Rename-reconnect pass (2026-07-12):</strong> 13 tree effects that silently did nothing (the tree rebuild renamed node ids; the shop kept listening for the old names) are re-pointed and live again — frost Deep Freeze / Let It Snow / Sandals, fire More-DoT / Lingering Flame, poison Muscle Degradation / Spreading Death, all four lure poison/paralyze/wider-pull nodes. Frost + poison + lure went from mostly-placebo to functional.</li>
+<li><span class="pill todo">Todo</span> <strong>~20 nodes still need NEW effect code</strong> (never built): wet_conductor, wildfire, ricochet, boulder, sharp_rocks_add_bleed, sharper_spiky_bits, shatter, chill_to_the_bone, endless_winter, frost_slow_target, black_lung, crude_oil, patient_zero, thicker_mucus, overload, more_starts, pulse_fire, quiker_pulses, lure_pull_horde_to_spot, black_hole_lure. Element-by-element sessions.</li>
+<li><span class="pill wip">WIP</span> <strong>Ultimates gating + the BOOK spellbook</strong> — <strong>v1 BUILT (2026-07-19)</strong>: the spellbook is now an actual two-page book (placeholder parchment, code-built) with element ribbon tabs, opened instantly from the right-edge pull tab, non-modal (no dim). <strong>Gating LIVE</strong>: a spell casts only once a wizard of that element owns its <code>ultimate_*</code> tree node; unowned spells are <strong>fully hidden</strong> (Cap7n call: listing everything up front overwhelms), empty pages read "Nothing scribed yet. Ultimates learned in the wizard trees appear here."; owned-but-unbuilt ones say "(spell not built yet)". Castable now: Oil, Deep Freeze, Slime, <strong>Meteor Shower</strong> (new <code>ultimate_meteors</code> node added to the Rock tree, 60g, off Bigger Rock). Still open: FireWave / Arc Storm / Black-hole Lure effect code, spikes folded in as a Rock spell, granting-wizard buff inheritance, per-spell costs (flat 15g placeholder), artist book art + page-flip, and syncing <code>ultimate_meteors</code> into the skill-tree-maker tool.</li>
+<li><span class="pill done">Done</span> Bleed visual: code-built red drip particle toggled by the <code>bleed</code> status.</li>
+<li><span class="pill todo">Todo</span> Per-level wizard costs: wire <code>costs[]</code> into <code>wizard_shop_ui</code>.</li>
+<li><span class="pill todo">Todo</span> Magnitude tuning to match the new tree descriptions.</li>
+<li><span class="pill todo">Todo</span> <strong>Elemental spiders</strong>: fire spiders ~W3 (immune to fire + prompt), elemental types trickling in from ~W5.</li>
+</ul>
+<h2 id="enemy-polish-parked">Enemy polish (parked)<a class="headerlink" href="#enemy-polish-parked" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Spider:</strong> [ ] attack animation (dug-in spiders currently freeze mid-walk-cycle while gnawing).</li>
+<li><strong>Snail:</strong> [ ] UV + texture; [ ] fracture shell into shards (progressive cracking = the health bar); [ ] squish-death; [ ] skirt-ripple shader; [ ] tune collision shape.</li>
+<li><strong>GroundStain system</strong>: [ ] <strong>(idea)</strong> generalize <code>FluidField</code>'s stain layer onto flat terrain for snail slime trails (later oil/blood/scorch). Start CPU stain-only on a coarse grid; move to a GPU render-target if scale demands.</li>
+<li><strong>Frost:</strong> [ ] icicles on the rim; [ ] steam/mist (<code>FrostFx</code>); [ ] true ice nucleation; [ ] tuning.</li>
+<li><strong>Slime:</strong> [ ] reuse the parked <code>tendrils()</code> drip; [ ] look tuning.</li>
+</ul>
+<h2 id="artifacts-scaffold">Artifacts (scaffold)<a class="headerlink" href="#artifacts-scaffold" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill wip">WIP</span> Relics dropped from kills → small passive bonuses (right-edge tab/panel). Loop works (drop → grant → bonus); gold_per_kill + tower_max_hp live. TODO: real catalogue, wire queried bonuses (cart_speed / rock_damage / conjure), decide meta-progression persistence.</li>
+<li>
+<p><span class="pill wip">WIP</span> <strong>PLACEABLE artifacts on the tower wall</strong> — v1 BUILT (2026-07-19): placement mode (panel button → wall-snapped ghost → click to mount, right-click/Esc cancels), effects run ONLY while placed and ONLY during live waves; <strong>Coin Maker</strong> granted at end of wave 1 (a coin arcs to the pile every 5 s; magenta 0.3×3×3 slab placeholder). The seed of the <strong>traps / hang-from-the-tower family</strong>. <strong>Pass 2 (same day):</strong> cube fixed to 0.3³; per-artifact <strong><code>scene</code> key</strong> in the catalogue (each artifact can bring its own mesh scene, root script extends <code>TowerArtifact</code>, <code>mount_offset</code> export seats it on the surface); two placement checks per artifact: <strong><code>hang</code></strong> (side wall) and/or <strong><code>top</code></strong> (tower-top floor / rim / side bits, upward faces on the upper half). <strong>Pass 3 (same day):</strong> ALL 6 artifacts placeable — the 5 old bag passives now only work while MOUNTED (<code>bonus()</code> counts placed copies; Thick Bark's +max HP applies on mount), the coin tick is Coin Maker only, the cube is 0.5³ and tinted per artifact colour. <strong>Pass 4/5 (same day):</strong> the ✦ panel is a 3×3 icon grid (click icon = place, hover = tooltip, badge = bag copies; placed copies LEAVE the bag); all 3 queried bonuses wired into their consumers (cart speed, conjure time with a 25% floor, rock damage) — stacking decided: <strong>additive from base</strong> (two +5% = +10%, not compounding). <strong>Pass 6 (same day):</strong> the <strong>Mover tool</strong> (button beside the Repair tray, debug looks): click a mounted artifact to pick it up and re-place it, a quick second click banks it to the bag (on-place bonuses revert correctly); plus <strong>continuous placement</strong> (keep placing copies until the bag runs dry or right-click/Esc). <strong>Pass 7 (same day):</strong> <strong>brick-link knock-off</strong> — a wall-hung artifact links to the brick it hangs on (same coverage rule as armor damage); if that brick BREAKS the artifact is knocked loose and returns to the bag (toast), top mounts stay safe. Wall = close to the action but destructible, top = safe: placement is now a real decision. <em>(Upgrade idea, parked: knocked artifacts physically DROP as a pickup instead of teleporting to the bag.)</em> <strong>Pass 8 (same day): the first 3 TURRET artifacts</strong> (each its own scene via the catalogue <code>scene</code> key): <strong>Laser Lens</strong> (beams + slows the nearest enemy in range), <strong>Dart Spitter</strong> (poison dart at the nearest enemy every 3 s), <strong>Oil Dripper</strong> (pours the tower oil coat for 6 s every 25 s; v1 = whole-tower, becomes a local drip when FluidField grows a localized pour; plays rough with the Oil ultimate for now). The <strong>water dripper</strong> variant (electric conductor combo) is DEFERRED: no water fluid exists in FluidField yet — that is a system to design first. Catalogue = 9 artifacts, exactly filling the 3×3 bag. Next: real models, a pretty mover cursor, placement slots/limits, localized fluid pour, the water fluid. NOTE: a green-zone spot only accepts placement if that mesh has collision (parapet bits without colliders pass the ray through).</p>
+</li>
+<li>
+<p><span class="pill todo">Todo</span> <strong>Unique beam VFX per element</strong> — all 6 <code>element:beam</code> artifacts currently share one pack scene (<code>laser_vfx_01</code>), differing only by recolor, so a fire beam and a frost beam look identical apart from hue. Give each element its own beam identity: pick a distinct Binbun <code>laser_vfx_0X</code> / <code>beam_vfx_0X</code> preset per element (chunky vs thin vs jagged), and/or per-element impact behaviour (fire beam ignites, frost beam hard-slows, electric arcs). One-line preload swap per element; wire via the catalogue so each <code>*_beam</code> entry names its own scene.</p>
+</li>
+</ul>
+<h2 id="art-style">Art / style<a class="headerlink" href="#art-style" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Stylized art pass</strong>: settle a consistent look once real models exist. Parked toon-shader tech in <code>VFX/Shaders/toon*.gdshader</code>. No outlines (faceted / soft-matte).</li>
+</ul>
+<h2 id="polish-quick-wins">Polish / quick wins<a class="headerlink" href="#polish-quick-wins" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>VFX for aim line</strong> — the cannon-shot trajectory line (hold right-click) is currently a plain translucent ribbon that reads like a debug draw. Give it a proper magical treatment: shader with flow/scroll along the path, soft glow, maybe dashes or sparkle drift; keep the purple = clear / red = blocked language. Lives in <code>cart.gd</code> (<code>_make_aim_line</code> / <code>_draw_aim_line</code>, camera-facing ImmediateMesh ribbon, <code>aim_line_width</code> export).</li>
+<li><span class="pill todo">Todo</span> <strong>Per-wizard damage tracking</strong> — record damage dealt per wizard (attribute each summon's hits to its wizard) and show it on the shop's Stats screen. The Stats screen itself (gold invested + owned upgrades per wizard) shipped 2026-07-19.</li>
+<li><span class="pill todo">Todo</span> <strong>Goblin wizard: more animations</strong> — a real Idle (a procedural one already ships unused inside <code>Goblin.glb</code>), hat-tip on purchase, ear wiggle (ear bones exist), a "ta-dah" when an item finishes. The archer model in the same folder can reuse the whole rig pipeline.</li>
+<li><span class="pill todo">Todo</span> <strong>Grass trample: smooth the pop-back</strong> — blades still rise a touch fast right behind a walker (the just-left spot only ever got the stamp's soft skirt). Ideas: max-blend stamping, ease the shader response (str²), widen the flat core.</li>
+<li><span class="pill done">Done</span> Tower HP bar shrink / reposition.</li>
+<li><span class="pill done">Done</span> Flame VFX: visible ignite/burning on enemies.</li>
+<li><span class="pill done">Done</span> Cart inventory cap → 9.</li>
+<li><span class="pill done">Done</span> item_bench: REPLACED (2026-07-21) by <code>vfx_bench.tscn</code>, the unified test bench (VFX triggers tab + real-path item drops tab, dummy spider row).</li>
+<li><span class="pill todo">Todo</span> Tuning pass on the 6 element trees + TAB base tree + lure feel.</li>
+<li><span class="pill todo">Todo</span> Day/night cadence (currently 240s), refine later.</li>
+</ul>
+<h2 id="known-bug-watch">Known bug watch<a class="headerlink" href="#known-bug-watch" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill wip">WIP</span> Restart-run crash (build-only, doesn't repro in editor). Crash logging added (<code>user://logs/godot.log</code> bundled into <code>balance_logs/engine_logs/</code>); waiting on a captured crash log.</li>
+<li><span class="pill todo">Todo</span> Game file size + lag pass (overlaps Perf Phase 0).</li>
+</ul>
+<h2 id="ship-prep-before-any-public-launch">Ship prep (before any public launch)<a class="headerlink" href="#ship-prep-before-any-public-launch" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="pill done">Done</span> <strong>RBL: Roll-Call assets REMOVED (2026-07-19)</strong> — <code>Imported/RollCall/</code> (102 MB: PureNature rocks/grass, 56 JMO CartoonFX textures, skyboxes) deleted from the working tree. Every dependent was rewired to OWNED procedural replacements first: 6 generated low-poly rocks (<code>Items/Meshes/Rocks/own_rock_*.glb</code>, Blender-generated, ours) drive the rock + ice item visuals; the rock material is texture-free flat; the grass patch is now built from <strong>Quaternius MegaKit clumps</strong> (CC0, real leafy shapes; Grass.png palette texture; same <code>.res</code> path + footprint, so the baked scatter needed zero level edits — a generated crossed-quad version served as the interim). <strong>BONUS FIND: the 6 frost-crust rocks were Sketchfab rips</strong> (unknown licence = RBL by the house rule) — overwritten with the generated rocks, size-matched. Zero RollCall/Sketchfab references remain in sources. Jennifer's real rock ask (3D backlog) still stands as the QUALITY upgrade; the generated ones are the legal placeholder.</li>
+<li><span class="pill todo">Todo</span> <strong>Git HISTORY still contains the RBL files</strong> — the repo must stay <strong>private</strong> until history is purged (<code>git filter-repo</code> on <code>Imported/RollCall/</code>) or accept-and-never-open-source. Do the purge before any public/source release.</li>
+<li><span class="pill todo">Todo</span> Cosmetic leftover: <code>Grass_RollCall.res/.tscn</code> file NAMES kept (contents are ours now) because level_1/menu_world reference the paths — rename in a calm editor session someday.</li>
+</ul>
+<hr />
+<h2 id="recently-done">Recently done<a class="headerlink" href="#recently-done" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>2026-07-19 (v0.017, part 2 — the ARTIFACT sprint):</strong> artifacts went scaffold → <strong>full physical system in six passes, zero bugs</strong>: placeable <code>TowerArtifact</code> relics (0.5³ tinted cubes, per-artifact <code>scene</code> key for real models later) mounted via ghost placement on <strong>two surface types</strong> (hang = side wall, top = tower top); effects run ONLY while mounted and only during live waves; <strong>all 6 artifacts live</strong> (Coin Maker granted end of wave 1 + the 5 ex-bag passives wired into cart speed / conjure floor 25% / rock damage / gold per kill / tower max HP with on-mount apply + on-pickup revert); stacking decided <strong>additive from base</strong>; the ✦ bag is a <strong>3×3 icon grid</strong> (click = place, hover = tooltip, placed copies leave the bag, continuous placement until dry); <strong>Mover tool</strong> beside the Repair tray (pick up / re-place / double-click banks). New plumbing: <code>wave_completed</code> signal emitted, <code>spawn_bonus_coin</code>, collision layer 8 ArtifactPick.</li>
+<li><strong>2026-07-19 (v0.017):</strong> <strong>SPELLBOOK v1</strong> — an actual two-page book (placeholder parchment, element ribbon tabs, non-modal fast open) with <strong>tree-gated spells</strong>: buying a wizard's <code>ultimate_*</code> node scribes it into the book; unowned spells hidden. <strong>Meteor Shower</strong> built (new Rock ultimate node; rains real rock items over the incoming sector) and rocks now <strong>CRUMBLE</strong> on ground impact (<code>fx_crumble</code>, reusable no-glow debris burst) instead of vanishing. Cleared Cap7n's high-prio list: wizard <strong>Stats screen</strong> (gold invested + owned upgrades per wizard), <strong>Wizards button</strong> in the TAB shop, <strong>windrose</strong> wave-direction compass (bottom right, perspective-flattened; 3D prop = looks upgrade later). Sister's QoL: F4 panel moved off the inventory, click-outside closes pause menu + F4 panel. <strong>Conjure timers</strong> settings toggle (off by default, element-coloured countdowns). <strong>Cart v2 model</strong> swapped in (game + menu, wheel-centred to keep the rail fit; original blend untouched). New coin mesh (sparkles off pending a better shader fix); F3 gold-pour film cheat (cheat-flagged). Debug aim beam + drop line removed. Night lighting parked on the lantern prop (3D backlog). Win condition + Mana logged as open questions; spellbook-cast bonus inheritance decided (not built). CHANGELOG v0.017 written.</li>
+<li><strong>2026-07-18 (post-v0.016 playtest round):</strong> <strong>Auto next wave</strong> — a persistent "Auto next" checkbox above the "Press Enter" prompt (always on screen, toggleable mid-wave; ON = the 60 s rest collapses to a 5 s countdown, <code>wave_manager.auto_next</code> + <code>auto_next_rest_time</code>, saved to <code>user://gameplay.cfg</code>; auto-started waves snap in-progress conjures exactly like the Enter skip — same <code>wave_started</code> signal, verified). <strong>Element switching redesigned</strong> — the bottom 6-card switch row is gone; the tree's BASE node is a gold "Change element" doorway back to the picker (respec/refund still only on picking a DIFFERENT element there; reopening lands on the picker until a tree is entered). <strong>Wizard profile cards</strong> — numbered element-tinted cards at the shop's bottom replace the Prev/Next edge arrows; click = jump to that wizard, current one lit; ordered by rim slot / hire order (the name-sort scrambled them). <strong>Lure redesign</strong> — plain item + AoE (see the Jen playtest entry above), glowing orb visual, centred light. Backlog consolidated INTO this wiki page (old artifacts-folder file deleted; 3D + 2D/UI sibling scaffolds added).</li>
+<li><strong>2026-07-16/17 (v0.016):</strong> Two-layer tower HP — the brick shell is local ARMOUR (10 HP/brick, coverage radius) soaking hits before the HP bar, bricks tint/crack/tumble off; <strong>Repair tool</strong> (R / button, click bricks, 1g/HP, hammer cursor); <strong>Settings menu</strong> (volumes/fullscreen/resolution); Rock-first element gate as a standalone purchase-triggered rule; Frozen scoped to PURE+ELECTRIC; Esc closes the TAB shop; wizards face outward; grass-trample cache-eviction fix; environment polish (procedural ground + dirt apron, tower dirt skirt, tiki torches as a placeable scene + menu ring, radial wood-tie shader); game icon (native exe embedding); <strong>ShaderPrewarm</strong> (kills first-cast hitch); BalanceLogger fps/worst-frame + cheat-taint columns; pour stops on release; repair-mode click-through + self-explaining labels; W-out-of-reach hint. v0.016 shipped to testers; two tester logs analyzed same-day.</li>
+<li><strong>2026-07-12:</strong> Goblin wizard LIVE in-game (rigged + Conjure loop + per-element outfit recolor); 13 orphaned skill-tree effects reconnected (frost/poison/lure work again); artifact toast moved under the HP bar (10s); spikes redefined as a Rock ULTIMATE.</li>
+<li><strong>Living grass</strong>: PureNature grass swap (dense, tinted, shadow-free) + wind sway shader + trample map — enemies part the grass, 60s spring-back trails.</li>
+<li>Game renamed → <strong>"Tower Drop"</strong>; menu patch-notes panel (fed from <code>CHANGELOG.txt</code>).</li>
+<li>Spellbook ultimates (Oil/Frost/Slime, 15g/10s) that actually affect enemies.</li>
+<li>Fire pass: stylized flame, ground-impact ignite + enemy-to-enemy spread, Oiled+Fire torch.</li>
+<li>DEBUG SANDBOX panel (F4) replacing scattered debug keys.</li>
+<li>Wizard shop: Prev/Next wizard arrows, hover tooltips.</li>
+<li>New modeler tower imported + brick-shell MultiMesh with runtime damage states.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../revamp/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ⚡ Revamp">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                ⚡ Revamp
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../backlog-3d/" class="md-footer__link md-footer__link--next" aria-label="Next: 3D Backlog">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3D Backlog
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

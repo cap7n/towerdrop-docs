@@ -1,0 +1,1653 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Design wiki and single point of truth for TowerDrop, a stylized tower-defense game built in Godot.">
+      
+      
+      
+        <link rel="canonical" href="https://cap7n.github.io/towerdrop-docs/project/revamp/">
+      
+      
+        <link rel="prev" href="../../tech/solutions/">
+      
+      
+        <link rel="next" href="../backlog/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>⚡ Revamp - TowerDrop Design Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-revamp-temporary-tab" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-header__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TowerDrop Design Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ⚡ Revamp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-nav__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TowerDrop Design Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Pillars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wave Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/tower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Tower & Base Defenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items & Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/enemies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enemies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/economy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy & Gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/combat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat, Status & Feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/ultimates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ultimates & Spellbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/atmosphere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atmosphere & VFX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifacts & Relics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifact-catalogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifact Catalogue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/art-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art Direction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asset Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine & Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ Revamp
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ Revamp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#track-1-the-tutorial-build-slow-its-own-thing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Track 1 — The Tutorial build (slow, its own thing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Track 1 — The Tutorial build (slow, its own thing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-tutorial-curriculum-target-1015-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The tutorial curriculum (target 10–15 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#track-2-the-main-game-all-out-asap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Track 2 — The main game (all out, asap)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-decisions-along-the-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open decisions along the way
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status log
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2D / UI Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-pack-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Pack Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steam-store-assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steam Store Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap & Priorities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Edit This Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#track-1-the-tutorial-build-slow-its-own-thing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Track 1 — The Tutorial build (slow, its own thing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Track 1 — The Tutorial build (slow, its own thing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-tutorial-curriculum-target-1015-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The tutorial curriculum (target 10–15 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#track-2-the-main-game-all-out-asap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Track 2 — The main game (all out, asap)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-decisions-along-the-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open decisions along the way
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status log
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/cap7n/towerdrop-docs/edit/main/docs/project/revamp.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="the-revamp-temporary-tab">⚡ The Revamp (temporary tab)<a class="headerlink" href="#the-revamp-temporary-tab" title="Permanent link">&para;</a></h1>
+<p><strong>Tutorial slows down. Main game speeds up and hits players with meaningful choices, fast.</strong></p>
+<p>Born from dev-to-dev playtest feedback (2026-07-19): players spend their attention decoding systems instead of fighting; choices don't land with the impact the audience expects; nobody realizes they can upgrade. The reference point we keep coming back to: <strong>Vampire Survivors</strong> — one character, and within the first 20 seconds you've killed things and been handed a 3-way build choice. In-your-face. That's the energy the main game needs. The gentle easing-in moves to a dedicated Tutorial.</p>
+<p>This is a <strong>two steps back, five steps forward</strong> operation, so it gets its own tab while it's live. When both tracks are done, fold the results into the <a href="../backlog/">Backlog</a> / <a href="../decisions/">Decision Log</a> and delete this page.</p>
+<p><strong>Status tags:</strong> <span class="pill done">Done</span> shipped · <span class="pill wip">WIP</span> in progress · <span class="pill todo">Todo</span> not started · <span class="pill idea">Idea</span> undecided · <span class="pill check">Check</span> may already be done.</p>
+<hr />
+<h2 id="track-1-the-tutorial-build-slow-its-own-thing">Track 1 — The Tutorial build (slow, its own thing)<a class="headerlink" href="#track-1-the-tutorial-build-slow-its-own-thing" title="Permanent link">&para;</a></h2>
+<p>The guided intro we already built becomes a dedicated MODE, and the main game gets stripped clean.</p>
+<ul>
+<li><span class="pill done">Done</span> <strong>1. Duplicate the level</strong>: copy <code>level_1.tscn</code> → <code>tutorial_level.tscn</code>, near enough 1:1 — we already have most tutorial bits (TutorialDirector beats, rock-first gate, shop onboarding) and they simply move house.</li>
+<li><span class="pill done">Done</span> <strong>2. Start-menu "Tutorial" button</strong> → launches the tutorial level with the guided intro FORCED on (a <code>Globals.tutorial_run</code> flag the TutorialDirector reads).</li>
+<li><span class="pill done">Done</span> <strong>3. Strip the main game</strong>: <code>FORCE_EACH_RUN = false</code>; TutorialDirector goes fully dormant outside tutorial runs. Decide per beat: does it die in the main game or move to the tutorial? (The rock-first element gate is the big one — in the main game it likely DIES in favour of the opening element pick below.)</li>
+<li><span class="pill todo">Todo</span> <strong>4. Slow the tutorial down</strong> — the full curriculum below, one lesson block per wave, target <strong>10–15 minutes total</strong>. No game-over pressure (tower can't die, or respawns free).</li>
+<li><span class="pill todo">Todo</span> <strong>5. Completion flag</strong>: <code>tutorial done</code> saved to disk; first launch nudges new players toward the Tutorial button (but never forces it).</li>
+</ul>
+<h3 id="the-tutorial-curriculum-target-1015-min">The tutorial curriculum (target 10–15 min)<a class="headerlink" href="#the-tutorial-curriculum-target-1015-min" title="Permanent link">&para;</a></h3>
+<p>Everything a player must be SHOWN, grouped into wave-sized lessons. Ticks = wired into the tutorial level.</p>
+<p><strong>Block 0 — Grace period (~1 min): you and the cart</strong></p>
+<ul>
+<li><span class="pill todo">Todo</span> 1. <strong>Movement</strong>: ride the rail with A/D.</li>
+<li><span class="pill todo">Todo</span> 2. <strong>Camera tilt</strong>: hold S to look down the wall (the beat exists in the director already — keep it here).</li>
+</ul>
+<p><strong>Block 1 — Wave 1 (~2 min): fight</strong></p>
+<ul>
+<li><span class="pill todo">Todo</span> 3. <strong>Dropping materials</strong>: tap Space = one item, hold = pour the bin.</li>
+<li><span class="pill todo">Todo</span> 4. <strong>Inventory selection</strong>: scroll wheel picks which item drops next (the red-rimmed slot).</li>
+<li><span class="pill todo">Todo</span> 5. <strong>Enemy telegraph</strong>: the flare + the windrose point at where the wave comes from — get your cart to that side.</li>
+<li><span class="pill todo">Todo</span> 6. <strong>Dealing with enemies</strong>: rocks on heads; climbers get knocked off the wall (fall damage is your friend).</li>
+<li><span class="pill todo">Todo</span> 7. <strong>Gold</strong>: kills drop coins that arc to the pile on the tower top — the pile IS your bank.</li>
+</ul>
+<p><strong>Block 2 — Rest 1 (~2 min): spending</strong></p>
+<ul>
+<li><span class="pill todo">Todo</span> 8. <strong>The wave rhythm</strong>: rest = shopping time; Enter calls the next wave early; the Auto next checkbox exists.</li>
+<li><span class="pill todo">Todo</span> 9. <strong>TAB shop</strong>: tower &amp; cart upgrades (buy one, feel it), and the Wizards button bridges to the wizard shops.</li>
+<li><span class="pill todo">Todo</span> 10. <strong>Wizard shop</strong>: W or click a wizard; pick your element (rock-first gate teaches the flow here); buy Bigger Rock; the profile cards + Stats page.</li>
+</ul>
+<p><strong>Block 3 — Wave 2 + Rest 2 (~3 min): defense</strong></p>
+<ul>
+<li><span class="pill todo">Todo</span> 11. <strong>Brick armour</strong>: let a few spiders dig in — bricks tint, crack and tumble; the wall soaks damage before your HP bar.</li>
+<li><span class="pill todo">Todo</span> 12. <strong>Repair tool</strong>: R or the button, click the damaged bricks, 1 gold per HP.</li>
+<li><span class="pill todo">Todo</span> 13. <strong>Aimed throw</strong>: right-click lobs the selected item at the ground, left-click at a hovered enemy (60° arc).</li>
+</ul>
+<p><strong>Block 4 — Wave 3 + Rest 3 (~3 min): the toys</strong></p>
+<ul>
+<li><span class="pill todo">Todo</span> 14. <strong>Artifacts</strong>: grant one mid-wave — read the tooltip in the ✦ bag, place it on the tower, move it with the mover, double-click back to the bag. Mention the brick-break risk (wall = close to the action, top = safe).</li>
+<li><span class="pill todo">Todo</span> 15. <strong>Second wizard</strong>: hire from the TAB shop once gold allows; different wizards can take different elements (respec refunds 75%).</li>
+</ul>
+<p><strong>Block 5 — Wave 4 (~2 min): graduation</strong></p>
+<ul>
+<li><span class="pill todo">Todo</span> 16. <strong>Ultimates</strong>: buy the ultimate node in a tree, watch it get scribed into the Spellbook, cast it.</li>
+<li><span class="pill todo">Todo</span> 17. <strong>Enemy diversity</strong>: an immune/resistant enemy shows up telegraphed — resistance icons, why one damage type stops working, answer = switch what you throw.</li>
+<li><span class="pill todo">Todo</span> 18. <strong>Combo teaser</strong>: one scripted moment of Frost then Rock (the brittle oneshot) — "elements combine; go find the rest."</li>
+<li><span class="pill todo">Todo</span> 19. <strong>Wrap-up card</strong>: "waves keep coming and grow endless, rest is for spending, good luck" → continue playing or return to menu.</li>
+</ul>
+<p><strong>Deliberately NOT taught</strong> (discovery is the fun): deep combos (oil+fire, lure stacking), enemy specials (pillbug charge, snail shells), trap-family artifacts, the balance-note key.</p>
+<h2 id="track-2-the-main-game-all-out-asap">Track 2 — The main game (all out, asap)<a class="headerlink" href="#track-2-the-main-game-all-out-asap" title="Permanent link">&para;</a></h2>
+<p>Attention spans are short. No easing in. The first minute must jingle the car keys.</p>
+<ul>
+<li><span class="pill done">Done</span> <strong>1. Kill the slow open</strong>: shorten the grace period; wave 1 spawns within seconds. Small wave, instant action. <em>(The real dead air turned out to be the 110–150 m approach march, ~80 s of walking — fixed with the </em><em>far-sprint</em><em>: enemies charge at 3× walk speed while beyond 40 m from the tower, easing to normal by 15 m. Arrival ≈ 30 s, combat at the wall unchanged, no spawn pop-in. Grace was already short at 3 s.)</em></li>
+<li><span class="pill done">Done</span> <strong>2. The opening choice (the VS moment)</strong>: after the first handful of kills (~20-30 seconds in), the game PRESENTS a <strong>3-card choice</strong>. DECIDED 2026-07-22: the cards are <strong>3 artifacts, not elements</strong> — all six elements stay open in the main game, and your first build-defining pick is an artifact. This is the "here's who you are this run" moment. (Realized via the wave-1 artifact draft in step 3.)</li>
+<li><span class="pill done">Done</span> <strong>3. The artifact DRAFT</strong>: ~~end-of-wave-1 only~~ — upgraded to <strong>after EVERY wave</strong> (decided 2026-07-21: the recurring draft IS the meta-loop, leaning into artifacts as the game's build identity). Three cards slam centre-screen (<code>CardPick</code>, reusable BOOM component: slow-mo 5%, dark vignette, punch-in cards, hover grow, pick pops + losers fade), player picks 1 into the bag. Wave 1 always offers the Coin Maker; duplicates welcome (stacking + hoard-of-many philosophy). Replaced the fixed Coin Maker grant.</li>
+<li><span class="pill todo">Todo</span> <strong>4. Telegraph upgrades loudly</strong>: flashing/glowing shop entry points when gold sits unspent, arrows/highlights on first-time surfaces, a rest-phase nudge line ("Spend your gold: TAB for tower, W for wizards"). Flash until first use, subtle after.</li>
+<li><span class="pill wip">WIP</span> <strong>5. Make early choices HIT</strong>: first upgrade tiers cheap and dramatic (big visible deltas, not +1 increments) so every pick visibly changes the run. Re-tune waves 1–5 for pressure — they were paced around the old tutorial drip.</li>
+<li><span class="pill todo">Todo</span> <strong>6. Re-check the system reveal order</strong>: with the tutorial gone, decide what the first 3 waves EXPOSE (spellbook already hides unearned spells; artifacts arrive end of wave 1 as the choice moment; TAB tree = telegraphed by the gold nudge). Rule of thumb: a player who ignores a system should still feel good for three waves.</li>
+</ul>
+<h2 id="open-decisions-along-the-way">Open decisions along the way<a class="headerlink" href="#open-decisions-along-the-way" title="Permanent link">&para;</a></h2>
+<ul>
+<li>~~Does the opening 3-card choice offer 3 random elements of the 6, or a fixed starter trio (Rock always included)?~~ <strong>DECIDED 2026-07-22: neither — the opening choice offers 3 ARTIFACTS, not elements. All six elements stay open in the main game.</strong></li>
+<li>~~Does the relic choice repeat or stay a wave-1 moment?~~ <strong>DECIDED 2026-07-21: it repeats after EVERY wave — the draft is the meta-loop.</strong></li>
+<li><strong>Do artifact UPGRADES ever join the draft cards</strong> (e.g. "Coin Maker II" as a card)? Current lean: <strong>no</strong> — the game is about hoarding, many artifacts beats few-but-powerful (Cap7n 2026-07-21). Parked here in case the late-game draft needs more depth.</li>
+<li>What happens to the rock-first gate philosophy (cheap reliable baseline) — folded into the card copy ("Rock: the reliable one")?</li>
+<li>Wave 1 tuning: how many enemies before the element choice interrupts?</li>
+</ul>
+<h2 id="status-log">Status log<a class="headerlink" href="#status-log" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>2026-07-19</strong> — page created; feedback recorded in the <a href="../backlog/">Backlog</a> (fellow-dev section).</li>
+<li><strong>2026-07-20 (1 AM)</strong> — Track 1 steps 1+2 DONE: tutorial_level.tscn duplicated (1:1, own uid pending editor save) + a Tutorial button on the start menu under Play (code-built, sets Globals.tutorial_run and loads the tutorial level). The TutorialDirector still runs in BOTH modes until step 3 strips the main game.</li>
+<li><strong>2026-07-20 (1:30 AM)</strong> — Track 1 step 3 DONE: the guided intro runs ONLY in tutorial runs (Globals.tutorial_run gates _maybe_begin); the ROCK-FIRST ELEMENT GATE is tutorial-only too — the main game opens all six elements immediately (the interim all-out state until Track 2's 3-card opening pick). Telegraphs (flare, windrose, conjure circles, W-reach hint, repair labels) untouched — they are gameplay, not tutorial.</li>
+<li><strong>2026-07-21 (later still)</strong> — <strong>THE DRAFT landed</strong> (Track 2 step 3, upgraded in scope): built the reusable <strong>CardPick</strong> BOOM component (autoload, centre-screen 3-card chooser, slow-mo + punch-in + pick animation, no skip button — choosing IS the game) and wired the <strong>after-every-wave artifact draft</strong> through it (ArtifactInventory on <code>wave_completed</code>; wave 1 always offers the Coin Maker; fixed grant removed). The opening ELEMENT pick (step 2) can now reuse CardPick as-is. Headless-verified end to end (present, pick, callback, time-scale restore, wave-1 offer contents, grant-on-pick).</li>
+<li><strong>2026-07-21 (later)</strong> — <strong>THE CANNON landed</strong> (the floated right-click idea from the same chat, built same day): right-click is now <strong>hold = arm / release = fire</strong>. Arming magically pulls the item out of the cart (higher + forward, hovers in the bubble, leans toward your aim; <code>arm_time_mult</code> = the future reload-speed upgrade hook); release fires a <strong>flat cannon shot</strong> (<code>throw_shot_speed</code> 30 m/s, the old lob-up deleted, small residual arc kept on purpose). The old 60° arc gate is <strong>deleted</strong> — replaced by a <strong>magical trajectory line</strong> (only while arming) that traces the real flight path, purple = clear, cut + red where it would strike the tower, and it's <strong>advisory only</strong>: the player reads it and risks the shot (item hitboxes vary; a bad shot bonks the wall, honest physics). Cancel = release over tower/sky, item returns to the bin. "VFX for aim line" backlogged. Per-element impact identities (drop = damage, shot = impact; rock pushback first) = the agreed next step for "make choices HIT".</li>
+<li><strong>2026-07-21</strong> — Track 1 steps 4+5 (tutorial refinement) <strong>PARKED</strong> until the main game settles — more systems are coming, and the tutorial level gets re-copied from level_1 afterwards anyway. Track 2 <strong>pacing pass landed</strong>: the far-sprint (step 1 above); <strong>gold now scales with enemy HP</strong> (1 HP = 1 g, +2 g per HP up to 4 HP, +3 g per HP from 5: 1/3/5/7/10/13… a 15-HP capped spider pays 40 g — big kills rain physical coins, wave 1 stays 1 g fodder); <strong>Enter = 0.5 s blink telegraph</strong> (asked-for waves start near-instantly; normal/auto waves keep the full 4 s flare announce); <strong>Auto next defaults ON</strong> (saved cfg choice still wins); <strong>Coin Maker halved</strong> to a coin per 2.5 s. Decisions from the same chat: prices stay where they are (income is the lever, hoarding gold is part of the game); waves 1–3 keep their drip until a post-buff tuning pass; the 3-card choice uses the proven card pattern, no reinvention. Floated, not yet decided: right-click becomes an element CANNON shot (aimed = impact identity per element, e.g. rock pushback) replacing the plain throw.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../tech/solutions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Technical Solutions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Technical Solutions
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../backlog/" class="md-footer__link md-footer__link--next" aria-label="Next: Backlog">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Backlog
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

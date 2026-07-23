@@ -1,0 +1,1877 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Design wiki and single point of truth for TowerDrop, a stylized tower-defense game built in Godot.">
+      
+      
+      
+        <link rel="canonical" href="https://cap7n.github.io/towerdrop-docs/project/vfx-checklist/">
+      
+      
+        <link rel="prev" href="../backlog-ui/">
+      
+      
+        <link rel="next" href="../vfx-pack-catalog/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>VFX Checklist - TowerDrop Design Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vfx-checklist" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-header__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TowerDrop Design Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VFX Checklist
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-nav__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TowerDrop Design Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Pillars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wave Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/tower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Tower & Base Defenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items & Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/enemies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enemies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/economy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy & Gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/combat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat, Status & Feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/ultimates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ultimates & Spellbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/atmosphere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atmosphere & VFX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifacts & Relics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifact-catalogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifact Catalogue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/art-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art Direction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asset Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine & Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ Revamp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2D / UI Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Checklist
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elements-the-six-wizards-their-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elements (the six wizards + their items)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wizard-summons-casts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wizard summons &amp; casts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#artifacts-the-turret-hang-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifacts (the turret / hang family)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combat-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combat feedback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ultimates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ultimates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#world-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        World &amp; waves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-menus-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI, menus &amp; meta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-for-us-leave-in-the-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not for us (leave in the box)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-pack-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Pack Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steam-store-assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steam Store Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap & Priorities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Edit This Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elements-the-six-wizards-their-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elements (the six wizards + their items)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wizard-summons-casts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wizard summons &amp; casts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#artifacts-the-turret-hang-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifacts (the turret / hang family)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combat-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combat feedback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ultimates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ultimates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#world-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        World &amp; waves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-menus-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI, menus &amp; meta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-for-us-leave-in-the-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not for us (leave in the box)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/cap7n/towerdrop-docs/edit/main/docs/project/vfx-checklist.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="vfx-checklist">VFX Checklist<a class="headerlink" href="#vfx-checklist" title="Permanent link">&para;</a></h1>
+<p>What visual effects the game <strong>needs</strong>, what it already <strong>has</strong>, and which <strong>pack effect</strong> fills the gap.</p>
+<p>The two <strong>Binbun Effects Collections</strong> (Vol.1 = 20 kits, Vol.2 = 9 packs, all <strong>CC0</strong>, native Godot) are staged unpacked at <code>Tower-Cart-Game-Claude\AssetPacks\</code>. Adopt a whole kit at a time into <code>res://assets/BinbunVFX[_Vol2]/&lt;kit&gt;/</code> so its internal paths hold, then instance the specific effect scenes.</p>
+<p><strong>Legend:</strong> <span class="pill done">Have</span> already in game · <span class="pill wip">Partial</span> exists but code-built / placeholder · <span class="pill todo">Need</span> no VFX yet · <span class="pill idea">Nice</span> optional polish.</p>
+<hr />
+<h2 id="elements-the-six-wizards-their-items">Elements (the six wizards + their items)<a class="headerlink" href="#elements-the-six-wizards-their-items" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Status</th>
+<th>Pack effect to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rock</strong> impact on hit</td>
+<td><span class="pill done">Have</span> ImpactVFX <code>vfx_impact_01/03/05</code> (random) on thrown-rock hits</td>
+<td><code>Vfx.spawn_pack_impact</code> (vfx.gd), called from <code>rock_effect._hit_and_scatter</code>; pack at <code>res://assets/BinbunVFX/impact_explosions/</code>; recolored + auto-freed + material-localized</td>
+</tr>
+<tr>
+<td><strong>Fire</strong> on enemy body</td>
+<td><span class="pill done">Have</span> hand-built spider fire</td>
+<td>keep; <code>FlameFX</code> has cold/green/purple/void tints if other fires ever want a colour</td>
+</tr>
+<tr>
+<td><strong>Fire</strong> ground patch</td>
+<td><span class="pill done">Have</span> FireVFX <code>fire_area_01</code> on the burning patch</td>
+<td>wired in <code>fire_effect.gd::_attach_flame_visual</code> (<code>PATCH_FIRE</code> + <code>FIRE_SCALE</code> knobs); pack adopted to <code>res://assets/BinbunVFX/fire_effects/</code></td>
+</tr>
+<tr>
+<td><strong>Electric</strong> chain lightning</td>
+<td><span class="pill wip">Partial</span> code-built arcs</td>
+<td><code>ElectricFX/vfx_zap_lightning_*</code> (built for arc-to-arc), <code>vfx_impact_lightning_*</code> on the strike</td>
+</tr>
+<tr>
+<td><strong>Poison</strong> cloud / spreading death</td>
+<td><span class="pill done">Have</span> PoisonVFX <code>poison_cloud_vfx_01</code> on the spreading-death burst</td>
+<td><code>Vfx.spawn_poison_cloud</code> (vfx.gd), called from <code>enemy._maybe_spread_death</code>; reusable for pools/other. Pack at <code>res://assets/BinbunVFX/poison_effects/</code> (also has <code>poison_puddle_*</code>, <code>stink_*</code>, <code>poison_bubble_*</code> for slime/pools)</td>
+</tr>
+<tr>
+<td><strong>Frost</strong> freeze / shatter</td>
+<td><span class="pill wip">Partial</span> ice crust coat (custom)</td>
+<td><code>IceVFX/ice_shard_*</code> on freeze-shatter, <code>ice_mist_*</code> aura; <code>StatusFX/vfx_status_ice</code></td>
+</tr>
+<tr>
+<td><strong>Lure</strong> beacon pull</td>
+<td><span class="pill todo">Need</span></td>
+<td><code>MagicAreaVFX/pulse_area_*</code> or <code>rim_area_*</code> (a pulsing ground ring = the pull radius)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wizard-summons-casts">Wizard summons &amp; casts<a class="headerlink" href="#wizard-summons-casts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Status</th>
+<th>Pack effect to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Conjure ring</strong> under the summoned item</td>
+<td><span class="pill done">Have</span> PortalVFX ring, recolored per element</td>
+<td>replaced the barely-visible quad rune in <code>goblin_shop.gd</code>; pack at <code>res://assets/BinbunVFX/portal_vfx/</code>. Size/orientation knobs in <code>_make_conjure_circle</code></td>
+</tr>
+<tr>
+<td>Wizard <strong>cast</strong> flash</td>
+<td><span class="pill todo">Need</span></td>
+<td><code>ElementalMagicFX/vfx_&lt;elem&gt;_cast_*</code> (fire/electric/water/nature), <code>MuzzleFlashVFX</code></td>
+</tr>
+<tr>
+<td>Summoned <strong>projectile</strong></td>
+<td><span class="pill todo">Need</span></td>
+<td><code>MagicProjectiles/mprojectile_basic_*</code> + <code>_javelin_*</code>; <code>ElementalMagicFX/vfx_&lt;elem&gt;_projectile_*</code></td>
+</tr>
+<tr>
+<td>Conjured item <strong>spawn orb</strong></td>
+<td><span class="pill idea">Nice</span></td>
+<td><code>MagicOrbsVFX/magic_orb_*</code> (the parked "distortion-ball around the conjured item" idea)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="artifacts-the-turret-hang-family">Artifacts (the turret / hang family)<a class="headerlink" href="#artifacts-the-turret-hang-family" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Status</th>
+<th>Pack effect to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Beam</strong> artifacts (slow beam)</td>
+<td><span class="pill done">Have</span> BeamVFX <code>laser_vfx_01</code> wired in, recolored per element</td>
+<td>first pack <strong>adopted into the game</strong> (<code>res://assets/BinbunVFX/beam_vfx/</code>); <code>artifact_laser.gd</code> drives it via <code>end_point</code> + runtime <code>beam_color</code>; six <code>element:beam</code> placeholder artifacts in the catalogue (rock/fire/electric/poison/frost/lure), all slow for now</td>
+</tr>
+<tr>
+<td><strong>Dart Spitter</strong> projectile</td>
+<td><span class="pill wip">Partial</span></td>
+<td><code>PoisonVFX</code> dart + <code>MagicProjectiles/mprojectile_basic_*</code></td>
+</tr>
+<tr>
+<td><strong>Artifact drop / pickup</strong> shine</td>
+<td><span class="pill todo">Need</span> (drops are visually mute)</td>
+<td><code>LootVFX</code> — rarity-tiered common→mythic, so relic tiers can read at a glance; <code>ground_loot_vfx_*</code> on the ground pickup</td>
+</tr>
+<tr>
+<td><strong>Crest Shield</strong> mount glint</td>
+<td><span class="pill idea">Nice</span></td>
+<td><code>BattleFX/vfx_*_shield_*</code> (a shield-flash on hang or when it soaks a hit)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="combat-feedback">Combat feedback<a class="headerlink" href="#combat-feedback" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Status</th>
+<th>Pack effect to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enemy <strong>hit</strong> spark</td>
+<td><span class="pill wip">Partial</span> body hit-flash only</td>
+<td><code>HitFX/vfx_hit_*</code>, <code>vfx_strike_*</code> (small, per-hit)</td>
+</tr>
+<tr>
+<td>Big / killing blow</td>
+<td><span class="pill todo">Need</span></td>
+<td><code>HitFX/vfx_big_impact_*</code></td>
+</tr>
+<tr>
+<td><strong>Explosive item</strong> blast (explosive rock, molotov)</td>
+<td><span class="pill todo">Need</span></td>
+<td><code>ExplosionFX/vfx_burst_*</code>, <code>vfx_ground_explosion_*</code>; <code>ImpactVFX/vfx_explosion_*</code></td>
+</tr>
+<tr>
+<td><strong>Immunity / resistance</strong> aura on enemy</td>
+<td><span class="pill done">Have</span> StatusFX <code>vfx_status_glow</code>, recolored to the resisted element</td>
+<td>wired in <code>enemy.gd</code> <code>set_immunity</code> / <code>set_pure_shield</code> (shows the resist colour); pack at <code>res://assets/BinbunVFX_Vol2/StatusFX/</code>. <code>RESIST_AURA</code> swaps the variant</td>
+</tr>
+<tr>
+<td><strong>Status active</strong> aura (poisoned / frozen / burning)</td>
+<td><span class="pill todo">Need</span></td>
+<td><code>StatusFX/vfx_status_poison</code> · <code>_ice</code> · <code>_flame</code> — same pattern, plug into StatusDB apply/clear</td>
+</tr>
+<tr>
+<td>Death <strong>smoke / dust</strong></td>
+<td><span class="pill idea">Nice</span></td>
+<td><code>SmokeVFX/smoke_thin_*</code>, <code>smoke_big_*</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ultimates">Ultimates<a class="headerlink" href="#ultimates" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Status</th>
+<th>Pack effect to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oil / Frost / Slime tower coats</td>
+<td><span class="pill done">Have</span> custom fluid system</td>
+<td>keep</td>
+</tr>
+<tr>
+<td><strong>Meteor shower</strong> (planned rock ult)</td>
+<td><span class="pill todo">Need</span></td>
+<td><code>FireVFX/fire_ball_*</code> falling + <code>ExplosionFX/vfx_ground_explosion_*</code> on landing</td>
+</tr>
+<tr>
+<td>Cast <strong>telegraph</strong> on ultimate fire</td>
+<td><span class="pill idea">Nice</span></td>
+<td><code>MagicAreaVFX/pillar_area_*</code>, <code>ElementalMagicFX/vfx_&lt;elem&gt;_area_*</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="world-waves">World &amp; waves<a class="headerlink" href="#world-waves" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Status</th>
+<th>Pack effect to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wave <strong>signal flare</strong> telegraph</td>
+<td><span class="pill done">Have</span> code-built firework</td>
+<td>keep (externalize to a scene is a separate 3D-backlog task)</td>
+</tr>
+<tr>
+<td>Enemy <strong>spawn</strong> from the sector</td>
+<td><span class="pill idea">Nice</span></td>
+<td><code>PortalVFX/portal_vfx_*</code> — enemies emerging from a portal would sell the directional-wave sector</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ui-menus-meta">UI, menus &amp; meta<a class="headerlink" href="#ui-menus-meta" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Status</th>
+<th>Pack effect to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>3-card draft / element pick</strong> juice</td>
+<td><span class="pill todo">Need</span></td>
+<td><code>CardFX</code> — purpose-built for card reveals; pairs with the revamp's slam-in cards</td>
+</tr>
+<tr>
+<td>Menu → game <strong>screen wipe</strong></td>
+<td><span class="pill todo">Need</span></td>
+<td><code>Transitions</code> kit</td>
+</tr>
+<tr>
+<td>Shop / spellbook <strong>panel treatment</strong></td>
+<td><span class="pill idea">Nice</span></td>
+<td><code>GlassUI</code>, <code>FrostedGlassFX</code>, <code>HologramFX</code></td>
+</tr>
+<tr>
+<td><strong>Sky</strong> (mood backdrop)</td>
+<td><span class="pill done">Have</span> <code>TD_Sky_01</code> (our copy of stylized_cloudy_01), all pack features on</td>
+<td>wired in <code>day_night_cycle.gd</code> (<code>SKY_OVERRIDE</code>, null = old procedural). Feature status: sun-follow ✓ (sun drives the shader, moon <code>SKY_MODE_LIGHT_ONLY</code>), seamless day/sunset/night + stars ✓ (shader-side), cloud <strong>parallax ✓ enabled in the TD copy</strong> (<code>cloud_depth 2.0</code>, the pack preset shipped it off). ALL knobs (6 sky colours, clouds, stars, sun disc) on <code>res://assets/BinbunSky/src/material/TD_sky_material_01.tres</code> — tune freely, it's ours. Pack at <code>res://assets/BinbunSky/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="not-for-us-leave-in-the-box">Not for us (leave in the box)<a class="headerlink" href="#not-for-us-leave-in-the-box" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>UltimateToonShader</strong> — outline-based toon look; conflicts with the <a href="../../tech/art-direction/">no-outlines rule</a>.</li>
+<li><strong>Grass</strong>, <strong>Water</strong> — grass is already Quaternius (settled after a whole saga); no water body in the game yet.</li>
+<li><strong>DarkMagicFX</strong> (void/evil), <strong>MagicOrbs huge/nuke</strong> — no dark/void theme; hold unless a boss or corruption enemy appears.</li>
+</ul>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">How to pull one in</p>
+<p>Copy the whole kit folder into <code>res://assets/…</code>, let Godot import, open the kit's <code>*_full</code> / <code>*_scene</code> demo to preview every effect, then instance the specific <code>vfx_*.tscn</code> you want as a child of the thing it decorates (or spawn it via the <code>Vfx</code> autoload for one-shots). Start with the ones Cap7n called out: <strong>BeamVFX → Laser Lens</strong>, <strong>FireVFX → fire item</strong>, <strong>StatusFX → status auras</strong>, <strong>LootVFX → artifact drops</strong>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../backlog-ui/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2D / UI Backlog">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2D / UI Backlog
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../vfx-pack-catalog/" class="md-footer__link md-footer__link--next" aria-label="Next: VFX Pack Catalog">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                VFX Pack Catalog
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
