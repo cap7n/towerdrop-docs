@@ -23,10 +23,10 @@ The passives use the placeholder **0.5³ cube** tinted the artifact's colour; th
 
 - `Items/Scenes/tower_artifact.tscn` + `TowerArtifact` (`Items/Scripts/tower_artifact.gd`); pick colliders live on collision layer 8 **ArtifactPick**.
 - `WaveManager.wave_completed` (emitted on entering REST) drives the after-wave draft (`ArtifactInventory._on_wave_completed` builds the 3-card offer and calls `CardPick.present`); `CoinSpawner.spawn_bonus_coin(pos)` is the single-coin payout.
-- Catalogue + placement + bag state all live in the `ArtifactInventory` autoload; the run's collected state still resets on game over, but meta-persistence is now DECIDED (2026-07-24): artifact **unlocks** are gated behind a per-profile meta layer (playtime / achievements / artifact shards) stored in `meta.json` — see the per-profile save plan in the [Backlog](../project/backlog.md).
+- Catalogue + placement + bag state all live in the `ArtifactInventory` autoload; the run's collected state still resets on game over, but artifact **unlocks** persist per profile and are LIVE (2026-07-25): the after-wave draft, kill drops and the debug grant all filter through `Achievements.is_artifact_unlocked()` — an artifact is locked iff an achievement rewards it and isn't earned yet (Sharp Edge + Thick Bark are the first two gated ids). Playtime + shard unlock routes still to come; see Meta-progression in the [Backlog](../project/backlog.md).
 
 !!! warning "Still open"
-    Trap-type effects (the actual reason the family exists), real relic models, a pretty mover cursor, placement slots/limits, and the artifact-shard earn source (drops? wave-clear bonus? game-over conversion?). Cross-run persistence itself is settled — unlocks persist per profile via the meta layer. See the [Backlog](../project/backlog.md).
+    Trap-type effects (the actual reason the family exists), real relic models, a pretty mover cursor, placement slots/limits, and the artifact-shard earn source (drops? wave-clear bonus? game-over conversion?). The achievements unlock route is BUILT (2026-07-25); the playtime + shard routes are still open. See the [Backlog](../project/backlog.md).
 
 ## Related
 

@@ -16,7 +16,7 @@ Goal: a stable, understandable build that's beatable to ~wave 10.
 
 - <span class="pill done">Done</span> Bake the ProtonScatter foliage in `level_1` and `menu_world` (kills load-time pop-in); set `force_rebuild_on_load = false`.
 - <span class="pill done">Done</span> Disable the snail wave-1 test hook (wave 1 = spiders via curated list; pillbugs W6, snails W8).
-- <span class="pill wip">WIP</span> **→ 0.10** Cheat keys → **DEBUG SANDBOX panel** (F4 opens a button panel instead of dumping gold). `DEBUG_TOOLS` kept ON for testers deliberately. Fold remaining raw keys into the panel before a wider build.
+- <span class="pill done">Done</span> **→ 0.10** Cheat keys → **DEBUG SANDBOX panel** (F4 opens a button panel instead of dumping gold). `DEBUG_TOOLS` kept ON for testers deliberately. Last raw key folded 2026-07-25: the hold-F3 coin pour became the panel's Gold buttons — they pour REAL RigidBody coins (`CoinSpawner.pour_coins()`, counter follows on pile absorb), not a bare number (Yaro's call). *(The tower-ultimate letter keys O/L/I/P are gameplay controls, not cheats.)*
 - <span class="pill done">Done</span> Kill debug overlays + `Globals.DEBUG` console spam (only the BalanceLogger per-wave line prints).
 - <span class="pill done">Done</span> **→ 0.10** Exclude test scenes (`vfx_bench`, `enemy_bench`, `cart_test`) from the player flow — confirmed 2026-07-24: the Windows export preset's Resources tab excludes `_Archive/*, *vfx_bench*, *enemy_bench*, *cart_test*`.
 - <span class="pill done">Done</span> Visible version/build label on the menu ("Tower Drop" + version string). Bump per build.
@@ -42,11 +42,11 @@ Goal: a stable, understandable build that's beatable to ~wave 10.
 ### Tier 3: game shell (mostly exists, verify + fill gaps)
 
 - <span class="pill done">Done</span> Start menu, pause menu, game-over, export preset exist → verify end-to-end.
-- <span class="pill done">Done</span> Title screen rebuilt: live 3D backdrop (cart orbits tower) + button column + day/night + fog. Settings/Compendium/Profiles buttons are stubs.
+- <span class="pill done">Done</span> Title screen rebuilt: live 3D backdrop (cart orbits tower) + button column + day/night + fog. Settings/Profiles/Compendium all live (Compendium = achievements + unlocks, 2026-07-25).
 - <span class="pill todo">Todo</span> **→ 0.16** Menu fog still looks a bit weird: revisit `menu_atmosphere` fog tuning.
 - <span class="pill done">Done</span> Bake the menu scatter (same as level_1) so the menu loads instant.
 - <span class="pill parked">Parked</span> **Win / summary state** — decided 2026-07-19: NO win condition, runs stay endless. A run-summary screen is still wanted someday; parked as an [open question in Decisions](decisions.md).
-- <span class="pill todo">Todo</span> **→ 0.10** Clean **restart** after game-over without relaunching.
+- <span class="pill done">Done</span> **→ 0.10** Clean **restart** after game-over without relaunching — closed 2026-07-25, no repro across the 0.10 cycle (see Known bug watch).
 - <span class="pill done">Done</span> **Settings** — DONE (2026-07-16): music/sound volume (real audio buses), fullscreen, windowed resolution; persists to `user://settings.cfg`; reachable from the start AND pause menus.
 - <span class="pill wip">WIP</span> **→ 0.18** Tester feedback channel: in-game note (press C) exists; still want a Discord/report link visible.
 
@@ -63,7 +63,8 @@ Goal: a stable, understandable build that's beatable to ~wave 10.
 ## Meta-progression
 
 - <span class="pill todo">Todo</span> **→ 0.11** **Meta-progression is a MUST** — the game needs a persistent meta layer across runs (right now everything resets on game over). Must-have, not a maybe. Settles the long-standing "do relics persist across runs?" question in favour of persistence.
-- <span class="pill todo">Todo</span> **→ 0.11** **Meta unlock of artifacts** — artifacts unlock progressively through meta-progression: start with a small pool and unlock more of the [catalogue](../systems/artifact-catalogue.md) across runs (the meta reward loop). The UNLOCK persists between runs; the per-run draft still draws from your unlocked pool. **Unlock routes decided (2026-07-24, Yaro)** — three, all per-profile, banked in the save system's `meta.json` (see the per-profile save plan under Bigger features): 1. **Playtime** — total hours on the profile crosses thresholds. 2. **Achievements** — milestone unlocks (needs a small tracker; existing signals like `kill_recorded`, `wave_started`, gold/HP already carry the data). 3. **Artifact shards** — a spendable meta currency; the SOURCE is still an open design question (candidates: elite/carrier drops, wave-clear bonus, game-over conversion of the run's collected artifacts).
+- <span class="pill wip">WIP</span> **→ 0.11** **Meta unlock of artifacts** — artifacts unlock progressively through meta-progression: start with a small pool and unlock more of the [catalogue](../systems/artifact-catalogue.md) across runs (the meta reward loop). The UNLOCK persists between runs; the per-run draft still draws from your unlocked pool. **Unlock routes decided (2026-07-24, Yaro)** — three, all per-profile, banked in the save system's `meta.json` (see the per-profile save plan under Bigger features): 1. **Playtime** — total hours on the profile crosses thresholds. 2. **Achievements** — milestone unlocks. 3. **Artifact shards** — a spendable meta currency; the SOURCE is still an open design question (candidates: elite/carrier drops, wave-clear bonus, game-over conversion of the run's collected artifacts).
+    - <span class="pill done">Done</span> **Route 2 BUILT (2026-07-25): Achievements tracker v1** — `Achievements` autoload (registered just before SaveSystem). Anti-spaghetti shape: gameplay reports bare FACTS one line per call site (`bump` / `raise_to` / `bump_item_dropped` — hooks: the cart's two spawn funnels `_spawn_dropped`+`_launch_ballistic` (Meteor Shower bypasses the cart, so no farming), the repair click, WaveManager's `wave_completed`/`kill_recorded`); the `DEFS` data table turns stats into unlocks — a new achievement is a new row. Stats + earned ids live in `meta.json` (stats flush with the playtime flush; an unlock saves to disk instantly). **Gating is def-based:** an artifact is locked iff a DEFS row rewards it and isn't earned — no starting-pool seeding, no profile migration; the after-wave draft, kill drops AND the debug grant all filter through `Achievements.is_artifact_unlocked()` (earned ids bank into `artifacts_unlocked`, ready for the playtime/shard routes to append too). V1 rows (names = placeholders, Yaro will rename): drop rocks → **Sharp Edge**, repair bricks → **Thick Bark** (both goal 10 for TESTING, flip to 100 for real builds), survive 10 waves, defeat 100 enemies (rewardless rows are fine). Unlock feedback = a **Steam-style popup card** sliding in under the gold readout (queued so simultaneous unlocks play one after another; `skill_unlock` sfx; the stand-in until real Steam achievements); profile cards show "Achievements n / total". **Compendium screen v1 (same day, Yaro's layout call):** FULL-SCREEN, wiki-style — page list down the left, content right. Four pages: **Achievements** (live "n / goal" → Done rows, reward line in the artifact's colour), **Artifacts** (whole catalogue, coloured when unlocked / "Locked: <achievement>" when gated), **Bestiary** (Spider/Pillbug/Snail blurbs + LIFETIME kills per creature — Achievements now banks `kills_<type>` per kill), **Spells** (the UltimateBook catalogue: desc + "Learned in the <element> tree"; wip spells read "Not in the game yet"). New page = a PAGES row + a `_page_*` builder. Start-menu button live (ex-stub). **Wanted next (Yaro 2026-07-25): ultimates also gated by achievements** — the DEFS reward field is data, so an `"ultimate"` key + a check at the spellbook gate is the plan.
 
 ## Tower ultimates
 
@@ -166,7 +167,7 @@ Three points, really one arc: new players spend their attention decoding systems
 - <span class="pill done">Done</span> **Hold-to-pour should stop on release** — DONE (2026-07-17): releasing SPACE mid-pour ends the stream; the rest stays in the bin. Tap = one, hold = pour-while-held.
 - <span class="pill done">Done</span> **Click-outside-to-close menus** — DONE (2026-07-19), scoped by Cap7n to the ESC/pause menu + the F4 cheat panel (not the wizard trees): clicking the world outside either closes it.
 - <span class="pill done">Done</span> **F4 debug panel overlaps the inventory UI** — DONE (2026-07-19): moved right of the inventory column and raised.
-- <span class="pill todo">Todo</span> **→ 0.10** **"Can I save my progress?"** — decide: mid-run save, or an in-game hint that runs are one-shot.
+- <span class="pill done">Done</span> **→ 0.10** **"Can I save my progress?"** — answered by the save system (2026-07-24): REST-checkpoint saves + menu Continue per profile.
 - **Idea pile** (curate): water element · wizard idle/flavor animations · intro/milestone cutscenes · wizard-slot counts as difficulty (hard = 3 slots) · ultimates pricier as the run progresses · biomes/levels · skins for wizards/mobs/cart · chicken mob · **ranged mobs that shoot up at the tower** · achievements that unlock things · surprise chests · flag leagues/clans · **music intensifies as waves ramp** · cherry blossom trees.
 
 ## From playtest (2026-07-12, Cap7n)
@@ -230,7 +231,7 @@ Three points, really one arc: new players spend their attention decoding systems
 
 ## Known bug watch
 
-- <span class="pill wip">WIP</span> **→ 0.15** Restart-run crash (build-only, doesn't repro in editor). Crash logging added (`user://logs/godot.log` bundled into `balance_logs/engine_logs/`); waiting on a captured crash log.
+- <span class="pill done">Done</span> Restart-run crash (build-only, never reproduced in editor) — CLOSED 2026-07-25: no repro across the entire 0.10 cycle's churn, treated as a long-gone edge case. Crash logging stays (`user://logs/godot.log` bundled into `balance_logs/engine_logs/`) should it ever resurface.
 - <span class="pill todo">Todo</span> **→ 0.15** Game file size + lag pass (overlaps Perf Phase 0).
 
 ## Ship prep (before any public launch)

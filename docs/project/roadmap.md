@@ -19,23 +19,24 @@ Decided 2026-07-24 (Yaro):
 
 Each milestone names its theme, its goal, and the backlog items that define "done". Within any milestone the [pillars](../pillars.md) tie-breaker applies: **base-game fun and feel first**. Every bullet + the milestone heading itself carries a status pill (mirrors the [Backlog](backlog.md)'s system): <span class="pill done">Done</span> shipped · <span class="pill wip">WIP</span> in progress · <span class="pill todo">Todo</span> not started · <span class="pill idea">Idea</span> undecided. A milestone's own pill is the roll-up of its bullets — Done only once everything under it is.
 
-### 0.10 — A game you can put down <span class="pill wip">WIP</span>
+### 0.10 — A game you can put down <span class="pill done">Done</span> *(closed 2026-07-25)*
 
 *The "left prototype" build: runs persist, the build is clean.*
 
 - <span class="pill done">Done</span> **Save system v1, per profile** — the full plan lives in the [Backlog](backlog.md) (Bigger features): REST-checkpoint saves (only when the field is clear — no enemy presence), `SaveSystem` autoload, named profile slots (`user://profiles/`), menu **Continue**, game-over deletes the run file. The Profiles button stops being a stub. **BUILT 2026-07-24, both phases** — profile layer (SaveSystem autoload + three-card Profiles screen + playtime banking) AND the run checkpoint (REST field-clear saves, full state gather/apply, menu Continue per profile, coin-pile reseed). Details in the Backlog entry.
-- <span class="pill todo">Todo</span> Clean **restart after game-over** without relaunching (also chases the build-only restart crash — see Known bug watch).
-- <span class="pill wip">WIP</span> Build hygiene leftovers: cheat keys folded into the F4 sandbox (done, a few raw keys remain) · test scenes confirmed excluded from exports (done 2026-07-24).
-- <span class="pill wip">WIP</span> First build stamped + tagged per the versioning rules above — `config/version` + the export preset's File/Product Version fields are set to `0.10` (2026-07-24); the git tag `v0.10` still waits on an actual release cut.
+- <span class="pill done">Done</span> Clean **restart after game-over** without relaunching — CLOSED 2026-07-25 (Yaro's call): no repro across the whole 0.10 cycle's heavy churn; the old build-only crash is treated as a long-gone edge case. Crash logging stays in place in case it ever resurfaces.
+- <span class="pill done">Done</span> Build hygiene leftovers: cheat keys folded into the F4 sandbox — the LAST raw key (hold-F3 coin pour) folded 2026-07-25: the panel's Gold buttons now pour REAL RigidBody coins onto the pile (Yaro's call — the counter follows as the pile absorbs, so cheat gold behaves like earned gold; `CoinSpawner.pour_coins()`) · test scenes confirmed excluded from exports (2026-07-24).
+- <span class="pill done">Done</span> First build stamped per the versioning rules above — `config/version` + the export preset's File/Product Version fields are set to `0.10` (2026-07-24); CHANGELOG v0.10 written 2026-07-25. Remember: tag the release commit `v0.10` when the zip is actually cut.
 
-### 0.11 — The meta loop <span class="pill todo">Todo</span>
+### 0.11 — The meta loop <span class="pill wip">WIP</span>
 
 *Losing a run still moves you forward.*
 
-- <span class="pill todo">Todo</span> **Meta layer** (`meta.json`, survives game over): playtime, achievements tracker v1, artifact shards. See the Meta-progression section of the [Backlog](backlog.md). *(The `meta.json` FILE and playtime banking already exist as part of 0.10's SaveSystem — this item is the achievements tracker + shards on top.)*
-- <span class="pill todo">Todo</span> **Artifact meta-unlocks live**: the draft draws only from the profile's unlocked pool; unlock routes = playtime / achievements / shards. (`SaveSystem.is_artifact_unlocked()` exists but nothing gates through it yet — an empty table currently means everything's unlocked.)
+- <span class="pill wip">WIP</span> **Meta layer** (`meta.json`, survives game over): playtime, achievements tracker v1, artifact shards. **Achievements tracker v1 BUILT 2026-07-25** (`Achievements` autoload, data-table DEFS, popup card, full-screen Compendium — see the Meta-progression section of the [Backlog](backlog.md)); shards still open.
+- <span class="pill wip">WIP</span> **Artifact meta-unlocks live**: the draft, kill drops and debug grant all draw only from the profile's unlocked pool via `Achievements.is_artifact_unlocked()` (def-based gate, no seeding — LIVE 2026-07-25; Sharp Edge + Thick Bark are the first gated ids). The achievements route works end to end; playtime + shard routes still to build.
 - <span class="pill idea">Idea</span> **Decide the shard source** (elite drops? wave-clear bonus? game-over conversion) — the one open design call blocking this milestone.
-- <span class="pill todo">Todo</span> Profiles screen shows meta progress (playtime, shards, unlock count) — the three cards' body is reserved for exactly this (built 2026-07-24, currently empty).
+- <span class="pill wip">WIP</span> Profiles screen shows meta progress — the cards show playtime + "Achievements n / total" (2026-07-25); shards join when they exist.
+- <span class="pill todo">Todo</span> **Ultimates gated by achievements** (Yaro 2026-07-25): an `"ultimate"` reward key in the DEFS table + a check at the spellbook gate.
 
 ### 0.12 — Every system does what it says <span class="pill todo">Todo</span>
 
@@ -71,7 +72,7 @@ Each milestone names its theme, its goal, and the backlog items that define "don
 *Wave 10+ doesn't chug on a tester's machine.*
 
 - <span class="pill todo">Todo</span> **Perf Phase 0** quick wins (shadows, alloc flood, ragdoll caps — see [Performance](../tech/performance.md)); sustained-cost profiling (double tower coats / FluidField).
-- <span class="pill wip">WIP</span> **Restart-run crash** — crash logging is in place (`user://logs/godot.log` bundled into `balance_logs/engine_logs/`); still waiting on a captured crash log to diagnose from.
+- <span class="pill done">Done</span> **Restart-run crash** — CLOSED 2026-07-25: never reproduced again across the 0.10 cycle; treated as a long-gone edge case. Crash logging (`user://logs/godot.log` bundled into `balance_logs/engine_logs/`) stays in place should it resurface.
 - <span class="pill todo">Todo</span> Game file size + load-time pass.
 
 ### 0.16 — Looks & sounds (polish I) <span class="pill wip">WIP</span>
