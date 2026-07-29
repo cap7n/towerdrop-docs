@@ -62,6 +62,9 @@ Goal: a stable, understandable build that's beatable to ~wave 10.
 
 ## Meta-progression
 
+!!! tip "Stat menu for the tree"
+    Every variable in the codebase that would make a good meta skill-tree node — with its current value, its file, and how hard it is to wire — is gathered on **[Meta-Progression Stats](../systems/meta-progression-stats.md)**.
+
 - <span class="pill todo">Todo</span> **→ 0.11** **Meta-progression is a MUST** — the game needs a persistent meta layer across runs (right now everything resets on game over). Must-have, not a maybe. Settles the long-standing "do relics persist across runs?" question in favour of persistence.
 - <span class="pill wip">WIP</span> **→ 0.11** **Meta unlock of artifacts** — artifacts unlock progressively through meta-progression: start with a small pool and unlock more of the [catalogue](../systems/artifact-catalogue.md) across runs (the meta reward loop). The UNLOCK persists between runs; the per-run draft still draws from your unlocked pool. **Unlock routes decided (2026-07-24, Yaro)** — three, all per-profile, banked in the save system's `meta.json` (see the per-profile save plan under Bigger features): 1. **Playtime** — total hours on the profile crosses thresholds. 2. **Achievements** — milestone unlocks. 3. **Artifact shards** — a spendable meta currency; the SOURCE is still an open design question (candidates: elite/carrier drops, wave-clear bonus, game-over conversion of the run's collected artifacts).
     - <span class="pill done">Done</span> **Unlock TIMING settled (2026-07-25, playtest)**: unlocks apply from the **NEXT run**. `Achievements` snapshots `artifacts_unlocked` at run start into `_run_pool`; `is_artifact_in_run_pool()` gates the draft + kill drops while `is_artifact_unlocked()` stays live for the Compendium. The snapshot is saved in the run checkpoint (`artifact_pool` key), so a resumed run keeps the pool it began with rather than inheriting unlocks earned since.
