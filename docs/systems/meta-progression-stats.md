@@ -137,6 +137,7 @@ Hook is 🟢 across the board (one `DEFS` dictionary), but note **`vuln` on froz
 | **Per-type drop weight** | `DROP_STEP_BY_TYPE` | spider 1.0, pillbug/snail 3.0 | 🟢 | |
 | **Artifact unlocks** | `Achievements.is_artifact_unlocked` | 2 gated ids | 🟢 | Route 2 (achievements) is live. Routes 1 (playtime) and 3 (shards) are the ones a tree would drive. |
 | **Bag grid size** | 3×3 | 9 | 🟡 | Placement limits aren't implemented yet, so bag size is currently cosmetic. |
+| **Artifacts kept on death** | — (doesn't exist yet) | 0 | 🔴 | **Decided as a stat 2026-07-29** ([backlog](../project/backlog.md)): an upgradeable meta stat, read on the game-over screen, for how many of the run's collected artifacts carry into the next run. Level 0 = today's full wipe (`ArtifactInventory.reset_run` clears `_collected` + `_placed`). The one node here that makes a *lost* run bank something concrete. |
 | **Per-artifact values** | `value` in the `ARTIFACTS` rows | +1 gold, +5% speed, +1 rock dmg, −5% conjure, +50 HP, +10 brick HP | 🟢 | A meta node that makes *artifacts themselves* stronger is a good late tier — it scales with the hoard-of-many design rather than replacing it. |
 
 ## I. The difficulty side (inverse knobs)
@@ -203,7 +204,7 @@ Everything below is 🟢 — no new plumbing, all one-liners against existing fi
 
 ## Open questions this list surfaces
 
-1. **What does the meta tree spend?** `shards` exists in `meta.json` with no earn source ([Backlog](../project/backlog.md) candidates: elite/carrier drops, wave-clear bonus, game-over conversion). Nothing else here can be designed until that's answered.
+1. **What does the meta tree spend?** `shards` exists in `meta.json` with no earn source ([Backlog](../project/backlog.md) candidates: elite/carrier drops, wave-clear bonus, game-over conversion). Nothing else here can be designed until that's answered. ⚠️ Note the **keep-artifacts stat above competes with the conversion candidate** — both cash in the artifacts you died holding.
 2. **Additive-to-base or final multiplier?** See the double-dip rule above. Needs one project-wide answer, not a per-node one.
 3. **Does meta touch difficulty at all**, or is it strictly player-side? (Section I.)
 4. **Is `arm_time_mult` the template?** It's the only field in the game already sitting there waiting for an upgrade to write to it. If meta bonuses all landed as `*_mult` fields owned by the systems themselves, wiring would stay a one-liner per node forever.
