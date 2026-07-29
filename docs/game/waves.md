@@ -19,10 +19,11 @@ Enemies spawn 110–150 m out, which used to mean **~80 seconds of dead walking*
 
 Enemy toughness scales with **run time**, but the HP scaling is **capped** so enemies don't turn into flat damage sponges (see the [spider HP cap](enemies.md)). Toughness reads as more than a number, though: enemy **size also scales up** with run time, so late-run spiders look and feel bigger and tougher even where their HP has already hit its ceiling. This keeps early waves crisp and late waves threatening without hand-authoring every wave's stats.
 
-## Curated waves 1–10, generated 11+
+## Curated waves 1–10, generated 11+ (curating to 50)
 
-- **Waves 1–10 are hand-curated** for a designed opening (currently spiders-only, reverted from a mixed set while other enemy types stabilize).
-- **Wave 11 onward is generated** by an endless **threat-budget generator** built from wave-50 stress logs. The budget buys **variety and powerups, not raw HP**: see the [Enemies](enemies.md) page for the generator, the spider HP cap, elemental immunities, and breakable pure-shields.
+- **Waves 1–10 are hand-curated** for a designed opening.
+- **Wave 11 onward is generated** by an endless **threat-budget generator**. Its linear budget is why runs currently go **immortal past wave 10** — so the plan (2026-07-27) is to **hand-curate through wave 50**, tune each block against the balance CSVs, then refit the generator from the tuned data as the 51+ tail. The full design sheet lives at **[Curated Waves 1–50](waves-curated.md)**.
+- See the [Enemies](enemies.md) page for the generator, the spider HP cap, elemental immunities, and breakable pure-shields.
 
 ## Related
 

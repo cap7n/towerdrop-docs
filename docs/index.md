@@ -34,7 +34,7 @@ This wiki is the living record. For the detailed, changing task list see the **[
 | Endless wave generator (wave 11+, threat budget + powerups) | ✅ Built |
 | Spellbook (book UI, tree-gated spells): oil / frost / slime coats + meteor shower | ✅ Working; 3 spell effects still to build |
 | Atmosphere: fire, oil fluid, day/night, blood/dissolve | ✅ Built |
-| Artifacts: placeable relics on the tower (bag grid, mover, 6 live effects) | ✅ Working; trap effects + real models pending |
+| Artifacts: placeable relics on the tower (bag grid, mover, 6 live effects) | ✅ Working; trap effects pending. Real models: Coin Maker, Crest Shield + 4 more landed 2026-07-28 (Lucky Coin, Swift Wheels, Sharp Edge, Frost Beam) |
 | New modeler tower + brick-shell MultiMesh | ✅ Imported |
 | Guided intro tutorial | ⚠️ Built, stopgap, untested |
 | Performance (target: smooth at 200–250 enemies) | 📋 Phase 0 quick wins not yet applied |

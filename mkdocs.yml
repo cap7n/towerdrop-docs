@@ -42,13 +42,16 @@ nav:
   - Design Pillars: pillars.md
   - The Game:
       - Wave Loop: game/waves.md
+      - Curated Waves 1-50: game/waves-curated.md
       - The Cart: game/cart.md
       - The Tower & Base Defenses: game/tower.md
       - Items & Elements: game/items.md
       - Enemies: game/enemies.md
+      - Bosses & The Run Arc: game/bosses.md
       - Economy & Gold: game/economy.md
   - Systems:
       - Combat, Status & Feedback: systems/combat.md
+      - Progression: systems/progression.md
       - Ultimates & Spellbook: systems/ultimates.md
       - Atmosphere & VFX: systems/atmosphere.md
       - Artifacts & Relics: systems/artifacts.md

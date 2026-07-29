@@ -7,6 +7,19 @@ The cart is the player's body in TowerDrop. It rides a **circular rail around th
 - The cart's position is **theta-based** (cos/sin around the tower center), not a `PathFollow3D`.
 - The rail's radius and height are **derived from where the cart is placed** in the level: drag the cart in the editor and the rail updates. No manual radius tuning.
 
+### Speed curve (retuned 2026-07-25)
+
+| | m/s | why |
+|---|---|---|
+| base (`cart.move_speed`) | **3** | Deliberately sluggish. At the old 6 the cart could already be anywhere in time, so travel time was never a constraint and buying speed bought nothing. |
+| fully upgraded | **6** | The "very good feel" target. The 6 `cart_speed_10` shop levels **double** the base — `ShopGraph.SPEED_PCT_PER_LEVEL` is `1.0/6` for exactly this, so keep it in step with the node's `max`. 2440 gold to max. |
+| hard cap (`cart.max_move_speed`) | **10** | Swift Wheels artifacts stack multiplicatively ON TOP of the shop levels and the draft hands out duplicates freely — 9 copies on a maxed cart would hit 8.7 unclamped. Past ~10 it stops being controllable. |
+
+Per level: 3.0 → 3.5 → 4.0 → 4.5 → 5.0 → 5.5 → 6.0.
+
+!!! warning "Percentage upgrades cut both ways"
+    Both speed sources are percentages of the base, so lowering the base also shrinks what each level is worth in absolute terms. Halving 6 → 3 without raising the per-level rate would have made each purchase *weaker* (+0.3 m/s instead of +0.6), which is the opposite of the goal — hence the 10% → 1/6 change in the same pass.
+
 ## Core verbs: drop, toss, pour, throw
 
 The cart carries an **inventory** (a left-column loadout, drag-to-reorder), base 3 slots, upgradeable to 9 via the [Tab shop](tower.md). What you do with the selected item:

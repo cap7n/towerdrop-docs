@@ -34,9 +34,9 @@ Each milestone names its theme, its goal, and the backlog items that define "don
 
 - <span class="pill wip">WIP</span> **Meta layer** (`meta.json`, survives game over): playtime, achievements tracker v1, artifact shards. **Achievements tracker v1 BUILT 2026-07-25** (`Achievements` autoload, data-table DEFS, popup card, full-screen Compendium — see the Meta-progression section of the [Backlog](backlog.md)); shards still open.
 - <span class="pill wip">WIP</span> **Artifact meta-unlocks live**: the draft, kill drops and debug grant all draw only from the profile's unlocked pool via `Achievements.is_artifact_unlocked()` (def-based gate, no seeding — LIVE 2026-07-25; Sharp Edge + Thick Bark are the first gated ids). The achievements route works end to end; playtime + shard routes still to build.
-- <span class="pill idea">Idea</span> **Decide the shard source** (elite drops? wave-clear bonus? game-over conversion) — the one open design call blocking this milestone.
+- <span class="pill idea">Idea</span> **Decide the shard source** — leading candidate as of 2026-07-25: **boss drops** ([Progression](../systems/progression.md) + [Bosses](../game/bosses.md)); shards then buy small PERMANENT upgrades (the missing Vampire-Survivors layer — unlocks widen *options*, shards deepen *power*). Elite drops / wave-clear / game-over conversion stay as fallbacks.
 - <span class="pill wip">WIP</span> Profiles screen shows meta progress — the cards show playtime + "Achievements n / total" (2026-07-25); shards join when they exist.
-- <span class="pill todo">Todo</span> **Ultimates gated by achievements** (Yaro 2026-07-25): an `"ultimate"` reward key in the DEFS table + a check at the spellbook gate.
+- <span class="pill done">Done</span> **Ultimates gated by achievements** (Yaro 2026-07-25, commit `9e87274`) — DEFS rows take an `"ultimate"` key alongside `"artifact"`; a row can carry either, both or neither. The gate **stacks on top of the wizard-tree node** (tree purchase AND achievement), so it reads as meta progression rather than a second price tag, and it mirrors the artifact gating including the **run-pool freeze** (the pool rides in the checkpoint). The spellbook names *which* gate is missing — "Earn *&lt;achievement&gt;* to learn this" rather than always claiming it's deeper in the tree, which is unactionable when the blocker is an achievement. Seeded example: **Meteor Shower behind Exterminator (100 kills)**, so meteors become a second-run reward; one key to move or remove.
 
 ### 0.12 — Every system does what it says <span class="pill todo">Todo</span>
 
@@ -51,6 +51,8 @@ Each milestone names its theme, its goal, and the backlog items that define "don
 ### 0.13 — The horde <span class="pill wip">WIP</span>
 
 *The enemy roster and the long game.*
+
+- <span class="pill wip">WIP</span> **HEADLINE: the Spider Queen + the run arc** (designed 2026-07-25, see [Bosses](../game/bosses.md)) — boss every ~5 waves as the wall the snowball can't beat; first boss at wave 10 (rock-resistant shield = the "build beyond rock" exam); boss kills feed achievements → unlocks and become the shard source ([Progression](../systems/progression.md)). Built on the enemy component system below — the Queen is its first real customer. **v1 BUILT 2026-07-26** (all six build-order steps: boss wave flag, Queen scene + shield, orbit-then-climb, brood + eggs, artifact webbing, Regicide achievement — build map on the Bosses page); needs the in-editor eyeball + numbers pass, and the Regicide reward is Yaro's pick.
 
 - <span class="pill wip">WIP</span> **Enemy component system migration** — `EnemyLocomotion`/`EnemyAttack`/`EnemyAbility[]` built and opt-in; A/B `Spider_v2`, port Snail, migrate the 5 subclasses, delete the legacy inline path all remain.
 - <span class="pill wip">WIP</span> New enemies wired into waves: subclass scripts exist for **termite, bombardier, carrier** but none has a model/scene yet; centipede has a first pass (segment colliders, mid-split still open); **turtle / fly / worm** models are wired in but undesigned/unbehaviored.
