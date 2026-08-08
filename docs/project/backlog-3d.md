@@ -1,6 +1,6 @@
 # 3D Backlog
 
-Everything that lives in the 3D world: models, rigs, animation, VFX, shaders, lighting, atmosphere, and the tower itself. The catch-all [Backlog](backlog.md) still holds the master list; this page is for sorting the 3D work into one place.
+Everything that lives in the 3D world: models, rigs, animation, VFX, shaders, lighting, atmosphere, and the tower itself. The live task list lives on the **Ingenui Tasks** board (Tower Drop project) and the [Backlog](backlog.md) page is the design record — this page collects the detailed **3D / VFX working notes**: the fine-grained model, shader and externalization work that's too granular for a board card.
 
 **Status tags:** <span class="pill done">Done</span> shipped · <span class="pill wip">WIP</span> in progress · <span class="pill todo">Todo</span> not started · <span class="pill idea">Idea</span> undecided · <span class="pill check">Check</span> may already be done.
 
@@ -30,7 +30,7 @@ Everything that lives in the 3D world: models, rigs, animation, VFX, shaders, li
 
 - <span class="pill idea">Idea</span> **3D windrose model** — replace the flat-drawn HUD windrose (wave-direction compass, bottom-right) with an actual little 3D compass prop rendered in the corner. The 2D one works; this is a looks upgrade.
 
-- <span class="pill todo">Todo</span> **~6 different small throwable rocks** (RBL replacement — needed before launch). The rock item currently uses 6 placeholder rocks from a Unity Asset Store pack we are NOT licensed for (see the [Backlog ship-prep](backlog.md) / `Imported/RollCall/RBL_ASSETS.md`), so we need our own set. Brief:
+- <span class="pill idea">Idea</span> **~6 different small throwable rocks** (quality upgrade — the RBL blocker is already resolved). The unlicensed pack rocks were replaced in the 2026-07-19 RBL purge with 6 OWNED generated low-poly rocks (`Items/Meshes/Rocks/own_rock_*.glb`), which also drive the ice item. So this is no longer a launch blocker; it stands only as Jennifer's optional *quality* upgrade over the generated placeholders. Brief:
     - Around 6 loose rocks, each a distinct silhouette (round, flat, chunky, angular...) so a stream of thrown rocks doesn't repeat.
     - Low-poly, faceted style, ~500 tris or less each; any size is fine (the game auto-scales them to 0.4m).
     - One shared texture is enough — greyscale with worn-edge highlights works great, the game tints it.

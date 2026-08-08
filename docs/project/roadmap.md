@@ -96,13 +96,13 @@ Each milestone names its theme, its goal, and the backlog items that define "don
 
 - <span class="pill todo">Todo</span> **SteamPipe build pipeline**: automated export (Windows first) → depot upload → a **private branch**; versioned builds land on Steam instead of hand-shared zips.
 - <span class="pill wip">WIP</span> Export presets verified per target (Windows preset fully filled in 2026-07-24: version fields, icon, embedded PCK, shader baker); crash logging exists; the in-game feedback note (C) exists; still want a visible Discord/report link.
-- <span class="pill wip">WIP</span> **RBL**: working tree is already clean (2026-07-19); the **git-history purge** stays the hard gate for anything *public or source* — a keys beta ships binaries only, so the purge may trail 0.20, but it must land before any public phase. Repo stays private regardless.
+- <span class="pill wip">WIP</span> **RBL**: working tree is *mostly* clean (2026-07-19) — **EXCEPT the cursors, which are NOT CC0** and are baked into every build. ⚠️ **Replacing them gates the NEXT distributed build (demo or private playtest), not 0.20** — a cursor ships inside the binary, so unlike the history purge it cannot trail (tracked on the board: *RBL: replace the mouse cursors*). The **git-history purge** stays the hard gate for anything *public or source* — a keys beta ships binaries only, so the purge may trail 0.20, but it must land before any public phase. Repo stays private regardless.
 - <span class="pill idea">Idea</span> Store assets (capsules, screenshots) are **not** required while the page is hidden — deferred until a public phase is scheduled.
 
 ### 0.19 — Beta candidate <span class="pill todo">Todo</span>
 
 - <span class="pill todo">Todo</span> **Feature freeze** for the series; only fixes and tuning land.
-- <span class="pill todo">Todo</span> Bug bash across the [Known bug watch](backlog.md) + a full balance pass driven by BalanceLogger data.
+- <span class="pill todo">Todo</span> Bug bash across the board's open bugs + a full balance pass driven by BalanceLogger data.
 - <span class="pill todo">Todo</span> Candidate builds soak with the inner circle; the 0.20 checklist below gets ticked.
 
 ### 0.20 — Steam private beta 🎉 <span class="pill todo">Todo</span>

@@ -18,7 +18,7 @@ On top of that sits **elemental crafting**: items resolve into six damage-type e
 
 ## Where the game is right now
 
-This wiki is the living record. For the detailed, changing task list see the **[Backlog](project/backlog.md)**; for *why* things are the way they are, the **[Decision Log](project/decisions.md)**.
+This wiki is the living record. Day-to-day tasks now live on the **Ingenui Tasks** board (Tower Drop project); the **[Backlog](project/backlog.md)** page holds the design record, design sketches and open questions, and the **[Decision Log](project/decisions.md)** holds the *why*.
 
 | Area | Status |
 |---|---|
