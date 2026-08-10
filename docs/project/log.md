@@ -6,3 +6,4 @@ by design. Curated pages hold the WHY; this page holds the WHAT.
 Bot design: [The Task Bot](../tech/wiki-bot.md).
 
 - **2026-08-08** Captn finished **Brick repair: 1 HP per click (upgradeable rate)** _(task #1)_
+- **2026-08-08** Captn finished **Keep artifacts from your last run (meta stat)** _(task #24, 0.11)_
