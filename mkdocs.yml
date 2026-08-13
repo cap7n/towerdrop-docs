@@ -62,6 +62,7 @@ nav:
       - Performance: tech/performance.md
       - Asset Pipeline: tech/asset-pipeline.md
       - Engine & Tooling: tech/engine.md
+      - The Task Bot (local LLM): tech/wiki-bot.md
       - Technical Solutions: tech/solutions.md
   - ⚡ Revamp: project/revamp.md
   - Project:
