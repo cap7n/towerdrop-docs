@@ -1,0 +1,2671 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Design wiki and single point of truth for TowerDrop, a stylized tower-defense game built in Godot.">
+      
+      
+      
+        <link rel="canonical" href="https://cap7n.github.io/towerdrop-docs/systems/meta-progression-stats/">
+      
+      
+        <link rel="prev" href="../artifact-catalogue/">
+      
+      
+        <link rel="next" href="../../tech/art-direction/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Meta-Progression Stats - TowerDrop Design Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#meta-progression-the-stat-menu" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-header__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TowerDrop Design Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Meta-Progression Stats
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-nav__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TowerDrop Design Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Pillars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wave Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves-curated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curated Waves 1-50
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/tower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Tower & Base Defenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items & Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/enemies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enemies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/bosses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosses & The Run Arc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/economy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy & Gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat, Status & Feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ultimates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ultimates & Spellbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atmosphere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atmosphere & VFX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifacts & Relics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artifact-catalogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifact Catalogue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta-Progression Stats
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta-Progression Stats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-the-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read the tables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-the-cart-the-players-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. The cart — the player's body
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-the-tower-its-armour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. The tower &amp; its armour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-economy-gold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Economy &amp; gold
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-wizards-item-supply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D. Wizards &amp; item supply
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-global-effect-dials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. Global effect dials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-statuses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F. Statuses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g-spells-ultimates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        G. Spells &amp; ultimates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#h-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        H. Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-the-difficulty-side-inverse-knobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. The difficulty side (inverse knobs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j-things-worth-stealing-that-arent-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        J. Things worth stealing that aren't numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggested-first-tree-if-you-want-a-shortlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggested first tree (if you want a shortlist)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-questions-this-list-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open questions this list surfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/art-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art Direction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asset Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine & Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/wiki-bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Task Bot (local LLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/revamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ Revamp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/backlog-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/backlog-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2D / UI Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/vfx-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/vfx-pack-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Pack Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/steam-store-assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steam Store Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap & Priorities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/how-to-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Edit This Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-the-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read the tables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-the-cart-the-players-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. The cart — the player's body
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-the-tower-its-armour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. The tower &amp; its armour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-economy-gold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Economy &amp; gold
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-wizards-item-supply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D. Wizards &amp; item supply
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-global-effect-dials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. Global effect dials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-statuses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F. Statuses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g-spells-ultimates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        G. Spells &amp; ultimates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#h-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        H. Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-the-difficulty-side-inverse-knobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. The difficulty side (inverse knobs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j-things-worth-stealing-that-arent-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        J. Things worth stealing that aren't numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggested-first-tree-if-you-want-a-shortlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggested first tree (if you want a shortlist)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-questions-this-list-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open questions this list surfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/cap7n/towerdrop-docs/edit/main/docs/systems/meta-progression-stats.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="meta-progression-the-stat-menu">Meta-Progression: the stat menu<a class="headerlink" href="#meta-progression-the-stat-menu" title="Permanent link">&para;</a></h1>
+<p>A gathered list of <strong>every variable in the game that would make a good skill-tree node</strong>, pulled from the current code (not from the design intent). This is the raw material for populating the persistent meta tree — pick from here, don't invent numbers that have no home in the codebase.</p>
+<p>For <em>why</em> a meta layer exists and how it persists, see the <a href="../../project/backlog/">Backlog → Meta-progression</a> section. For the per-run trees this must not duplicate, see <a href="../../game/items/">Items &amp; Elements</a> and <a href="../../game/tower/">The Tower</a>.</p>
+<hr />
+<h2 id="how-to-read-the-tables">How to read the tables<a class="headerlink" href="#how-to-read-the-tables" title="Permanent link">&para;</a></h2>
+<p>Every row names the <strong>actual variable</strong> and the file it lives in, so a node can be wired without a hunt.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Now</strong></td>
+<td>The value in the code today (the base a meta bonus multiplies or adds to).</td>
+</tr>
+<tr>
+<td><strong>Hook</strong></td>
+<td>🟢 = a single place already reads it, wiring is a one-liner. 🟡 = read in several places, needs a small helper. 🔴 = no hook exists yet, the meta node has to build one.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">The double-dip rule</p>
+<p>Several of these are <strong>already upgradeable inside a run</strong> (TAB shop, wizard trees, artifacts). A meta node on the same stat is fine — it's the classic "your run starts stronger" shape — but decide per stat whether meta is <strong>additive to the base</strong> (before in-run scaling) or a <strong>final multiplier</strong> (after). The existing code has a precedent worth copying: <code>ShopGraph</code> captures <code>_base_speed</code> / <code>_base_inv</code> at <code>_ready()</code> and always scales <em>from the base</em>, so a meta bonus applied to <code>cart.move_speed</code> before the shop reads it flows through cleanly. Anything applied <em>after</em> fights the shop for the same field.</p>
+</div>
+<hr />
+<h2 id="a-the-cart-the-players-body">A. The cart — the player's body<a class="headerlink" href="#a-the-cart-the-players-body" title="Permanent link">&para;</a></h2>
+<p>The most directly <em>felt</em> upgrades. <code>Characters/Player/Scripts/cart.gd</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Variable</th>
+<th>Now</th>
+<th>Hook</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Move speed</strong></td>
+<td><code>move_speed</code></td>
+<td>3.0</td>
+<td>🟢</td>
+<td>The headline cart stat. Deliberately sluggish so speed is worth buying. TAB shop takes it to 6.0 over 6 levels; Swift Wheels artifacts stack on top.</td>
+</tr>
+<tr>
+<td><strong>Speed ceiling</strong></td>
+<td><code>max_move_speed</code></td>
+<td>10.0</td>
+<td>🟢</td>
+<td>The hard cap ("past this it stops being controllable"). A meta node that <em>raises the cap</em> is a different, spicier reward than one that raises speed.</td>
+</tr>
+<tr>
+<td><strong>Acceleration</strong></td>
+<td><code>acceleration</code> / <code>deceleration</code></td>
+<td>14 / 18</td>
+<td>🟢</td>
+<td>Responsiveness rather than top speed — a "handling" node. Reads as snappier without breaking the speed cap.</td>
+</tr>
+<tr>
+<td><strong>Reverse braking</strong></td>
+<td><code>reverse_deceleration_multiplier</code></td>
+<td>2.5</td>
+<td>🟢</td>
+<td>How fast you can reverse direction on the rail. Directly targets the core failure state (being on the wrong arc).</td>
+</tr>
+<tr>
+<td><strong>Inventory slots</strong></td>
+<td><code>inventory_capacity</code></td>
+<td>3</td>
+<td>🟢</td>
+<td>Starting loadout size. TAB shop buys +1/level.</td>
+</tr>
+<tr>
+<td><strong>Inventory ceiling</strong></td>
+<td><code>max_inventory</code></td>
+<td>9</td>
+<td>🟢</td>
+<td>Hard cap on slots (9 = one 3×3 bin layer — raising past 9 needs a bin re-layout).</td>
+</tr>
+<tr>
+<td><strong>Cannon reload</strong></td>
+<td><code>arm_time_mult</code> × <code>throw_lift_time</code></td>
+<td>1.0 × 0.25 s</td>
+<td>🟢</td>
+<td><strong><code>arm_time_mult</code> already exists and nothing writes to it</strong> — it was put in explicitly as a reload-speed upgrade hook. Cheapest real node in the game.</td>
+</tr>
+<tr>
+<td><strong>Shot speed / flatness</strong></td>
+<td><code>throw_shot_speed</code></td>
+<td>30 m/s</td>
+<td>🟢</td>
+<td>Higher = flatter, faster, punchier cannon. Also shortens time-to-impact on far targets.</td>
+</tr>
+<tr>
+<td><strong>Pour rate</strong></td>
+<td><code>pour_interval</code></td>
+<td>0.12 s</td>
+<td>🟢</td>
+<td>Seconds between items while dumping a stack. A "dump the whole bin faster" node.</td>
+</tr>
+<tr>
+<td><strong>Tap window</strong></td>
+<td><code>tap_max_time</code></td>
+<td>0.18 s</td>
+<td>🟡</td>
+<td>Feel knob, not power. Probably belongs in settings, not a tree.</td>
+</tr>
+<tr>
+<td><strong>Toss speed</strong></td>
+<td><code>toss_duration</code></td>
+<td>0.32 s</td>
+<td>🟢</td>
+<td>How long a single tossed item takes to arc out of the bin.</td>
+</tr>
+<tr>
+<td><strong>Tilt speed</strong></td>
+<td><code>tilt_speed</code> / <code>dump_tilt_threshold</code></td>
+<td>8.0 / 0.9</td>
+<td>🟢</td>
+<td>How quickly the cart commits to a pour. Pairs with <code>pour_interval</code> as a "Fast Hands" node.</td>
+</tr>
+<tr>
+<td><strong>Trap launch</strong></td>
+<td><code>trap_throw_speed</code></td>
+<td>3.5</td>
+<td>🟢</td>
+<td>How far out trap items land. Only matters once the trap family exists.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="b-the-tower-its-armour">B. The tower &amp; its armour<a class="headerlink" href="#b-the-tower-its-armour" title="Permanent link">&para;</a></h2>
+<p><code>Levels/Scripts/tower_core.gd</code>, <code>Components/health.gd</code>, <code>Imported/NewTower/Tower/tower_brick_shell.gd</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Variable</th>
+<th>Now</th>
+<th>Hook</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Core max HP</strong></td>
+<td><code>Health.max_hp</code> on the tower</td>
+<td>500 (<code>game_tower.tscn</code>)</td>
+<td>🟢</td>
+<td>The run-length dial. TAB shop adds +50/level ×10; Thick Bark adds +50 per mounted copy.</td>
+</tr>
+<tr>
+<td><strong>Brick armour HP</strong></td>
+<td><code>brick_max_hp</code></td>
+<td>10.0</td>
+<td>🟢</td>
+<td>Per-brick armour, ×110 bricks. The <em>real</em> effective HP pool — attacks are soaked here before the core. Very strong lever, tune gently.</td>
+</tr>
+<tr>
+<td><strong>Armour coverage</strong></td>
+<td><code>armor_coverage_radius</code></td>
+<td>4.5</td>
+<td>🟡</td>
+<td>How wide a hit spreads across neighbouring bricks. Bigger radius = damage smeared over more bricks = softer local breaches.</td>
+</tr>
+<tr>
+<td><strong>Repair cost</strong></td>
+<td><code>RepairController.GOLD_PER_HP</code></td>
+<td>1.0 g/HP</td>
+<td>🟢</td>
+<td>A discount node is a clean economy-flavoured meta reward.</td>
+</tr>
+<tr>
+<td><strong>HP per repair click</strong></td>
+<td><code>hp_per_repair</code></td>
+<td>1.0 <em>(decided, not built)</em></td>
+<td>🔴</td>
+<td>⏳ <strong>Blocked on the repair rework</strong> (<a href="../../project/backlog/">high-prio backlog</a>): repair is one-click-full-heal today, so there is no rate to upgrade. <strong>Decided 2026-07-29:</strong> a click restores 1 HP, making this the base a node multiplies. Repair speed is a defensive stat with no meta representation at all right now.</td>
+</tr>
+<tr>
+<td><strong>Repair tick interval</strong></td>
+<td><code>repair_interval</code></td>
+<td>~0.3 s <em>(follow-up)</em></td>
+<td>🔴</td>
+<td>The hold-to-repair layer over the same base. Second node once it exists.</td>
+</tr>
+<tr>
+<td><strong>Regen amount / interval</strong></td>
+<td><code>TowerCore.regen_amount</code> / <code>regen_interval</code></td>
+<td>spell-driven (0 when idle)</td>
+<td>🔴</td>
+<td>⚠️ <strong>Do not add a passive meta regen.</strong> Always-on regen + spikes is exactly what broke the C4 wave-39 run and got both pulled from the TAB tree. If regen is a meta node at all, make it <em>cheaper/longer Living Stone casts</em>, not a permanent trickle.</td>
+</tr>
+<tr>
+<td><strong>Living Stone heal</strong></td>
+<td><code>UltimateBook.LIVING_STONE_HEAL_PER_LEVEL</code> / <code>_TICK</code></td>
+<td>2.0 / 1.0 s</td>
+<td>🟢</td>
+<td>The safe version of the above — it only runs while the spell holds.</td>
+</tr>
+<tr>
+<td><strong>Spike ring</strong></td>
+<td><code>SpikeRing.damage</code> / <code>poison_dps</code> / <code>poison_duration</code> / <code>radius</code> / <code>tick_interval</code></td>
+<td>1.0 / 5.0 / 6 s / 9 / 1 s</td>
+<td>🟡</td>
+<td>Same warning as regen — spikes are being re-homed as a <em>costed Rock spell</em>, not a passive. Meta should buff the spell, not switch it on.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="c-economy-gold">C. Economy &amp; gold<a class="headerlink" href="#c-economy-gold" title="Permanent link">&para;</a></h2>
+<p><code>Autoloads/globals.gd</code>, <code>Characters/Enemies/Scripts/enemy.gd</code>, <code>Levels/Scripts/coin_spawner.gd</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Variable</th>
+<th>Now</th>
+<th>Hook</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Starting gold</strong></td>
+<td><code>Globals.gold</code> at <code>reset_run()</code></td>
+<td>0</td>
+<td>🟢</td>
+<td>The single most conventional meta node in the genre. Trivial to wire.</td>
+</tr>
+<tr>
+<td><strong>Gold per kill</strong></td>
+<td><code>CoinSpawner.coins_per_kill</code></td>
+<td>1</td>
+<td>🟢</td>
+<td>Flat bonus on top of the HP curve. Lucky Coin artifacts already add here via <code>bonus(&amp;"gold_per_kill")</code>.</td>
+</tr>
+<tr>
+<td><strong>Bonus-coin chance</strong></td>
+<td><code>bonus_coin_chance</code> / <code>bonus_coin_count</code></td>
+<td>0.3 / 1</td>
+<td>🟢</td>
+<td>A "lucky strike" node — reads as juicier than a flat +1 because you <em>see</em> the extra coin.</td>
+</tr>
+<tr>
+<td><strong>Kill payout curve</strong></td>
+<td><code>Enemy.coin_payout(hp)</code></td>
+<td>1 g @1 HP → 40 g @15 HP</td>
+<td>🟡</td>
+<td>A global <code>×gold</code> multiplier applied here scales with the HP ramp automatically. The strongest economy node available; treat as a late/expensive meta tier.</td>
+</tr>
+<tr>
+<td><strong>Shop prices</strong></td>
+<td><code>costs</code> arrays in <code>ShopGraph.NODES</code> + every wizard tree</td>
+<td>per-node</td>
+<td>🔴</td>
+<td>A "−X% upgrade cost" node needs a single discount multiplier threaded through <code>_next_cost()</code>. Two call sites (<code>shop_graph.gd</code>, <code>wizard_shop_ui.gd</code>) — cheap, and it's a classic meta reward.</td>
+</tr>
+<tr>
+<td><strong>Respec refund</strong></td>
+<td><code>GoblinShop.RESPEC_REFUND</code></td>
+<td>0.75</td>
+<td>🟢</td>
+<td>Raising it toward 1.0 is a "free experimentation" node. Nice non-power reward.</td>
+</tr>
+<tr>
+<td><strong>Artifact shards</strong></td>
+<td><code>meta["shards"]</code> (<code>{balance, lifetime}</code>)</td>
+<td>0</td>
+<td>🔴</td>
+<td><strong>Already in <code>meta.json</code> defaults with no earn source.</strong> This is the meta <em>currency</em> the tree would spend — the open question is where shards come from, not where they live.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="d-wizards-item-supply">D. Wizards &amp; item supply<a class="headerlink" href="#d-wizards-item-supply" title="Permanent link">&para;</a></h2>
+<p><code>Characters/Goblins/Scripts/goblin_shop.gd</code>. The wizards are the item faucet — anything here directly sets how much ammo you get.</p>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Variable</th>
+<th>Now</th>
+<th>Hook</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Starting wizards</strong></td>
+<td><code>hire_wizard</code> levels (<code>ShopGraph</code>)</td>
+<td>1, +4 buyable</td>
+<td>🟡</td>
+<td>"Start with 2 wizards" is a huge power spike — it doubles item throughput. Expensive tier.</td>
+</tr>
+<tr>
+<td><strong>Conjure time (per element)</strong></td>
+<td><code>base_conjure_time(e)</code></td>
+<td>rock 6 · fire 15 · poison 15 · frost 6 · electric 30 · lure 45 s</td>
+<td>🟢</td>
+<td>Per-element supply rate. Because the six values differ so wildly, a <em>per-element</em> meta discount is genuinely different from a global one.</td>
+</tr>
+<tr>
+<td><strong>Global conjure discount</strong></td>
+<td><code>ArtifactInventory.bonus(&amp;"conjure_pct")</code></td>
+<td>−5% per Quick Hands</td>
+<td>🟢</td>
+<td>The multiplier is already applied in <code>_effective_summon_duration()</code> and floored at 0.25 — a meta bonus can ride the same path.</td>
+</tr>
+<tr>
+<td><strong>Conjure floor</strong></td>
+<td><code>maxf(d, 0.4)</code> in <code>_effective_summon_duration</code></td>
+<td>0.4 s</td>
+<td>🟢</td>
+<td>Raising the ceiling on how fast supply can get.</td>
+</tr>
+<tr>
+<td><strong>Rock base damage</strong></td>
+<td><code>ROCK_BASE_DAMAGE</code></td>
+<td>2.0</td>
+<td>🟢</td>
+<td>The one damage number every run starts with. Sharp Edge artifacts add here too.</td>
+</tr>
+<tr>
+<td><strong>Bigger-rock scaling</strong></td>
+<td><code>BIGGER_DMG_FLAT</code> / <code>BIGGER_SIZE_PER_LEVEL</code></td>
+<td>1.0 / 0.25</td>
+<td>🟢</td>
+<td>Makes the in-run rock tree pay more per level — a "your upgrades are worth more" shape, which is a nicer meta feeling than raw stats.</td>
+</tr>
+<tr>
+<td><strong>Scatter shards</strong></td>
+<td><code>SCATTER_SHARDS</code></td>
+<td>4</td>
+<td>🟢</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Delivery time</strong></td>
+<td><code>DELIVER_TIME</code></td>
+<td>0.5 s</td>
+<td>🟢</td>
+<td>Time for a conjured item to travel wizard → cart. Minor.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="e-global-effect-dials">E. Global effect dials<a class="headerlink" href="#e-global-effect-dials" title="Permanent link">&para;</a></h2>
+<p><code>Autoloads/globals.gd</code> — these two exist <em>specifically</em> as one-stop multipliers, which makes them the single best-value meta nodes in the codebase.</p>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Variable</th>
+<th>Now</th>
+<th>Hook</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Status duration ×</strong></td>
+<td><code>effect_duration_mult</code></td>
+<td>1.6</td>
+<td>🟢</td>
+<td>Multiplies <strong>every</strong> status duration at <code>enemy.apply_status</code>. One node, six elements affected.</td>
+</tr>
+<tr>
+<td><strong>AoE radius ×</strong></td>
+<td><code>aoe_radius_mult</code></td>
+<td>1.4</td>
+<td>🟢</td>
+<td>Multiplies every pool / explosion / cloud radius at the spawn sites. Same deal.</td>
+</tr>
+<tr>
+<td><strong>Per-item damage bonus</strong></td>
+<td><code>Globals.item_damage_bonus</code> (dict)</td>
+<td>empty</td>
+<td>🟢</td>
+<td>Already a live hook: <code>DamageEffect</code> adds it on top of base damage. Was built for the deleted recipe system and is sitting unused — a meta node could write into it directly.</td>
+</tr>
+<tr>
+<td><strong>Guaranteed item spawns</strong></td>
+<td><code>Globals.guaranteed_item_spawns</code> (dict)</td>
+<td>empty</td>
+<td>🟢</td>
+<td>Same shape: guarantee N of an item per wave. Currently only the shop writes it.</td>
+</tr>
+<tr>
+<td><strong>Starting item pool</strong></td>
+<td><code>_STARTER_NAMES</code> / <code>unlocked_items</code></td>
+<td>Rock in pool, 5 buyable</td>
+<td>🟡</td>
+<td><strong>"Start with X unlocked" is a non-numeric meta node</strong> — arguably more interesting than +5%, because it changes the opening rather than the math.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="f-statuses">F. Statuses<a class="headerlink" href="#f-statuses" title="Permanent link">&para;</a></h2>
+<p><code>Autoloads/status_db.gd</code>. Every status is a data row, so a meta node buffing one is a dictionary write.</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Tunables</th>
+<th>Now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Slow</strong></td>
+<td><code>speed</code></td>
+<td>0.5</td>
+</tr>
+<tr>
+<td><strong>Stunned</strong></td>
+<td><code>speed</code></td>
+<td>0.0</td>
+</tr>
+<tr>
+<td><strong>Bleed</strong></td>
+<td><code>dps</code></td>
+<td>2.0 (PURE)</td>
+</tr>
+<tr>
+<td><strong>Poisoned</strong></td>
+<td><code>speed</code>, <code>dps</code></td>
+<td>0.6, 2.0</td>
+</tr>
+<tr>
+<td><strong>On fire</strong></td>
+<td><code>dps</code>, <code>spread_radius</code>, <code>spread_duration</code></td>
+<td>3.0, 3.0 m, 2.0 s</td>
+</tr>
+<tr>
+<td><strong>Frozen</strong></td>
+<td><code>vuln</code> (+ <code>vuln_types</code> PURE/ELECTRIC)</td>
+<td>×2.0</td>
+</tr>
+<tr>
+<td><strong>Deep frozen</strong></td>
+<td><code>vuln</code></td>
+<td>×4.0</td>
+</tr>
+<tr>
+<td><strong>Oiled</strong></td>
+<td><code>speed</code>, <code>flammable</code></td>
+<td>0.6, true</td>
+</tr>
+</tbody>
+</table>
+<p>Hook is 🟢 across the board (one <code>DEFS</code> dictionary), but note <strong><code>vuln</code> on frozen/deep-frozen is the combo multiplier</strong> — the frost→rock shatter payoff. Buffing it meta-side changes the whole combo economy, so treat it as a deliberate capstone rather than a filler node.</p>
+<h2 id="g-spells-ultimates">G. Spells &amp; ultimates<a class="headerlink" href="#g-spells-ultimates" title="Permanent link">&para;</a></h2>
+<p><code>Autoloads/ultimate_book.gd</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Variable</th>
+<th>Now</th>
+<th>Hook</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cast cost</strong></td>
+<td><code>COST</code></td>
+<td>15 gold</td>
+<td>🟢</td>
+<td>Flat placeholder across all spells.</td>
+</tr>
+<tr>
+<td><strong>Cast duration</strong></td>
+<td><code>DURATION</code></td>
+<td>10 s</td>
+<td>🟢</td>
+<td>Base before the per-element booster nodes (+2 s/level).</td>
+</tr>
+<tr>
+<td><strong>Cooldowns</strong></td>
+<td>per-spell (<code>quiker_pulses</code>, etc.)</td>
+<td>tree-driven</td>
+<td>🟡</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Spell unlocks</strong></td>
+<td><code>Achievements.DEFS</code> <code>ultimate</code> key</td>
+<td>1 row wired (<code>meteors</code>)</td>
+<td>🟢</td>
+<td><strong>Already built as data.</strong> A meta tree that unlocks spells needs no new plumbing — it appends to the same <code>artifacts_unlocked</code>-style bank. Gating stacks <em>on top of</em> the wizard-tree node, which is the shape Yaro asked for.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h-artifacts">H. Artifacts<a class="headerlink" href="#h-artifacts" title="Permanent link">&para;</a></h2>
+<p><code>Autoloads/artifact_inventory.gd</code>. The artifact layer is where meta is already half-built.</p>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Variable</th>
+<th>Now</th>
+<th>Hook</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Draft cards offered</strong></td>
+<td><code>CardPick.present</code> call</td>
+<td>3</td>
+<td>🟢</td>
+<td>"+1 card in every draft" is a strong, very legible meta node.</td>
+</tr>
+<tr>
+<td><strong>Draft rerolls</strong></td>
+<td>—</td>
+<td>none</td>
+<td>🔴</td>
+<td>Doesn't exist. Would be a new mechanic, but a natural meta reward.</td>
+</tr>
+<tr>
+<td><strong>Kill drop chance</strong></td>
+<td><code>drop_chance_step_pct</code> / <code>drop_chance_cap_pct</code></td>
+<td>0.1 / 4.0 %</td>
+<td>🟢</td>
+<td>Pity-counter based, with a simulated-runs table in the source comments — meaning the balance impact of a meta bump is already measurable.</td>
+</tr>
+<tr>
+<td><strong>Per-type drop weight</strong></td>
+<td><code>DROP_STEP_BY_TYPE</code></td>
+<td>spider 1.0, pillbug/snail 3.0</td>
+<td>🟢</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Artifact unlocks</strong></td>
+<td><code>Achievements.is_artifact_unlocked</code></td>
+<td>2 gated ids</td>
+<td>🟢</td>
+<td>Route 2 (achievements) is live. Routes 1 (playtime) and 3 (shards) are the ones a tree would drive.</td>
+</tr>
+<tr>
+<td><strong>Bag grid size</strong></td>
+<td>3×3</td>
+<td>9</td>
+<td>🟡</td>
+<td>Placement limits aren't implemented yet, so bag size is currently cosmetic.</td>
+</tr>
+<tr>
+<td><strong>Artifacts kept on death</strong></td>
+<td>— (doesn't exist yet)</td>
+<td>0</td>
+<td>🔴</td>
+<td><strong>Decided as a stat 2026-07-29</strong> (<a href="../../project/backlog/">backlog</a>): an upgradeable meta stat, read on the game-over screen, for how many of the run's collected artifacts carry into the next run. Level 0 = today's full wipe (<code>ArtifactInventory.reset_run</code> clears <code>_collected</code> + <code>_placed</code>). The one node here that makes a <em>lost</em> run bank something concrete.</td>
+</tr>
+<tr>
+<td><strong>Per-artifact values</strong></td>
+<td><code>value</code> in the <code>ARTIFACTS</code> rows</td>
+<td>+1 gold, +5% speed, +1 rock dmg, −5% conjure, +50 HP, +10 brick HP</td>
+<td>🟢</td>
+<td>A meta node that makes <em>artifacts themselves</em> stronger is a good late tier — it scales with the hoard-of-many design rather than replacing it.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i-the-difficulty-side-inverse-knobs">I. The difficulty side (inverse knobs)<a class="headerlink" href="#i-the-difficulty-side-inverse-knobs" title="Permanent link">&para;</a></h2>
+<p><code>Levels/Scripts/wave_manager.gd</code>. These aren't player buffs, but a meta tree can absolutely sell "the horde is a little kinder" — and these are the exact variables that would move.</p>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Variable</th>
+<th>Now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rest length</td>
+<td><code>rest_time</code> / <code>auto_next_rest_time</code></td>
+<td>60 / 5 s</td>
+</tr>
+<tr>
+<td>Telegraph warning</td>
+<td><code>telegraph_time</code></td>
+<td>4.0 s</td>
+</tr>
+<tr>
+<td>Spawn rate</td>
+<td><code>spawn_interval</code></td>
+<td>0.45 s</td>
+</tr>
+<tr>
+<td>Threat budget</td>
+<td><code>gen_budget_base</code> / <code>gen_budget_growth</code></td>
+<td>100 / +10 per wave</td>
+</tr>
+<tr>
+<td>Spider HP curve</td>
+<td><code>spider_hp_base</code> / <code>_growth</code> / <code>_cap</code></td>
+<td>2.0 / 0.4 / 15</td>
+</tr>
+<tr>
+<td>Immunity rolls</td>
+<td><code>immune_chance_base</code> / <code>_growth</code> / <code>_max</code></td>
+<td>8% / +1% / 45%</td>
+</tr>
+<tr>
+<td>Pure-shield rolls</td>
+<td><code>shield_chance_base</code> / <code>_growth</code> / <code>_max</code> / <code>shield_hp</code></td>
+<td>5% / +0.8% / 35% / 8</td>
+</tr>
+<tr>
+<td>Swarm waves</td>
+<td><code>swarm_every</code> / <code>swarm_start_wave</code> / <code>swarm_count</code></td>
+<td>every 5 from w15, 120 enemies</td>
+</tr>
+<tr>
+<td>Enemy attack damage</td>
+<td><code>Enemy.attack_damage</code></td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Enemy walk / climb speed</td>
+<td><code>walk_speed</code> / <code>climb_speed</code></td>
+<td>1.5 / 0.5</td>
+</tr>
+<tr>
+<td>Enemy sprint</td>
+<td><code>sprint_mult</code> / <code>sprint_near</code> / <code>sprint_far</code></td>
+<td>×3 / 15 m / 40 m</td>
+</tr>
+<tr>
+<td>Fall damage</td>
+<td><code>fall_damage_max</code></td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>Enemy resistance</td>
+<td><code>resist_multiplier</code></td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Careful here</p>
+<p>Making the game easier via meta is a legitimate design choice but it fights the <a href="../../game/waves/">difficulty ramp</a> directly and the wave generator was tuned off wave-50 stress logs. Prefer <em>player-side</em> nodes; use this table when a node explicitly wants to be "the world is gentler."</p>
+</div>
+<h2 id="j-things-worth-stealing-that-arent-numbers">J. Things worth stealing that aren't numbers<a class="headerlink" href="#j-things-worth-stealing-that-arent-numbers" title="Permanent link">&para;</a></h2>
+<p>The most interesting meta nodes in this codebase probably aren't <code>+5%</code>:</p>
+<ul>
+<li><strong>Start with a wizard already specialized</strong> into an element (<code>GoblinShop.element</code> + <code>specialized</code>) — skips the opening ramp entirely.</li>
+<li><strong>Start with N tree points</strong> pre-spent in a wizard tree (<code>_tree_levels</code> is a plain dict, restorable — <code>RunCheckpoint</code> already does exactly this).</li>
+<li><strong>Start with an artifact mounted</strong> (<code>ArtifactInventory</code> grant + place on run start).</li>
+<li><strong>Start with items unlocked</strong> beyond Rock (<code>Globals.unlock_item</code>).</li>
+<li><strong>Unlock an ultimate permanently</strong> (the <code>Achievements.DEFS</code> <code>ultimate</code> key, already data-driven).</li>
+<li><strong>Keep a fraction of gold across runs</strong> — needs a new hook, but it's the cleanest bridge between the run economy and the shard economy.</li>
+</ul>
+<hr />
+<h2 id="suggested-first-tree-if-you-want-a-shortlist">Suggested first tree (if you want a shortlist)<a class="headerlink" href="#suggested-first-tree-if-you-want-a-shortlist" title="Permanent link">&para;</a></h2>
+<p>Everything below is 🟢 — no new plumbing, all one-liners against existing fields.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Node</th>
+<th>Field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opening</td>
+<td>Starting gold</td>
+<td><code>Globals.gold</code> at <code>reset_run()</code></td>
+</tr>
+<tr>
+<td>Opening</td>
+<td>Cart speed base</td>
+<td><code>cart.move_speed</code></td>
+</tr>
+<tr>
+<td>Opening</td>
+<td>Cart slot</td>
+<td><code>cart.inventory_capacity</code></td>
+</tr>
+<tr>
+<td>Opening</td>
+<td>Tower max HP</td>
+<td>tower <code>Health.max_hp</code></td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Reload speed</td>
+<td><code>cart.arm_time_mult</code> ← <em>already hooked, unused</em></td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Conjure discount</td>
+<td><code>conjure_pct</code> bonus path</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Rock damage</td>
+<td><code>ROCK_BASE_DAMAGE</code></td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Brick armour HP</td>
+<td><code>brick_max_hp</code></td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Repair discount</td>
+<td><code>GOLD_PER_HP</code></td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Effect duration</td>
+<td><code>Globals.effect_duration_mult</code></td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Effect radius</td>
+<td><code>Globals.aoe_radius_mult</code></td>
+</tr>
+<tr>
+<td>Late</td>
+<td>Draft +1 card</td>
+<td><code>CardPick.present</code> offer size</td>
+</tr>
+<tr>
+<td>Late</td>
+<td>Kill payout ×</td>
+<td><code>Enemy.coin_payout</code></td>
+</tr>
+<tr>
+<td>Late</td>
+<td>Speed cap raise</td>
+<td><code>cart.max_move_speed</code></td>
+</tr>
+<tr>
+<td>Late</td>
+<td>Extra starting wizard</td>
+<td><code>hire_wizard</code> seed</td>
+</tr>
+<tr>
+<td>Capstone</td>
+<td>Frozen <code>vuln</code></td>
+<td><code>StatusDB.DEFS</code></td>
+</tr>
+<tr>
+<td>Capstone</td>
+<td>Start specialized</td>
+<td><code>GoblinShop.element</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="open-questions-this-list-surfaces">Open questions this list surfaces<a class="headerlink" href="#open-questions-this-list-surfaces" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>What does the meta tree spend?</strong> <code>shards</code> exists in <code>meta.json</code> with no earn source (<a href="../../project/backlog/">Backlog</a> candidates: elite/carrier drops, wave-clear bonus, game-over conversion). Nothing else here can be designed until that's answered. ⚠️ Note the <strong>keep-artifacts stat above competes with the conversion candidate</strong> — both cash in the artifacts you died holding.</li>
+<li><strong>Additive-to-base or final multiplier?</strong> See the double-dip rule above. Needs one project-wide answer, not a per-node one.</li>
+<li><strong>Does meta touch difficulty at all</strong>, or is it strictly player-side? (Section I.)</li>
+<li><strong>Is <code>arm_time_mult</code> the template?</strong> It's the only field in the game already sitting there waiting for an upgrade to write to it. If meta bonuses all landed as <code>*_mult</code> fields owned by the systems themselves, wiring would stay a one-liner per node forever.</li>
+</ol>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../project/backlog/">Backlog → Meta-progression</a>: the persistence layer, unlock routes, and what's already built.</li>
+<li><a href="../artifacts/">Artifacts &amp; Relics</a> / <a href="../artifact-catalogue/">Artifact Catalogue</a>: the half-built meta layer.</li>
+<li><a href="../../game/tower/">The Tower &amp; Base Defenses</a>: the TAB shop this must not duplicate.</li>
+<li><a href="../../game/items/">Items &amp; Elements</a>: the six per-run wizard trees.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../artifact-catalogue/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Artifact Catalogue">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Artifact Catalogue
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../tech/art-direction/" class="md-footer__link md-footer__link--next" aria-label="Next: Art Direction">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Art Direction
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

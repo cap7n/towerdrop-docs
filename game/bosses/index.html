@@ -1,0 +1,1890 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Design wiki and single point of truth for TowerDrop, a stylized tower-defense game built in Godot.">
+      
+      
+      
+        <link rel="canonical" href="https://cap7n.github.io/towerdrop-docs/game/bosses/">
+      
+      
+        <link rel="prev" href="../enemies/">
+      
+      
+        <link rel="next" href="../economy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Bosses & The Run Arc - TowerDrop Design Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bosses-the-run-arc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-header__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TowerDrop Design Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bosses & The Run Arc
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-nav__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TowerDrop Design Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Pillars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wave Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../waves-curated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curated Waves 1-50
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Tower & Base Defenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items & Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enemies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enemies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosses & The Run Arc
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosses & The Run Arc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-bosses-the-problem-they-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why bosses (the problem they solve)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boss-1-the-spider-queen-wave-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boss 1 — the Spider Queen (wave 10)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boss 1 — the Spider Queen (wave 10)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-warnings-systems-built-this-week-will-misfire-on-her" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration warnings (systems built THIS WEEK will misfire on her)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-ability-components-not-a-boss-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture: ability components, not a boss framework
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-order-when-construction-starts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build order (when construction starts)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1-build-map-2026-07-26-all-six-steps-landed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1 BUILD MAP (2026-07-26 — all six steps landed)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v1 BUILD MAP (2026-07-26 — all six steps landed)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-boss-playtest-2026-07-26-yaro-same-day-as-the-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First boss playtest (2026-07-26, Yaro — SAME DAY as the build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#still-open-v2-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Still open (v2 / tuning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../economy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy & Gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/combat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat, Status & Feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/ultimates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ultimates & Spellbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/atmosphere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atmosphere & VFX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifacts & Relics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifact-catalogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifact Catalogue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/meta-progression-stats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta-Progression Stats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/art-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art Direction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asset Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine & Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/wiki-bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Task Bot (local LLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/revamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ Revamp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/backlog-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/backlog-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2D / UI Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/vfx-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/vfx-pack-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Pack Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/steam-store-assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steam Store Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap & Priorities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/how-to-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Edit This Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-bosses-the-problem-they-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why bosses (the problem they solve)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boss-1-the-spider-queen-wave-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boss 1 — the Spider Queen (wave 10)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boss 1 — the Spider Queen (wave 10)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-warnings-systems-built-this-week-will-misfire-on-her" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration warnings (systems built THIS WEEK will misfire on her)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-ability-components-not-a-boss-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture: ability components, not a boss framework
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-order-when-construction-starts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build order (when construction starts)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1-build-map-2026-07-26-all-six-steps-landed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1 BUILD MAP (2026-07-26 — all six steps landed)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v1 BUILD MAP (2026-07-26 — all six steps landed)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-boss-playtest-2026-07-26-yaro-same-day-as-the-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First boss playtest (2026-07-26, Yaro — SAME DAY as the build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#still-open-v2-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Still open (v2 / tuning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/cap7n/towerdrop-docs/edit/main/docs/game/bosses.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="bosses-the-run-arc">Bosses &amp; The Run Arc<a class="headerlink" href="#bosses-the-run-arc" title="Permanent link">&para;</a></h1>
+<p><em>Designed 2026-07-25 (Yaro + Claude session). Status: <span class="pill wip">WIP</span> — </em><em>v1 BUILT 2026-07-26</em><em> (see the build map at the bottom); needs an in-editor eyeball + tuning pass. This page is the spec.</em></p>
+<p><em>Playtest signal (2026-07-27): the Queen landed well with an outside tester — notably someone who dislikes this genre. First external validation of the boss-arc bet. A </em><em>Queen rematch placeholder</em><em> now sits at wave 20 (same Queen + spider escort, curated block 2) until Queen II — HP x2, faster eggs — is designed.</em></p>
+<h2 id="why-bosses-the-problem-they-solve">Why bosses (the problem they solve)<a class="headerlink" href="#why-bosses-the-problem-they-solve" title="Permanent link">&para;</a></h2>
+<p>Two findings from the same day forced this page. A tester was <strong>unstoppable by minute 15</strong> — the snowball wins and the game keeps politely serving spiders to a god. And runs are <strong>"1 run and done"</strong>: they don't end, they dissolve, and nothing pulls the player into run 2.</p>
+<p>Bosses fix both at once:</p>
+<ul>
+<li><strong>The run gets an arc.</strong> A boss every ~5 waves turns endless mush into chapters: build toward the wave-10 boss, survive her, rebuild toward 15. The wall an unstoppable player needs isn't more spiders with more HP — it's a boss they <em>can't beat yet</em>. That's Vampire Survivors' actual trick (Death at minute 30): the run ends with shape instead of petering out. The "no win condition, runs stay endless" decision survives — a boss wall is a horizon, not a win screen.</li>
+<li><strong>The meta gets a heartbeat.</strong> "Beat the wave-N boss" is exactly what the achievements → unlocks pipeline (built this week) is starving for. Die to a boss → unlock something → next run reaches further. Bosses are also the leading candidate for the <strong>shard source</strong> — see <a href="../../systems/progression/">Progression</a>.</li>
+</ul>
+<h2 id="boss-1-the-spider-queen-wave-10">Boss 1 — the Spider Queen (wave 10)<a class="headerlink" href="#boss-1-the-spider-queen-wave-10" title="Permanent link">&para;</a></h2>
+<p>Yaro's call: no new creature for the first boss — she's "spider, but wrong," so there is nothing new to teach visually.</p>
+<table>
+<thead>
+<tr>
+<th>Trait</th>
+<th>Spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Body</td>
+<td>Spider, <strong>2.5× the largest normal spider</strong>, black (<code>mesh_tints</code>)</td>
+</tr>
+<tr>
+<td>Shield</td>
+<td><strong>50 HP, rock-resistant</strong>: rock hits deal 1, elements deal full. The INVERSE of the existing breakable pure-shield — wave 10 is the exam for "did you build anything besides rock," which the wave-3 teaching wave sets up</td>
+</tr>
+<tr>
+<td>Summons</td>
+<td>Broods spiderlings continuously while alive — <strong>burst of 3-5 every few seconds with a concurrent cap (~30-40)</strong>, NOT a raw 10/s (that fills the 250-enemy perf ceiling in ~25 s). Summoned spiderlings pay <strong>no/low gold</strong> ("starved brood") or the fight becomes the best farming spot in the game</td>
+</tr>
+<tr>
+<td>Webs</td>
+<td>Shoots mounted <strong>artifacts</strong> with web (reuse the web-shooter strand visual): artifact disabled <strong>until wave end</strong> (the spec's "5 min" outlives every wave anyway). v2 counterplay: click the web to tear it free, repair-style</td>
+</tr>
+<tr>
+<td>Eggs</td>
+<td>Lays 1 HP eggs around the tower; each hatches <strong>5 spiderlings after 20 s</strong>. On her death <strong>eggs wither</strong> (pop cascade); already-hatched spiderlings stay and get mopped up — the wave must not end on an egg hunt</td>
+</tr>
+<tr>
+<td>Phases</td>
+<td><strong>Circles the perimeter once</strong> (webbing + laying), then <strong>climbs and bites: 15 dmg/bite</strong> — big chunks against the 500 HP tower, brick armour soaks first</td>
+</tr>
+</tbody>
+</table>
+<h3 id="integration-warnings-systems-built-this-week-will-misfire-on-her">Integration warnings (systems built THIS WEEK will misfire on her)<a class="headerlink" href="#integration-warnings-systems-built-this-week-will-misfire-on-her" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>The straggler cull will assassinate her</strong>: <code>assault_timeout</code> (120 s) forces REST while she lives, then the cull executes anything when ≤2 are left after 60 s. Boss waves need a <code>boss_wave</code> flag — no assault timeout, cull exempts the boss (and probably her eggs).</li>
+<li><strong>Checkpoint</strong>: saves only fire on a clear REST field, so a mid-boss quit resumes at the wave-10 rest. Correct as-is; just expected behaviour, not a bug.</li>
+<li><strong>Kill payout</strong>: her own death should pay like a jackpot (existing HP-scaled coin curve does this for free) — it's the brood that must not pay.</li>
+</ul>
+<h2 id="architecture-ability-components-not-a-boss-framework">Architecture: ability components, not a boss framework<a class="headerlink" href="#architecture-ability-components-not-a-boss-framework" title="Permanent link">&para;</a></h2>
+<p>Neither one-off hardcoded bosses (that's how <code>enemy.gd</code> reached 1800 lines) nor a grand framework designed off one example. The middle path already exists in the codebase, built and waiting for its first customer: the <strong>enemy component system</strong> (<code>EnemyLocomotion</code> / <code>EnemyAttack</code> / <code>EnemyAbility[]</code>, opt-in).</p>
+<ul>
+<li><code>SpiderQueen.tscn</code> = the composed enemy path. Her behaviours are <strong>reusable ability components</strong>: <code>SummonBrood</code>, <code>LayEggs</code>, <code>WebArtifacts</code>, plus an <code>OrbitThenClimb</code> locomotion phase.</li>
+<li>Each brick outlives her: <code>SummonBrood</code> is tomorrow's carrier elite, <code>WebArtifacts</code> a future web-shooter upgrade, <code>LayEggs</code> any brood enemy.</li>
+<li><strong>Wave injection is data</strong>: the spawn queue is already specs (<code>{scene, hp, immune, shield}</code>) — a boss wave is one more entry in the curated table (W10), and later the generator's "boss every 5 waves" hook.</li>
+<li>Rule of three: build boss #2 from different bricks, and only extract a "boss framework" when boss #3 shows what one actually needs.</li>
+</ul>
+<h2 id="build-order-when-construction-starts">Build order (when construction starts)<a class="headerlink" href="#build-order-when-construction-starts" title="Permanent link">&para;</a></h2>
+<ol>
+<li><code>boss_wave</code> flag: assault timeout off, cull exemption, telegraph variant (bigger flare / banner).</li>
+<li>Queen scene on the composed path: size, tint, shield-with-type-modifier (extend <code>set_pure_shield</code>'s pattern).</li>
+<li><code>OrbitThenClimb</code> + bite (existing climb/attack states do the heavy lifting).</li>
+<li><code>SummonBrood</code> (burst + concurrent cap + no-gold flag), <code>LayEggs</code> (egg = minimal immobile enemy with a hatch timer).</li>
+<li><code>WebArtifacts</code> (strand visual + <code>webbed</code> flag on TowerArtifact: effects skip while webbed, cleared on wave end).</li>
+<li>Achievement row: "slay the Spider Queen" → unlock; boss HP bar can be v2 (the enemy bar scaled up works for v1).</li>
+</ol>
+<h2 id="v1-build-map-2026-07-26-all-six-steps-landed">v1 BUILD MAP (2026-07-26 — all six steps landed)<a class="headerlink" href="#v1-build-map-2026-07-26-all-six-steps-landed" title="Permanent link">&para;</a></h2>
+<p>Everything on the <strong>composed enemy path</strong> — the component system's first real customer, as planned. New files under <code>Characters/Enemies/</code>:</p>
+<ul>
+<li><strong><code>Scenes/SpiderQueen.tscn</code></strong> — enemy core (<code>is_boss = true</code>, new core export), 60 body HP (tune!), <code>base_size 8.0</code> (= 2.5× the largest normal spider's 3.2), black via <code>MeshTintAbility</code> ("body" mesh → near-black; the pale fangs and eyes are left for contrast), <code>HealthBar3D</code> above her (hidden until first BODY damage — so the bar appearing doubles as the "shield is down" tell; the grey powerup aura = shield phase).</li>
+<li><strong><code>Components/boss_shield.gd</code></strong> (<code>BossShieldAbility</code>) — 50 HP, all damage lands on it first; the resisted type (rock/PURE) is <strong>capped at 1 per hit</strong>, elements deal full. Rides the composed <code>modify_damage</code> chain; grey aura tell, burst + aura-clear on break.</li>
+<li><strong><code>Components/orbit_then_climb.gd</code></strong> (extends GroundClimb) — walk in → <strong>one full lap</strong> at <code>orbit_radius 25</code> (bearing-accumulated, 90 s failsafe) → walk in, climb, dock. <code>is_orbiting()</code> is the window the webbing/egg abilities poll. Lure-leap no-op (too massive); <code>knockback_dislodge_speed 100</code> (blasts can't rip her off). Status slows apply on the lap — a frozen Queen stops mid-orbit, deliberate counterplay.</li>
+<li><strong><code>Components/summon_brood.gd</code></strong> — 3–5 spiderlings every 4 s while she lives, skipped while total alive ≥ 35 (the perf-cap guard), spawned around HER via the new reinforcement path, <strong>starved</strong> (no coins).</li>
+<li><strong><code>Components/lay_eggs.gd</code></strong> + <strong><code>Scenes/SpiderEgg.tscn</code></strong> + <strong><code>Components/egg_hatch.gd</code></strong> — up to 6 eggs on the lap; egg = real 1 HP enemy (pays 1 coin if crushed — egg-hunting is rewarded), hatches 5 starved spiderlings after 20 s (wobbles the last 3 s); on her death all standing eggs <strong>wither in a 0.15 s-stagger pop cascade</strong>. <code>burst_death.gd</code> is the new generic pop-feedback ability (future bombardier corrode burst).</li>
+<li><strong><code>Components/web_artifacts.gd</code></strong> + <strong><code>VFX/Shaders/web_cocoon.gdshader</code></strong> — up to 3 mounted artifacts webbed per lap. <strong>Yaro's half-sphere net design</strong>: procedural web lattice (polar spokes + rings, wobbled) on ONE hemisphere, the open half discarded; flown <strong>open-side-first</strong> so the landing seats a web CUP over the artifact. <code>TowerArtifact</code> gained <code>webbed</code> + <code>set_webbed()</code> (adopts the net, gates <code>_wave_live()</code> so every turret/coin effect stops, self-clears on <code>wave_completed</code>). New <code>tower_artifacts</code> group; the laser/emitter <code>_ready</code> overrides now call <code>super._ready()</code> (they silently skipped base registration).</li>
+<li><strong>Wave side</strong> (<code>wave_manager.gd</code> / <code>enemy_spawner.gd</code>) — curated <strong>W10 = <code>[[QUEEN, 1]]</code></strong> (she IS the wave; brood + eggs supply bodies). <code>BOSS_SCENES</code> marks boss waves: assault timeout suspended while a boss lives (it would have handed her to the straggler cull), cull exempts <code>is_boss</code>, telegraph flare turns <strong>blood red</strong> (<code>boss_signal_color</code>; the bigger flare/banner stays v2). New <code>spawn_reinforcement(scene, pos, starved)</code> — position-spawn through the real pool path, kill-counter connected (brood deaths count for HUD/achievements), <code>starved</code> nulls the enemy's coin spawner for that life.</li>
+<li><strong>Meta</strong> — <code>Achievements</code> DEFS row <strong><code>regicide</code></strong> ("Regicide", placeholder name): kill her once. <strong>Reward deliberately empty — Yaro picks</strong> (shards are the leading candidate). Compendium Bestiary got Queen + Egg rows. Both desc consumers now tolerate goal-1 rows without <code>%d</code>.</li>
+</ul>
+<p><strong>Kill payout:</strong> her 60 HP rides the existing HP-scaled coin curve → ~175 gold jackpot, for free.</p>
+<h3 id="first-boss-playtest-2026-07-26-yaro-same-day-as-the-build">First boss playtest (2026-07-26, Yaro — SAME DAY as the build)<a class="headerlink" href="#first-boss-playtest-2026-07-26-yaro-same-day-as-the-build" title="Permanent link">&para;</a></h3>
+<p><strong>He lost. To the boss. "Pretty difficult love it."</strong> The log: wave 10 = 99 bodies / 246 HP spawned (Queen + brood + eggs), 61 killed, peak 42 alive, tower 395 → 0. The run-arc thesis held on its first contact with a player.</p>
+<p>Two bugs found and fixed same day:</p>
+<ul>
+<li><strong>The wave "completed" the moment the Queen spawned</strong> (Survivor popped, REST + the artifact draft fired mid-boss). Cause: <code>get_alive_count()</code> reads EnemyManager's <strong>once-per-frame cache</strong>, built before that frame's spawn — so the frame the spawn queue empties, the cache still says 0 and a one-spec wave declares itself cleared with a live boss on the field. Never bit before because no earlier wave emptied its queue on its first spawn frame. <strong>Fix: a spawn frame can never be a clear frame</strong> (<code>_tick_assault</code> returns after <code>_release_one</code>). ⚠️ Rule: anything gating on <code>get_alive_count()</code> the same frame something spawned is reading a stale count.</li>
+<li><strong>Egg hatches/withers counted as kills</strong>: <code>release_enemy</code> always emitted <code>enemy_released</code>, and every listener treats that signal as "a kill happened" (Lucky Coin gold, drop pity, beam cooldown, BalanceLogger throughput). <code>release_enemy</code> grew a <code>silent</code> flag; hatch + wither use it. Related connection leak fixed in passing: the kill-counter was a per-spawn <code>CONNECT_ONE_SHOT</code> on <code>health_depleted</code>, which leaks on bodies that pool WITHOUT dying (hatched eggs) and would double-count their next life's death — now ONE permanent meta-guarded connection per body (<code>_hook_kill_counter</code>), shared by the drip and reinforcement paths.</li>
+</ul>
+<p>Known-and-accepted: <strong>Lucky Coin still pays on starved brood kills</strong> (it hooks <code>enemy_released</code>, not the coin drop) — an earned relic paying a trickle during the fight is fine; the log showed ~200 gold across the whole lost fight vs ~350+ in normal waves 8-9. Brood kills also advance the drop pity — also fine (artifact supply shouldn't stall during a 2-minute boss).</p>
+<h3 id="still-open-v2-tuning">Still open (v2 / tuning)<a class="headerlink" href="#still-open-v2-tuning" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Numbers pass in the editor: body HP 60, shield 50, bite 15 dmg / 2 s, orbit radius/speed, brood cadence + cap 35, egg count 6, webs 3. All exports on the scene's component nodes.</li>
+<li>Web tear-off counterplay (click the cocoon, repair-style) — spec'd, not built.</li>
+<li>Bigger telegraph (banner / double flare) — flare recolor only for now.</li>
+<li>Ragdoll death at scale 8 may read comical — eyeball; a bespoke death (collapse + brood scatter) is a v2 candidate.</li>
+<li>Passive artifact bonuses (cart speed etc.) are NOT stopped by webbing — only <code>_wave_live</code>-routed effects (turrets, coin maker). Deliberate v1 scope; revisit if webs feel toothless.</li>
+<li>Lure quirk: she can be baited during the walk-in (delays her, reads fine); a lure held near the wall can pull her past the orbit trigger and skip the lap. Watch in play.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../enemies/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Enemies">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Enemies
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../economy/" class="md-footer__link md-footer__link--next" aria-label="Next: Economy &amp; Gold">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Economy & Gold
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

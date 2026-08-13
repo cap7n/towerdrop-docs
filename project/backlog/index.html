@@ -1,0 +1,2186 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Design wiki and single point of truth for TowerDrop, a stylized tower-defense game built in Godot.">
+      
+      
+      
+        <link rel="canonical" href="https://cap7n.github.io/towerdrop-docs/project/backlog/">
+      
+      
+        <link rel="prev" href="../revamp/">
+      
+      
+        <link rel="next" href="../backlog-3d/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Backlog - TowerDrop Design Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#backlog-design-record" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-header__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TowerDrop Design Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backlog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-nav__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TowerDrop Design Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Pillars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wave Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves-curated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curated Waves 1-50
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/tower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Tower & Base Defenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items & Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/enemies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enemies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/bosses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosses & The Run Arc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/economy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy & Gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/combat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat, Status & Feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/ultimates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ultimates & Spellbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/atmosphere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atmosphere & VFX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifacts & Relics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifact-catalogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifact Catalogue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/meta-progression-stats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta-Progression Stats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/art-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art Direction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asset Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine & Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/wiki-bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Task Bot (local LLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ Revamp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design-sketches-captured-not-yet-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design sketches (captured, not yet built)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design sketches (captured, not yet built)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endless-mode-test-your-accumulated-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endless mode — "test your accumulated power"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#walled-settlement-a-separate-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Walled settlement — a separate map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locked-design-decisions-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locked design decisions (quick reference)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locked design decisions (quick reference)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elemental-interactions-the-combo-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elemental interactions (the combo matrix)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-notes-shipped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build notes — shipped systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#done-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Done log
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Done log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recently-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recently done
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playtest-archive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Playtest archive
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Playtest archive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-priority-from-playtest-2026-07-17-cap7n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High priority — from playtest (2026-07-17, Cap7n)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-2026-07-19-fellow-game-dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback (2026-07-19, fellow game dev)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-26-cap7n-boss-build-day-fire-feel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-26, Cap7n, boss build day — fire feel)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-25-cap7n-post-010-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-25, Cap7n, post-0.10 build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-17-jen-v0016-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-17, Jen, v0.016 build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-17-jennifers-sister-v0016-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-17, Jennifer's sister, v0.016 build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-12-cap7n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-12, Cap7n)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-c4-wave-39-marathon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest C4 (wave 39+ marathon)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codebase-cleanup-method-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codebase cleanup — method note
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2D / UI Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-pack-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Pack Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steam-store-assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steam Store Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap & Priorities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Edit This Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design-sketches-captured-not-yet-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design sketches (captured, not yet built)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design sketches (captured, not yet built)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endless-mode-test-your-accumulated-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endless mode — "test your accumulated power"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#walled-settlement-a-separate-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Walled settlement — a separate map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locked-design-decisions-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locked design decisions (quick reference)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locked design decisions (quick reference)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elemental-interactions-the-combo-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elemental interactions (the combo matrix)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-notes-shipped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build notes — shipped systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#done-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Done log
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Done log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recently-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recently done
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playtest-archive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Playtest archive
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Playtest archive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-priority-from-playtest-2026-07-17-cap7n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High priority — from playtest (2026-07-17, Cap7n)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-2026-07-19-fellow-game-dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback (2026-07-19, fellow game dev)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-26-cap7n-boss-build-day-fire-feel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-26, Cap7n, boss build day — fire feel)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-25-cap7n-post-010-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-25, Cap7n, post-0.10 build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-17-jen-v0016-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-17, Jen, v0.016 build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-17-jennifers-sister-v0016-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-17, Jennifer's sister, v0.016 build)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-2026-07-12-cap7n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest (2026-07-12, Cap7n)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-playtest-c4-wave-39-marathon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From playtest C4 (wave 39+ marathon)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codebase-cleanup-method-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codebase cleanup — method note
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/cap7n/towerdrop-docs/edit/main/docs/project/backlog.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="backlog-design-record">Backlog / Design record<a class="headerlink" href="#backlog-design-record" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">The live task list moved to the board</p>
+<p>Day-to-day tasks (priority, difficulty, roles, milestones, claim-lock) now live on the <strong>Ingenui Tasks</strong> board, in the <strong>Tower Drop</strong> project. Add, claim and close work there. This page is no longer the checklist; it is the <strong>design record</strong>: the reasoning behind unbuilt ideas, the open questions, and the log of what shipped. When an open question here gets decided it becomes a task on the board.</p>
+</div>
+<p><strong>Status tags (used in the history sections below):</strong> <span class="pill done">Done</span> shipped · <span class="pill wip">WIP</span> in progress · <span class="pill idea">Idea</span> undecided.</p>
+<p><strong>Roadmap:</strong> the versioned plan lives on the <a href="../roadmap/">0.1x roadmap</a>; the board's milestone labels (<code>0.11</code>..<code>0.18</code>, <code>Steam launch</code>) mirror it.</p>
+<hr />
+<h2 id="design-sketches-captured-not-yet-built">Design sketches (captured, not yet built)<a class="headerlink" href="#design-sketches-captured-not-yet-built" title="Permanent link">&para;</a></h2>
+<p>These hold the thinking that the terse board cards can't. Each is also an <strong>Open Question</strong> on the board; decide it there and it becomes real work.</p>
+<h3 id="endless-mode-test-your-accumulated-power">Endless mode — "test your accumulated power"<a class="headerlink" href="#endless-mode-test-your-accumulated-power" title="Permanent link">&para;</a></h3>
+<p><em>(Yaro, 2026-07-27.)</em> An <strong>extra, optional mode alongside the main game — not a new direction, and it changes nothing about the normal campaign.</strong> Picked from the menu next to a normal run; its own arena. The main game is <em>already</em> endless with no win state (<a href="../decisions/">Decisions</a>) and already has a wave-11+ threat-budget generator, so the point of THIS mode isn't "endlessness" — it's the <strong>dedicated arena + framing</strong>: bring a fully-stacked build and see how long it holds against a continuous flood, with no curated 1–10 arc to sit through first.</p>
+<ul>
+<li><strong>Core twist — NO ground, tower only.</strong> Strip the ground plane and the tower BASE entirely: no terrain to walk across, no approach phase. The tower floats on its cloud-island and you defend it top-to-bottom; enemies are on the wall from the moment they appear (climb-only). Leans straight into the core climb mechanic and drops the surrounding-arena parts of <code>level_1</code> (<code>Terrain</code>, <code>TowerBase</code>, the ground walk).</li>
+<li><strong>Setting:</strong> the tower on a <strong>mountain peak in a sea of clouds</strong> — a high-altitude island, cloud instead of ground. Reuses the horizon trick (flat <code>WorldBackdrop</code> + fog) plus a cloud-sea layer and the tunable <code>TD_Sky_01</code>. The clouds ARE the floor.</li>
+<li><strong>Open — where do enemies come from?</strong> With no ground they can't walk in. Candidates, undecided: (a) rise out of the cloud sea at the tower foot and climb; (b) emerge already-climbing from gates on the tower; (c) drop / fly in from above. This departs from the core fiction (enemies streaming across terrain), so it needs deciding, not assuming.</li>
+<li><strong>Loop:</strong> continuous survival, pressure via the existing threat-budget + swarm levers, within the locked <a href="../../pillars/">200–250 concurrent cap</a>.</li>
+<li><strong>Still open overall:</strong> separate scene vs a mode flag on <code>level_1</code>; what "accumulated power" means at entry (start maxed, or build up in-mode); how the mountaintop reads with the wave-direction windrose. Scope is large, so likely post-0.1x if pursued.</li>
+</ul>
+<h3 id="walled-settlement-a-separate-map">Walled settlement — a separate map<a class="headerlink" href="#walled-settlement-a-separate-map" title="Permanent link">&para;</a></h3>
+<p><em>(Yaro, 2026-07-27.)</em> Explicitly <strong>NOT</strong> the endless mode above: a <strong>different map, with different enemies</strong>, where the tower / settlement is <strong>ringed by walls and enemies attack through gates</strong>. The walls-and-gates fiction belongs HERE, not in the cloud-island mode. Everything open: what the settlement is (multiple structures? tower plus outbuildings?), which enemies are unique to it, whether it's another endless mode or a distinct scenario, and how walls / gates change cart positioning and enemy approach.</p>
+<blockquote>
+<p><strong>More undecided forks live as Open Questions on the board:</strong> win condition + run-summary screen, a mana currency, artifact-upgrade cards in the draft, thief flyers, fire/electric/lure tower ultimates, a mix-2-specializations wizard tier, the beam re-acquisition-lockout rework, difficulty-as-challenges, and a water element / fluid.</p>
+</blockquote>
+<hr />
+<h2 id="locked-design-decisions-quick-reference">Locked design decisions (quick reference)<a class="headerlink" href="#locked-design-decisions-quick-reference" title="Permanent link">&para;</a></h2>
+<p>Full rationale in the <a href="../decisions/">Decision Log</a>. The load-bearing ones for day-to-day work:</p>
+<ul>
+<li><strong>Enemy cap 200–250</strong>, smooth on most machines — not thousands. Preserves the feel-rich per-enemy effects. (<a href="../../pillars/">Pillar 5</a>.)</li>
+<li><strong>No win condition</strong> — runs stay endless. A run-summary screen is still wanted (open question).</li>
+<li><strong>Recipe / auto-combine system fully deleted</strong> (not parked). The enemy <strong>carry</strong> system was kept.</li>
+<li><strong>Spider HP cap = 15.</strong> A maxed rock can't one-shot a late spider, but frozen enemies take 2×, so <strong>frost is the setup tool</strong> back into one-shot range. Keep <code>frozen</code> at 2×-all — it's load-bearing.</li>
+<li><strong>Breakable pure-shield</strong> (rock chips it, elements bypass), introduced ~wave 15 = "rock immunity" in breakable form.</li>
+<li><strong>Generator budget buys variety + powerups, not raw HP</strong> — elemental immunities and shields, resistances assigned deliberately (not randomly).</li>
+<li><strong>Snowball killed by removing always-on TAB passives</strong> (spikes / poison spikes / HP regen removed from the TAB tree; systems kept for re-wire as costed spells).</li>
+</ul>
+<h3 id="elemental-interactions-the-combo-matrix">Elemental interactions (the combo matrix)<a class="headerlink" href="#elemental-interactions-the-combo-matrix" title="Permanent link">&para;</a></h3>
+<p>One element sets up (a coat / status), another pays off (a trigger). Design reference; the wiring status is a task on the board.</p>
+<ul>
+<li><strong>Oil + Fire = ignite</strong> — done (fire spreads a burn-wave on the slick).</li>
+<li><strong>Oiled enemy + Fire = instant torch</strong> — done (bigger burst, fiercer burn).</li>
+<li><strong>Frost + Rock (or Electric) = brittle</strong> — done, scoped 2026-07-17: frozen amplifies the shatter types (PURE + ELECTRIC) ×2, Deep Freeze ×4. The frost→rock one-shot the HP-cap design leans on still works.</li>
+<li><strong>Electric + Oil/wet = arc conductor</strong> — chain lightning jumps further to oiled neighbours (<code>wet_conductor</code> gives oiled links; the first-class combo is a board task).</li>
+<li><strong>Ideas:</strong> Frost + Fire = thermal shock; Slime/Poison + Fire = toxic flare; Frozen + heavy hit = shatter shrapnel; Lure = the universal setup.</li>
+</ul>
+<hr />
+<h2 id="build-notes-shipped-systems">Build notes — shipped systems<a class="headerlink" href="#build-notes-shipped-systems" title="Permanent link">&para;</a></h2>
+<p>Kept as a design record because the <em>shape</em> is reference even though the work shipped. Implementation detail lives in git and the systems pages; polish / tuning follow-ups are tasks on the board.</p>
+<ul>
+<li><strong>Two-layer tower HP + repair.</strong> The 110-brick shell is an ARMOUR layer (10 HP/brick, local coverage radius) that soaks hits before the core HP bar; bricks tint, crack and tumble off. Click-to-repair (hammer cursor) is a <strong>1-HP-per-click rate</strong> you upgrade (<code>bonus_hp_per_click</code>), not an instant full heal. Buried underground bricks are excluded from the pick + soak. See <a href="../../game/tower/">The Tower</a>.</li>
+<li><strong>Save system (0.10).</strong> Per-profile (three fixed slots) + a REST-checkpoint run save, menu <strong>Continue</strong>, meta.json that survives game over (banks playtime / achievements / meta points). Apply order is load-bearing.</li>
+<li><strong>Achievements + Compendium.</strong> <code>Achievements</code> autoload: bare-fact reporting (<code>bump</code> / <code>raise_to</code>) + a DEFS data table turning stats into unlocks; def-based artifact gating; Steam-style popup card; full-screen Compendium (Achievements / Artifacts / Bestiary / Spells).</li>
+<li><strong>Meta progression (started 2026-07-27).</strong> Death screen leads with banked <strong>meta points</strong> (1/wave, +10 boss) + a tree frame (nodes still to design in <code>skill_tree_maker.html</code>). <strong>Role split:</strong> the meta tree is permanent stat boosts only; artifacts stay achievement-unlocked; the tree also gates whether a wizard can learn spells.</li>
+<li><strong>Artifacts.</strong> Placeable <code>TowerArtifact</code> relics mounted via ghost placement (hang = side wall, top = tower top); effects run only while mounted during live waves; after-every-wave 3-card draft; brick-link knock-off; bag grid + Mover tool. A pity-timer governs kill drops.</li>
+<li><strong>Spellbook + tower ultimates.</strong> A non-modal two-page book with element ribbon tabs; a spell casts only once a wizard owns its <code>ultimate_*</code> tree node (plus an achievement gate). Castable: Oil, Freeze, Slime, Meteor Shower, Living Stone.</li>
+<li><strong>Ground fluid v2 (validated 2026-07-26).</strong> The WALL keeps the polar field; the GROUND got its own <strong>Cartesian XZ sim grid</strong> (uniform cells at any radius) with two one-way bridges at the foot (oil leaks down; ground fire ignites the wall). One ground-surface system that also becomes the home for future stain channels (slime / blood / scorch). The original design rationale is preserved below.</li>
+</ul>
+<details class="note">
+<summary>Ground fluid v2 — original design rationale (for the record)</summary>
+<p>The fluid fire proved the direction; the flaw was the coordinate system: the field is POLAR (columns around the tower), so ground cells stretch with radius — same splash, three sizes. The redo:</p>
+<ul>
+<li><strong>Split the surfaces.</strong> The WALL keeps the polar field (angle × height is natural there; coat mechanics don't change). The GROUND gets a <strong>Cartesian XZ sim grid</strong> — uniform cells everywhere, any radius. Same architecture as the trample map (world-space square around the tower).</li>
+<li><strong>Two one-way bridges at the foot:</strong> oil off the wall's bottom row deposits into ground cells beneath it; ground fire at the foot can ignite the wall's bottom row. That's the whole seam.</li>
+<li><strong>API survives, internals swap:</strong> <code>splash_ignite</code> / <code>ground_hazard</code> / walker sampling / black lung all route ground points to the new grid — call sites untouched.</li>
+<li><strong>The real prize — ONE ground-surface system:</strong> the grid IS the GroundStain idea (snail slime, blood, scorch, oil) — every ground mark becomes a channel in one sim instead of four bespoke systems.</li>
+<li><strong>Perf watch:</strong> the sim is a per-frame CPU loop; measure before committing to resolution — this must not un-win the perf war.</li>
+</ul>
+</details>
+<hr />
+<h2 id="done-log">Done log<a class="headerlink" href="#done-log" title="Permanent link">&para;</a></h2>
+<h3 id="recently-done">Recently done<a class="headerlink" href="#recently-done" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>2026-07-19 (v0.017, part 2 — the ARTIFACT sprint):</strong> artifacts went scaffold → <strong>full physical system in six passes</strong>: placeable <code>TowerArtifact</code> relics mounted via ghost placement on two surface types; effects run only while mounted during live waves; all 6 artifacts live; stacking additive-from-base; the ✦ bag is a 3×3 icon grid; <strong>Mover tool</strong>; brick-link knock-off. New plumbing: <code>wave_completed</code> signal, <code>spawn_bonus_coin</code>, collision layer 8.</li>
+<li><strong>2026-07-19 (v0.017):</strong> <strong>SPELLBOOK v1</strong> — an actual two-page book with <strong>tree-gated spells</strong>; <strong>Meteor Shower</strong> built; rocks CRUMBLE on impact. Cleared Cap7n's high-prio list: wizard <strong>Stats screen</strong>, <strong>Wizards button</strong> in the TAB shop, <strong>windrose</strong> compass. Sister's QoL: F4 panel moved, click-outside closes menus. <strong>Conjure timers</strong> toggle. <strong>Cart v2 model</strong>. Win condition + Mana logged as open questions.</li>
+<li><strong>2026-07-18 (post-v0.016 playtest round):</strong> <strong>Auto next wave</strong> checkbox; <strong>element switching redesigned</strong> (the tree's base node is a "Change element" doorway); <strong>wizard profile cards</strong>; <strong>lure redesign</strong> (plain item + AoE, glowing orb). Backlog consolidated into this wiki page.</li>
+<li><strong>2026-07-16/17 (v0.016):</strong> Two-layer tower HP + <strong>Repair tool</strong>; <strong>Settings menu</strong>; Rock-first element gate as a standalone rule; Frozen scoped to PURE+ELECTRIC; wizards face outward; grass-trample cache-eviction fix; environment polish; game icon; <strong>ShaderPrewarm</strong>; BalanceLogger fps/worst-frame + cheat-taint columns. Shipped to testers; two logs analysed same day.</li>
+<li><strong>2026-07-12:</strong> Goblin wizard LIVE (rigged + Conjure loop + per-element outfit recolor); 13 orphaned skill-tree effects reconnected; spikes redefined as a Rock ultimate.</li>
+<li><strong>Living grass:</strong> dense tinted grass + wind sway shader + trample map (enemies part the grass, 60 s spring-back trails).</li>
+<li>Game renamed → <strong>"Tower Drop"</strong>; menu patch-notes panel (fed from <code>CHANGELOG.txt</code>).</li>
+<li>Spellbook ultimates (Oil/Frost/Slime); fire pass (stylized flame, ground-impact ignite + spread, Oiled+Fire torch); DEBUG SANDBOX panel (F4); New modeler tower + brick-shell MultiMesh.</li>
+</ul>
+<hr />
+<h2 id="playtest-archive">Playtest archive<a class="headerlink" href="#playtest-archive" title="Permanent link">&para;</a></h2>
+<p><em>Playtest and feedback logs, kept for the record. Live follow-ups from these are tracked on the board.</em></p>
+<h3 id="high-priority-from-playtest-2026-07-17-cap7n">High priority — from playtest (2026-07-17, Cap7n)<a class="headerlink" href="#high-priority-from-playtest-2026-07-17-cap7n" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill done">Done</span> <strong>Remove the debug aim line</strong> (2026-07-18: the magenta beam + spawn call deleted from cart.gd).</li>
+<li><span class="pill done">Done</span> <strong>Wave direction indicator hidden by grass</strong> (2026-07-19): a standalone HUD <strong>windrose</strong> top-centre; arrow points at the incoming sector, pulses during telegraph.</li>
+<li><span class="pill done">Done</span> <strong>Show money invested per wizard</strong> (2026-07-19): the wizard shop's <strong>Stats screen</strong>.</li>
+<li><span class="pill done">Done</span> <strong>Jump from the TAB shop straight into a wizard's tree</strong> (2026-07-19): a "Wizards" button hands off to the wizard shop.</li>
+</ul>
+<h3 id="feedback-2026-07-19-fellow-game-dev">Feedback (2026-07-19, fellow game dev)<a class="headerlink" href="#feedback-2026-07-19-fellow-game-dev" title="Permanent link">&para;</a></h3>
+<p>New players spend attention decoding systems instead of fighting the horde. <strong>→ Grew into the <a href="../revamp/">⚡ Revamp</a> plan:</strong> tutorial slows down as its own mode, the main game speeds up with VS-style in-your-face choices.</p>
+<ul>
+<li><span class="pill done">Done</span> <strong>Separate the tutorial from the main game</strong> — Tutorial is now its OWN mode (start-menu entry; the main game starts clean). ⚠️ <strong>The tutorial CONTENT itself is not done</strong> — the separation/plumbing landed; the guided walkthrough is a board task (0.14).</li>
+<li>Systems overload, and "telegraph that upgrading exists": design themes, now board tasks (progressive unlocking; rest-phase nudges; affordable-upgrade glow — the wizard signal tab shipped part of this).</li>
+</ul>
+<h3 id="from-playtest-2026-07-26-cap7n-boss-build-day-fire-feel">From playtest (2026-07-26, Cap7n, boss build day — fire feel)<a class="headerlink" href="#from-playtest-2026-07-26-cap7n-boss-build-day-fire-feel" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill done">Done</span> <strong>Pipe bomb felt like a DOWNGRADE</strong> — fire items now detonate on first contact and seat a burning patch at the blast.</li>
+<li><span class="pill done">Done</span> <strong>"I have to MISS to get the fire zone" → FIRE IS OIL NOW</strong> — any fire that would leave a patch deposits burning FUEL into the FluidField and lights it (<code>splash_ignite</code>); one <code>FireEffect._leave_fire</code> seam. Ground-walkers now sample the field (<code>ground_hazard</code>).</li>
+<li><span class="pill done">Done</span> <strong>Burning oil was a flat colour</strong> — now runs the two-tap scrolling-noise flame technique, reusing the bound <code>warp_noise</code>.</li>
+<li><span class="pill done">Done</span> <strong>Boss HP bar removed</strong> — the Queen reads like every other enemy (grime + shield aura). <code>HealthBar3D</code> kept unused for a future proper boss bar.</li>
+</ul>
+<h3 id="from-playtest-2026-07-25-cap7n-post-010-build">From playtest (2026-07-25, Cap7n, post-0.10 build)<a class="headerlink" href="#from-playtest-2026-07-25-cap7n-post-010-build" title="Permanent link">&para;</a></h3>
+<p>8 waves / ~8.5 min / 191 kills. The log showed what the notes didn't: the tower took <strong>53 damage across 8 waves</strong> (waves 1–3 zero) — the early game is untouchable — and <strong>62% of gold went unspent</strong>. Perf clean (~48 fps, peak 31 alive).</p>
+<ul>
+<li><span class="pill done">Done</span> <strong>Shop "signal" tag</strong> — <code>signal_node: true</code> flashes the right-edge tab that OPENS the shop (a throbbing red "!" badge; scale reads in peripheral vision, brightness didn't). Only Hire Wizard is tagged.</li>
+<li><span class="pill done">Done</span> <strong>Rest auto-started even with "Auto next" OFF</strong> — with Auto next OFF rest now lasts until Enter; a <strong>straggler cull</strong> (≤2 left after 60 s) replaces the old force-start.</li>
+<li><span class="pill done">Done</span> <strong>Wizard hiring needs a visible entry point</strong> — a third right-edge pull tab, pulses when the next wizard is affordable.</li>
+<li><span class="pill done">Done</span> <strong>Beam artifacts too strong</strong> — a kill costs a 3 s recharge before re-target.</li>
+<li><span class="pill done">Done</span> <strong>Too many artifacts from drops</strong> — replaced with a <strong>pity timer</strong> (chance starts at zero, each kill adds a step, a drop resets it). ~1.2 drops/run at the default step.</li>
+<li><span class="pill done">Done</span> <strong>Unlocks applied to the CURRENT run</strong> — <code>Achievements</code> snapshots the unlocked pool at run start; the popup reads "unlocked for your next run".</li>
+<li><span class="pill done">Done</span> <strong>BUG (serious): enemy hit-flash + damage grime wiped permanently</strong> — the status system handed <code>HitFlash</code>'s <code>material_overlay</code> slot back as <code>null</code>, poisoning pooled bodies. Fixed via <code>base_overlay()</code> + <code>reapply()</code>. ⚠️ <strong>Rule: anything borrowing <code>material_overlay</code> on an enemy must restore <code>base_overlay()</code>, never null.</strong><ul>
+<li><span class="pill done">Done</span> <strong>Statuses and hit feedback now STACK</strong> via <code>next_pass</code> on OUR per-enemy material (never the shared pack <code>.tres</code>). The pattern for any "two effects on one body".</li>
+</ul>
+</li>
+<li><span class="pill done">Done</span> <strong>Game-over screen shows what the run unlocked</strong> — achievements + artifacts earned this run, with a hover line.</li>
+</ul>
+<h3 id="from-playtest-2026-07-17-jen-v0016-build">From playtest (2026-07-17, Jen, v0.016 build)<a class="headerlink" href="#from-playtest-2026-07-17-jen-v0016-build" title="Permanent link">&para;</a></h3>
+<p>5 waves / ~9 min. Loved the brick armour: <em>"i love how the tower bricks fall off btw!"</em> Discovered artifacts + ultimates on her own.</p>
+<ul>
+<li><span class="pill done">Done</span> <strong>BUG: Repair mode blocked ALL other clicking</strong> — repair only consumes clicks that hit a damaged brick; UI clicks pass through.</li>
+<li><span class="pill done">Done</span> <strong>BUG: lure dropped a clump of climbers "stuck but alive"</strong> — redesigned: the lure is now a PLAIN dropped item with the lure AoE attached (<code>LureBeacon</code> deleted). New hook: <code>DroppedItem.linger_hold</code>.</li>
+<li><span class="pill done">Done</span> <strong>W far from a goblin did nothing</strong> — now flashes a "no wizard in reach" hint.</li>
+<li><span class="pill done">Done</span> <strong>"I misunderstood repair wall"</strong> — button + tooltip state the rule.</li>
+</ul>
+<h3 id="from-playtest-2026-07-17-jennifers-sister-v0016-build">From playtest (2026-07-17, Jennifer's sister, v0.016 build)<a class="headerlink" href="#from-playtest-2026-07-17-jennifers-sister-v0016-build" title="Permanent link">&para;</a></h3>
+<p>26 min / 12 waves / zero errors. Economy data cheat-tainted (used F4 gold — BalanceLogger now flags that).</p>
+<ul>
+<li><span class="pill done">Done</span> <strong>"Double tower coats causes some lag"</strong> — first-use shader-compile stutter addressed with the <strong>ShaderPrewarm autoload</strong>.</li>
+<li><span class="pill done">Done</span> <strong>Hold-to-pour should stop on release</strong>; <strong>click-outside-to-close menus</strong>; <strong>F4 panel overlapped the inventory</strong> (moved) — all done.</li>
+<li><span class="pill done">Done</span> <strong>"Can I save my progress?"</strong> — answered by the save system (REST-checkpoint saves + menu Continue).</li>
+<li><strong>Idea pile</strong> (raw, uncurated): water element · wizard idle/flavour animations · intro/milestone cutscenes · wizard-slot count as difficulty · pricier ultimates late · biomes/levels · skins · chicken mob · ranged mobs that shoot up at the tower · surprise chests · leagues/clans · music intensifies as waves ramp · cherry blossom trees.</li>
+</ul>
+<h3 id="from-playtest-2026-07-12-cap7n">From playtest (2026-07-12, Cap7n)<a class="headerlink" href="#from-playtest-2026-07-12-cap7n" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill done">Done</span> <strong>Tutorial: force ROCK as the first wizard pick</strong> — reworked into a standalone per-run rule (non-Rock elements lock until the run's first Rock tree purchase).</li>
+<li><span class="pill done">Done</span> <strong>Wave-skip (Enter) → wizards instantly finish their conjure</strong>.</li>
+<li><span class="pill done">Done</span> <strong>BUG: grass trample stops working on wave 2+</strong> — fixed twice (coverage ±160 m; cache-eviction strong-ref + re-wire on level entry).</li>
+<li><span class="pill done">Done</span> <strong>REPAIR system (hammer cursor)</strong> — became the two-layer HP system.</li>
+</ul>
+<h3 id="from-playtest-c4-wave-39-marathon">From playtest C4 (wave 39+ marathon)<a class="headerlink" href="#from-playtest-c4-wave-39-marathon" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill done">Done</span> <strong>Kill the snowball's worst offenders</strong> — removed spikes / poisoned spikes / HP regen from the TAB tree (systems kept). Late-game tuning continues as board tasks.</li>
+<li><span class="pill done">Done</span> <strong>HP regen → upgradeable spell (Living Stone)</strong> — a cast (15g, 10s) switches on <code>TowerCore.set_regen()</code>; it STACKS across Rock wizards (sum when the stat IS the payload, max when it's a dial on a shared field effect). The dead always-on <code>_apply</code> case is deleted.</li>
+<li>Frost underpowered · fire &amp; lightning too cheap vs rock · roller aiming un-fun · lightning spread fires on ROCK kills · spikes → their own timed spell (mind the <code>spiks</code>/<code>posioned_spikes</code> id mismatch): all tracked as board tasks.</li>
+</ul>
+<hr />
+<h2 id="codebase-cleanup-method-note">Codebase cleanup — method note<a class="headerlink" href="#codebase-cleanup-method-note" title="Permanent link">&para;</a></h2>
+<p>Dead-code sweeps use <strong><code>tools/deadscan.py</code></strong> (plain <code>python</code>): it strips comments (so a stale doc comment can't make a dead var look alive) but KEEPS strings (this codebase calls across nodes by name), reporting members with zero references. Re-run at each milestone boundary. <strong>A script can't find a comment that lies</strong> — the stale-docs sweep is a per-subsystem read, tracked on the board. Pass 1 (2026-07-25) cut 85 → 38 unreferenced declarations; the worst three were <em>misleading, not merely unused</em> (<code>wave_manager</code>'s <code>base_wave_size</code>/<code>wave_growth</code>/<code>max_wave_size</code> looked like the difficulty knobs while waves actually come from the curated list + generator).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../revamp/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ⚡ Revamp">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                ⚡ Revamp
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../backlog-3d/" class="md-footer__link md-footer__link--next" aria-label="Next: 3D Backlog">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3D Backlog
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
