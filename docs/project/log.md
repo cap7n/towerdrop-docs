@@ -15,3 +15,4 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - Still open: Cost wired in, Cost now scales as displayed
 - **2026-08-13** Captn finished **Ground fluid v2: eyeball and tune** _(task #68)_
 - **2026-08-13** Captn finished **Dead-code Pass 3: stop the rot** _(task #73)_
+- **2026-08-13** Captn finished **Purge remaining dead recipe-era Items/Data .tres (~55 files)** _(task #114)_
