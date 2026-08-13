@@ -18,30 +18,32 @@ On top of that sits **elemental crafting**: items resolve into six damage-type e
 
 ## State of the game
 
-One line per system: the pill is the state, the link is the detail. **When you change a system, change its line** — this table is the orientation point the rest of the wiki hangs off. Day-to-day tasks live on the **Ingenui Tasks** board (Tower Drop project); finished work lands in the nightly done-log; the **[Backlog](project/backlog.md)** holds design sketches and the **[Decision Log](project/decisions.md)** holds the *why*.
+One line per system: the pill is the state, the link is the detail. **When you change a system, change its line.**
+
+The division of labour: **this wiki describes the game in the present tense** — what exists in the build right now. Anything future tense (planned, pending, next) lives on the **Ingenui Tasks** board and nowhere else; no task numbers on this page, ever. Finished work lands in the nightly done-log, which is the cue to update a line here. The **[Backlog](project/backlog.md)** holds design sketches and the **[Decision Log](project/decisions.md)** holds the *why*.
 
 ### The Game
 
 | System | State | Where it stands |
 |---|---|---|
-| [Wave Loop](game/waves.md) | <span class="pill done">DONE</span> | Telegraph → assault → rest, signal-flare sector telegraph, auto-next option. Pacing pass landed. |
-| [Curated Waves 1–50](game/waves-curated.md) | <span class="pill check">CHECK</span> | Waves 1–10 curated (Queen at 10), 11+ from the threat-budget generator. Numbers ride the tuning pass. |
-| [The Cart](game/cart.md) | <span class="pill done">DONE</span> | Tap-toss, hold-pour, drag-reorder, scroll-select, right-click cannon shot. Next: per-element impact identities. |
-| [Tower & Base Defenses](game/tower.md) | <span class="pill wip">WIP</span> | Brick armour (10 HP/brick) + click-to-repair live. Spike ring waits on its spell (board #5). |
-| [Items & Elements](game/items.md) | <span class="pill wip">WIP</span> | All six trees built; coverage audit 2026-08-13 confirmed every buyable node is wired or board-tracked. Now: the tuning pass. |
-| [Enemies](game/enemies.md) | <span class="pill wip">WIP</span> | Composed architecture (core + components). Spider, snail, pillbug, queen, egg live. Turtle/fly/worm models wait on behaviours. |
-| [Bosses & The Run Arc](game/bosses.md) | <span class="pill wip">WIP</span> | Spider Queen v1 at wave 10, playtested. Tuning + the Regicide reward pick still open. |
+| [Wave Loop](game/waves.md) | <span class="pill done">DONE</span> | Telegraph → assault → rest, signal-flare sector telegraph, auto-next option. |
+| [Curated Waves 1–50](game/waves-curated.md) | <span class="pill done">DONE</span> | Waves 1–10 curated (Queen at 10); 11+ come from the threat-budget generator. |
+| [The Cart](game/cart.md) | <span class="pill done">DONE</span> | Tap-toss, hold-pour, drag-reorder, scroll-select, right-click cannon shot. |
+| [Tower & Base Defenses](game/tower.md) | <span class="pill wip">WIP</span> | Brick armour (10 HP/brick) + click-to-repair live. The spike ring exists but has no spell; its Rock-tree nodes are buyable-but-inert. |
+| [Items & Elements](game/items.md) | <span class="pill wip">WIP</span> | All six trees built and wired (coverage audit 2026-08-13); the numbers are first-pass. |
+| [Enemies](game/enemies.md) | <span class="pill wip">WIP</span> | Composed architecture (core + components). Spider, snail, pillbug, queen, egg live. Turtle/fly/worm exist as static models only. |
+| [Bosses & The Run Arc](game/bosses.md) | <span class="pill wip">WIP</span> | Spider Queen v1 lives at wave 10, playtested; she has no reward drop. |
 | [Economy & Gold](game/economy.md) | <span class="pill done">DONE</span> | HP-scaled gold curve; the balance logger records every run. |
-| Tutorial (picture cards) | <span class="pill wip">WIP</span> | Rebuilt 2026-07-30 as trigger-fired picture cards + hotkey overlay. Tutorial-runs-only; refinement parked until post-revamp. |
+| Tutorial (picture cards) | <span class="pill wip">WIP</span> | Trigger-fired picture cards + hotkey overlay, tutorial runs only (rebuilt 2026-07-30). |
 
 ### Systems
 
 | System | State | Where it stands |
 |---|---|---|
 | [Combat, Status & Feedback](systems/combat.md) | <span class="pill done">DONE</span> | StatusDB + six damage types, damage numbers, ragdolls, chain lightning, cloud pools. |
-| [Progression](systems/progression.md) | <span class="pill wip">WIP</span> | Save system complete (3 profiles + run checkpoint); achievements v1 + compendium live. Deeper ultimate gating open (#26, #30). |
-| [Ultimates & Spellbook](systems/ultimates.md) | <span class="pill wip">WIP</span> | Book UI live; oil, frost, slime, meteors, living stone castable. FireWave, Arc Storm, Black-hole still to build (#27, #28, #29). |
-| [Atmosphere & VFX](systems/atmosphere.md) | <span class="pill done">DONE</span> | Day/night, ground-fluid v2, fire-is-fluid, depth fog, living grass. Tuning closed for now (#68). |
+| [Progression](systems/progression.md) | <span class="pill wip">WIP</span> | Save system complete (3 profiles + run checkpoint); achievements v1 + compendium live. Ultimates are not achievement-gated. |
+| [Ultimates & Spellbook](systems/ultimates.md) | <span class="pill wip">WIP</span> | Book UI live; oil, frost, slime, meteors, living stone castable. FireWave, Arc Storm and Black-hole exist only as wip book entries. |
+| [Atmosphere & VFX](systems/atmosphere.md) | <span class="pill done">DONE</span> | Day/night, ground-fluid v2, fire-is-fluid, depth fog, living grass. |
 | [Artifacts & Relics](systems/artifacts.md) | <span class="pill done">DONE</span> | Bag + placeable artifacts + after-every-wave 3-card draft. Whole [catalogue](systems/artifact-catalogue.md) verified wired 2026-08-13. |
 | [Meta-Progression Stats](systems/meta-progression-stats.md) | <span class="pill idea">IDEA</span> | Achievements feed it; the meta layer itself is still design. |
 
@@ -50,10 +52,10 @@ One line per system: the pill is the state, the link is the detail. **When you c
 | System | State | Where it stands |
 |---|---|---|
 | [Art Direction](tech/art-direction.md) | <span class="pill done">DONE</span> | Faceted-flat, no outlines; the AgX + contrast/saturation look is locked in the shared environment file. |
-| [Performance](tech/performance.md) | <span class="pill risk">RISK</span> | Real cap 200–250 enemies; Phase 0 quick wins not applied yet. |
+| [Performance](tech/performance.md) | <span class="pill risk">RISK</span> | Real cap today is 200–250 enemies; the build ships none of the audited quick wins. |
 | [Asset Pipeline](tech/asset-pipeline.md) | <span class="pill done">DONE</span> | Blender (Steam install) → re-runnable GLB export scripts; artifact mount contract documented. |
 | [Engine & Tooling](tech/engine.md) | <span class="pill done">DONE</span> | Godot 4.7-stable; vfx_bench (F6) is the test bench; balance + perf loggers. |
-| [The Task Bot](tech/wiki-bot.md) | <span class="pill wip">WIP</span> | Nightly done-log bot live on the box; `bot/log` branch awaits its first merge, then the log joins the nav. |
+| [The Task Bot](tech/wiki-bot.md) | <span class="pill wip">WIP</span> | Nightly done-log bot runs on the box; its log branch is not yet merged into this wiki. |
 
 ## How to use this wiki
 
