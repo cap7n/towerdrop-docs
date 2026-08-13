@@ -13,3 +13,4 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-13** Captn finished **Wire per-level wizard costs into the shop UI** _(task #33, 0.12)_
     - The plan said: Wire per-level wizard costs into the shop UI. wizard_shop_ui._node_cost already reads the costs[] array for the element trees; this is the remaining per-LEVEL wiring so a node's 2nd and 3rd level charge their own prices rather than repeating the first. Rebalancing the actual numbers is a separate tuning job.
     - Still open: Cost wired in, Cost now scales as displayed
+- **2026-08-13** Captn finished **Ground fluid v2: eyeball and tune** _(task #68)_
