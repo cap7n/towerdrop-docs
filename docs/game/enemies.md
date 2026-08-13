@@ -1,18 +1,21 @@
 # Enemies
 
-Enemies spawn out in the terrain ring, **walk** to the tower, **climb** the wall, and **attack** it: enemies dig in and attack from a range of heights along the wall, not only the rim. The behavior lives on a shared `enemy.gd` (`class_name Enemy`) state machine: WALKING → CLIMBING → ATTACKING.
+Enemies spawn out in the terrain ring, **walk** to the tower, **climb** the wall, and **attack** it: enemies dig in and attack from a range of heights along the wall, not only the rim.
+
+**Architecture (since 2026-08-09, task #53): every enemy is COMPOSED.** A scene is the shared `enemy.gd` core (health, statuses + their body VFX, powerups, carry, size roll, coins, pooling) plus component child nodes from `Characters/Enemies/Components/`: exactly one **Locomotion** (how it moves — `ground_climb.gd` is the reference), one **Attack** (what it does at the tower — `dig_in_bite.gd`), and any number of **Abilities** (web shooter, shell armor, curl, death presentations...). The old inline WALKING/CLIMBING/ATTACKING state machine and the per-type `extends Enemy` subclasses are deleted; a new enemy type is a new scene composing existing components plus at most one new small component.
 
 ## Roster
 
 | Enemy | State |
 |---|---|
-| **Spider** | ✅ Live. Baked walk/climb animation, speed-matched gait, climbs belly-to-wall. The primary enemy. Scene `Spider.tscn`. |
-| **Pillbug** | ✅ Done + feels good. Boneless curl-morph roll (faces travel, rolls head-over-tail); gray gradient shell shader. **Ability:** orbits at 13–25m, every 5–10s charges in and bonks the tower, then flips onto its back and struggles stunned ~3s (immune while curled; a blast cracks it open). Not yet wired into waves. |
-| **Snail** | 🧪 Wired (appears ~wave 8). Blender rig + figure-8 crawl loop. **Shell-armor mechanic**: a 1-HP shell gates the body. Spider-only behaviors (web, ragdoll) gated off. Polish pending: UV/texture, progressive shell fracture, squish-death. |
+| **Spider** | ✅ Live (`Spider_v2.tscn`, composed). Baked walk/climb animation, speed-matched gait, climbs belly-to-wall, far-field sprint. GroundClimb + DigInBite + WebShooter + RagdollDeath. The primary enemy. |
+| **Pillbug** | ✅ Live in waves 4+ (`Pillbug_v2.tscn`, composed). Boneless curl-morph roll; gray gradient shell shader. **Ability:** orbits at 16–30m, every 5–10s charges in and bonks the tower, then flips onto its back and struggles stunned ~3s (immune while curled; any hit cracks it open). PillbugOrbit + CurlArmor + SinkDeath. |
+| **Snail** | ✅ Live in waves 6+ (`Snail_v2.tscn`, composed). Blender rig + figure-8 crawl loop. **Shell-armor mechanic**: a 1-HP shell gates the body. SnailClimb + HeightScaledBite + ShellArmor + SquishDeath. Polish pending: UV/texture, progressive shell fracture. |
+| **Spider Queen** | ✅ Live (wave 10 boss). OrbitThenClimb + BossShield + SummonBrood + LayEggs + WebArtifacts; eggs are their own composed enemy (EggHatch + BurstDeath). See [Bosses](bosses.md). |
 
-More subclasses exist as thin `extends Enemy` scripts (termite, bombardier, carrier, centipede) awaiting models/scenes; fly/worm/turtle exist as Blender source, not yet wired. See the [Backlog](../project/backlog.md).
+Fly/worm/turtle exist as model-only scenes (no components yet = inert), behavior backlogged.
 
-New enemy types are added as per-type `@export` flags on the shared `enemy.gd` rather than new classes for now; see the [Decision Log](../project/decisions.md) for why, and [Technical Solutions](../tech/solutions.md) for implementation write-ups like the spider's gait.
+**Deleted enemy designs (2026-08-09, kept here so the ideas survive the code):** four never-spawned `extends Enemy` subclasses were removed with the legacy path; their scripts live in git history before that date. **Termite**: fragile fast swarm that chews the wall far quicker than anything (fast bite cadence, digs in low, no elemental resist) — punishes ignoring the base. **Bombardier**: acid beetle, resists poison; on death bursts a corrosive cloud that corrodes the TOWER if it dies dug-in — kill it out on the field or pay. **Carrier**: tanky pack-mule that always hauls an item, revealed on death (pure reuse of the core carry system + bonus HP). **Centipede**: segmented head-plus-trail body where damage chews segments off the tail (length-as-health, trail-follower along breadcrumbs); the trail logic was real work — rebuild as a Locomotion when the model exists.
 
 ## Endless wave generator + powerups
 

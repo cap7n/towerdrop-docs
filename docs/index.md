@@ -16,28 +16,46 @@ The twist that makes TowerDrop its own thing is the **cart on the rail**. You ar
 
 On top of that sits **elemental crafting**: items resolve into six damage-type elements (rock, fire, electric, poison, frost, lure), each with its own upgrade tree bought at the between-wave shop.
 
-## Where the game is right now
+## State of the game
 
-This wiki is the living record. Day-to-day tasks now live on the **Ingenui Tasks** board (Tower Drop project); the **[Backlog](project/backlog.md)** page holds the design record, design sketches and open questions, and the **[Decision Log](project/decisions.md)** holds the *why*.
+One line per system: the pill is the state, the link is the detail. **When you change a system, change its line.**
 
-| Area | Status |
-|---|---|
-| Cart on circular rail (theta-based, drag-to-place) | ✅ Working |
-| Cart drop / toss / pour + aimed throw | ✅ Working (throw in testing) |
-| Directional wave loop (telegraph → assault → rest) | ✅ Working |
-| Signal-flare wave telegraph | ✅ Working |
-| Six elemental damage trees (rock/fire/electric/poison/frost/lure) | ✅ Built; tuning pass pending |
-| Tower & Cart (Tab) upgrade shop | ✅ Working |
-| Enemies: spider (baked walk + climb animation) | ✅ Working |
-| Enemies: pillbug (curl-roll + charge-bonk-stun) | ✅ In waves (from wave 6 + generator) |
-| Enemies: snail (shell armor) | 🧪 Wired (~wave 8), polish pending |
-| Endless wave generator (wave 11+, threat budget + powerups) | ✅ Built |
-| Spellbook (book UI, tree-gated spells): oil / frost / slime coats + meteor shower | ✅ Working; 3 spell effects still to build |
-| Atmosphere: fire, oil fluid, day/night, blood/dissolve | ✅ Built |
-| Artifacts: placeable relics on the tower (bag grid, mover, 6 live effects) | ✅ Working; trap effects pending. Real models: Coin Maker, Crest Shield + 4 more landed 2026-07-28 (Lucky Coin, Swift Wheels, Sharp Edge, Frost Beam) |
-| New modeler tower + brick-shell MultiMesh | ✅ Imported |
-| Guided intro tutorial | ⚠️ Built, stopgap, untested |
-| Performance (target: smooth at 200–250 enemies) | 📋 Phase 0 quick wins not yet applied |
+The division of labour: **this wiki describes the game in the present tense** — what exists in the build right now. Anything future tense (planned, pending, next) lives on the **Ingenui Tasks** board and nowhere else; no task numbers on this page, ever. Finished work lands in the nightly done-log, which is the cue to update a line here. The **[Backlog](project/backlog.md)** holds design sketches and the **[Decision Log](project/decisions.md)** holds the *why*.
+
+### The Game
+
+| System | State | Where it stands |
+|---|---|---|
+| [Wave Loop](game/waves.md) | <span class="pill done">DONE</span> | Telegraph → assault → rest, signal-flare sector telegraph, auto-next option. |
+| [Curated Waves 1–50](game/waves-curated.md) | <span class="pill done">DONE</span> | Waves 1–10 curated (Queen at 10); 11+ come from the threat-budget generator. |
+| [The Cart](game/cart.md) | <span class="pill done">DONE</span> | Tap-toss, hold-pour, drag-reorder, scroll-select, right-click cannon shot. |
+| [Tower & Base Defenses](game/tower.md) | <span class="pill wip">WIP</span> | Brick armour (10 HP/brick) + click-to-repair live. The spike ring exists but has no spell; its Rock-tree nodes are buyable-but-inert. |
+| [Items & Elements](game/items.md) | <span class="pill wip">WIP</span> | All six trees built and wired (coverage audit 2026-08-13); the numbers are first-pass. |
+| [Enemies](game/enemies.md) | <span class="pill wip">WIP</span> | Composed architecture (core + components). Spider, snail, pillbug, queen, egg live. Turtle/fly/worm exist as static models only. |
+| [Bosses & The Run Arc](game/bosses.md) | <span class="pill wip">WIP</span> | Spider Queen v1 lives at wave 10, playtested; she has no reward drop. |
+| [Economy & Gold](game/economy.md) | <span class="pill done">DONE</span> | HP-scaled gold curve; the balance logger records every run. |
+| Tutorial (picture cards) | <span class="pill wip">WIP</span> | Trigger-fired picture cards + hotkey overlay, tutorial runs only (rebuilt 2026-07-30). |
+
+### Systems
+
+| System | State | Where it stands |
+|---|---|---|
+| [Combat, Status & Feedback](systems/combat.md) | <span class="pill done">DONE</span> | StatusDB + six damage types, damage numbers, ragdolls, chain lightning, cloud pools. |
+| [Progression](systems/progression.md) | <span class="pill wip">WIP</span> | Save system complete (3 profiles + run checkpoint); achievements v1 + compendium live. Ultimates are not achievement-gated. |
+| [Ultimates & Spellbook](systems/ultimates.md) | <span class="pill wip">WIP</span> | Book UI live; oil, frost, slime, meteors, living stone castable. FireWave, Arc Storm and Black-hole exist only as wip book entries. |
+| [Atmosphere & VFX](systems/atmosphere.md) | <span class="pill done">DONE</span> | Day/night, ground-fluid v2, fire-is-fluid, depth fog, living grass. |
+| [Artifacts & Relics](systems/artifacts.md) | <span class="pill done">DONE</span> | Bag + placeable artifacts + after-every-wave 3-card draft. Whole [catalogue](systems/artifact-catalogue.md) verified wired 2026-08-13. |
+| [Meta-Progression Stats](systems/meta-progression-stats.md) | <span class="pill idea">IDEA</span> | Achievements feed it; the meta layer itself is still design. |
+
+### Tech
+
+| System | State | Where it stands |
+|---|---|---|
+| [Art Direction](tech/art-direction.md) | <span class="pill done">DONE</span> | Faceted-flat, no outlines; the AgX + contrast/saturation look is locked in the shared environment file. |
+| [Performance](tech/performance.md) | <span class="pill risk">RISK</span> | Real cap today is 200–250 enemies; the build ships none of the audited quick wins. |
+| [Asset Pipeline](tech/asset-pipeline.md) | <span class="pill done">DONE</span> | Blender (Steam install) → re-runnable GLB export scripts; artifact mount contract documented. |
+| [Engine & Tooling](tech/engine.md) | <span class="pill done">DONE</span> | Godot 4.7-stable; vfx_bench (F6) is the test bench; balance + perf loggers. |
+| [The Task Bot](tech/wiki-bot.md) | <span class="pill wip">WIP</span> | Nightly done-log bot runs on the box; its log branch is not yet merged into this wiki. |
 
 ## How to use this wiki
 
