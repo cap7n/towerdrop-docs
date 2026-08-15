@@ -22,3 +22,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-14** Captn finished **FIX; raytrace fix on tower cliping** _(task #118, 0.11)_
     - Did: you can not trow threw stuff anymore, Some cliping might happen but not distubingly so
     - The plan said: FIX; raytrace fix on tower cliping. Fix the fact you can trow shit trew the tower.
+- **2026-08-14** Captn finished **Remove Colour shading from damaged Schell blocks** _(task #115, 0.11)_
+    - Did: colour removed and fixed Some dependency
+    - The plan said: Remove Colour shading from damaged Schell blocks. They where just to test if dmg is actualy happening.
