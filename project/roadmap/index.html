@@ -1,0 +1,2055 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Design wiki and single point of truth for TowerDrop, a stylized tower-defense game built in Godot.">
+      
+      
+      
+        <link rel="canonical" href="https://cap7n.github.io/towerdrop-docs/project/roadmap/">
+      
+      
+        <link rel="prev" href="../decisions/">
+      
+      
+        <link rel="next" href="../how-to-edit/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Roadmap & Priorities - TowerDrop Design Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#roadmap-priorities" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-header__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TowerDrop Design Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Roadmap & Priorities
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-nav__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TowerDrop Design Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Pillars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wave Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves-curated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curated Waves 1-50
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/tower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Tower & Base Defenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items & Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/enemies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enemies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/bosses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosses & The Run Arc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/economy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy & Gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/combat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat, Status & Feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/ultimates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ultimates & Spellbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/mana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mana & The Grinder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/atmosphere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atmosphere & VFX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifacts & Relics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifact-catalogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifact Catalogue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/meta-progression-stats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta-Progression Stats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/art-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art Direction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asset Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine & Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/wiki-bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Task Bot (local LLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ Revamp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2D / UI Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-pack-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Pack Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steam-store-assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steam Store Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap & Priorities
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap & Priorities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#versioning-rules-start-at-010" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning rules (start at 0.10)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-01x-series-alpha-milestone-by-milestone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 0.1x series — alpha, milestone by milestone
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The 0.1x series — alpha, milestone by milestone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#010-a-game-you-can-put-down-done-closed-2026-07-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.10 — A game you can put down Done (closed 2026-07-25)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#011-the-meta-loop-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.11 — The meta loop WIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#012-every-system-does-what-it-says-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.12 — Every system does what it says Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#013-the-horde-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.13 — The horde WIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#014-onboarding-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.14 — Onboarding Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#015-runs-smooth-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.15 — Runs smooth Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#016-looks-sounds-polish-i-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.16 — Looks &amp; sounds (polish I) WIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#017-art-pass-polish-ii-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.17 — Art pass (polish II) Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#018-ship-prep-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.18 — Ship prep WIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#019-beta-candidate-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.19 — Beta candidate Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#020-steam-private-beta-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.20 — Steam private beta 🎉 Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bigger-bets-not-scheduled-in-01x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bigger bets (not scheduled in 0.1x)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Edit This Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#versioning-rules-start-at-010" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning rules (start at 0.10)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-01x-series-alpha-milestone-by-milestone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 0.1x series — alpha, milestone by milestone
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The 0.1x series — alpha, milestone by milestone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#010-a-game-you-can-put-down-done-closed-2026-07-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.10 — A game you can put down Done (closed 2026-07-25)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#011-the-meta-loop-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.11 — The meta loop WIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#012-every-system-does-what-it-says-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.12 — Every system does what it says Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#013-the-horde-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.13 — The horde WIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#014-onboarding-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.14 — Onboarding Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#015-runs-smooth-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.15 — Runs smooth Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#016-looks-sounds-polish-i-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.16 — Looks &amp; sounds (polish I) WIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#017-art-pass-polish-ii-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.17 — Art pass (polish II) Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#018-ship-prep-wip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.18 — Ship prep WIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#019-beta-candidate-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.19 — Beta candidate Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#020-steam-private-beta-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.20 — Steam private beta 🎉 Todo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bigger-bets-not-scheduled-in-01x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bigger bets (not scheduled in 0.1x)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/cap7n/towerdrop-docs/edit/main/docs/project/roadmap.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="roadmap-priorities">Roadmap &amp; Priorities<a class="headerlink" href="#roadmap-priorities" title="Permanent link">&para;</a></h1>
+<p>The through-line. For the granular task list, see the <a href="../backlog/">Backlog</a>.</p>
+<p><strong>The prototype phase is over.</strong> The 0.0x line (v0.014 → v0.017) proved the game; from here the project runs on a <strong>versioned milestone roadmap</strong>: the <strong>0.1x alpha series</strong>, ending at <strong>0.20 = the Steam private-beta phase</strong> (builds distributed via Steam keys / a private branch to a hand-picked circle; the store page can stay hidden). Dates are deliberately absent — a milestone ships when its theme is playable in a tester build.</p>
+<h2 id="versioning-rules-start-at-010">Versioning rules (start at 0.10)<a class="headerlink" href="#versioning-rules-start-at-010" title="Permanent link">&para;</a></h2>
+<p>Decided 2026-07-24 (Yaro):</p>
+<ul>
+<li><strong>Scheme = <code>MAJOR.MINOR.PATCH.BUILD</code></strong> (semantic versioning + Windows build digit; adopted 2026-07-24, Yaro). <strong>MAJOR</strong>: release era — <code>0</code> all through alpha/beta, <code>1.0.0.0</code> on release day, bumps again only for sequel-scale reworks. <strong>MINOR</strong>: the roadmap milestones — the 0.<strong>10</strong> → 0.<strong>11</strong> → 0.<strong>20</strong> series lives here. <strong>PATCH</strong>: hotfix on a shipped milestone (same content, repaired): tester-breaking bug in 0.10 → ship <code>0.10.1</code>. <strong>BUILD</strong>: normally <code>0</code>; only for a re-export with no code/content change (export-setting tweak, repack). Rule of thumb for big-vs-small: players must relearn something or saves change shape → MINOR; it just plays better/correct → PATCH.</li>
+<li><strong>Short form everywhere humans read it, four digits only where Windows demands it.</strong> <code>config/version</code> in project.godot, the menu label (auto-reads the setting since 2026-07-24), git tags and <code>CHANGELOG.txt</code> headers all use the short form (<code>0.10</code>, <code>0.10.1</code>, <code>1.0</code>); the export preset's <code>product_version</code> + <code>file_version</code> pad to four (<code>0.10.0.0</code> — Godot validates both fields as x.x.x.x, filled 2026-07-24). Steam ignores all of it (own build IDs) — the number exists for humans, crash logs and "which zip are you running?".</li>
+<li><strong>Every shipped tester build gets a version.</strong> Bump <code>config/version</code> <strong>and</strong> the two export preset fields together; the menu version label and a <code>CHANGELOG.txt</code> entry ride along as before.</li>
+<li><strong>Git tag per release</strong>: tag the release commit <code>v0.10</code>, <code>v0.11</code>, … in the game repo.</li>
+<li><strong>Engine pinned per release</strong>: currently <strong>Godot 4.7</strong> (<code>config/features</code>). Engine upgrades happen only at a version boundary and get recorded here — never mid-milestone.</li>
+<li><strong>Numbers are themes, not dates.</strong> Content can slip between milestones; the numbering never reorders. A theme that lands small may merge into its neighbour (we'd rather skip a number than ship a hollow one).</li>
+</ul>
+<h2 id="the-01x-series-alpha-milestone-by-milestone">The 0.1x series — alpha, milestone by milestone<a class="headerlink" href="#the-01x-series-alpha-milestone-by-milestone" title="Permanent link">&para;</a></h2>
+<p>Each milestone names its theme, its goal, and the backlog items that define "done". Within any milestone the <a href="../../pillars/">pillars</a> tie-breaker applies: <strong>base-game fun and feel first</strong>. Every bullet + the milestone heading itself carries a status pill (mirrors the <a href="../backlog/">Backlog</a>'s system): <span class="pill done">Done</span> shipped · <span class="pill wip">WIP</span> in progress · <span class="pill todo">Todo</span> not started · <span class="pill idea">Idea</span> undecided. A milestone's own pill is the roll-up of its bullets — Done only once everything under it is.</p>
+<h3 id="010-a-game-you-can-put-down-done-closed-2026-07-25">0.10 — A game you can put down <span class="pill done">Done</span> <em>(closed 2026-07-25)</em><a class="headerlink" href="#010-a-game-you-can-put-down-done-closed-2026-07-25" title="Permanent link">&para;</a></h3>
+<p><em>The "left prototype" build: runs persist, the build is clean.</em></p>
+<ul>
+<li><span class="pill done">Done</span> <strong>Save system v1, per profile</strong> — the full plan lives in the <a href="../backlog/">Backlog</a> (Bigger features): REST-checkpoint saves (only when the field is clear — no enemy presence), <code>SaveSystem</code> autoload, named profile slots (<code>user://profiles/</code>), menu <strong>Continue</strong>, game-over deletes the run file. The Profiles button stops being a stub. <strong>BUILT 2026-07-24, both phases</strong> — profile layer (SaveSystem autoload + three-card Profiles screen + playtime banking) AND the run checkpoint (REST field-clear saves, full state gather/apply, menu Continue per profile, coin-pile reseed). Details in the Backlog entry.</li>
+<li><span class="pill done">Done</span> Clean <strong>restart after game-over</strong> without relaunching — CLOSED 2026-07-25 (Yaro's call): no repro across the whole 0.10 cycle's heavy churn; the old build-only crash is treated as a long-gone edge case. Crash logging stays in place in case it ever resurfaces.</li>
+<li><span class="pill done">Done</span> Build hygiene leftovers: cheat keys folded into the F4 sandbox — the LAST raw key (hold-F3 coin pour) folded 2026-07-25: the panel's Gold buttons now pour REAL RigidBody coins onto the pile (Yaro's call — the counter follows as the pile absorbs, so cheat gold behaves like earned gold; <code>CoinSpawner.pour_coins()</code>) · test scenes confirmed excluded from exports (2026-07-24).</li>
+<li><span class="pill done">Done</span> First build stamped per the versioning rules above — <code>config/version</code> + the export preset's File/Product Version fields are set to <code>0.10</code> (2026-07-24); CHANGELOG v0.10 written 2026-07-25. Remember: tag the release commit <code>v0.10</code> when the zip is actually cut.</li>
+</ul>
+<h3 id="011-the-meta-loop-wip">0.11 — The meta loop <span class="pill wip">WIP</span><a class="headerlink" href="#011-the-meta-loop-wip" title="Permanent link">&para;</a></h3>
+<p><em>Losing a run still moves you forward.</em></p>
+<ul>
+<li><span class="pill wip">WIP</span> <strong>Meta layer</strong> (<code>meta.json</code>, survives game over): playtime, achievements tracker v1, artifact shards. <strong>Achievements tracker v1 BUILT 2026-07-25</strong> (<code>Achievements</code> autoload, data-table DEFS, popup card, full-screen Compendium — see the Meta-progression section of the <a href="../backlog/">Backlog</a>); shards still open.</li>
+<li><span class="pill wip">WIP</span> <strong>Artifact meta-unlocks live</strong>: the draft, kill drops and debug grant all draw only from the profile's unlocked pool via <code>Achievements.is_artifact_unlocked()</code> (def-based gate, no seeding — LIVE 2026-07-25; Sharp Edge + Thick Bark are the first gated ids). The achievements route works end to end; playtime + shard routes still to build.</li>
+<li><span class="pill idea">Idea</span> <strong>Decide the shard source</strong> — leading candidate as of 2026-07-25: <strong>boss drops</strong> (<a href="../../systems/progression/">Progression</a> + <a href="../../game/bosses/">Bosses</a>); shards then buy small PERMANENT upgrades (the missing Vampire-Survivors layer — unlocks widen <em>options</em>, shards deepen <em>power</em>). Elite drops / wave-clear / game-over conversion stay as fallbacks.</li>
+<li><span class="pill wip">WIP</span> Profiles screen shows meta progress — the cards show playtime + "Achievements n / total" (2026-07-25); shards join when they exist.</li>
+<li><span class="pill done">Done</span> <strong>Ultimates gated by achievements</strong> (Yaro 2026-07-25, commit <code>9e87274</code>) — DEFS rows take an <code>"ultimate"</code> key alongside <code>"artifact"</code>; a row can carry either, both or neither. The gate <strong>stacks on top of the wizard-tree node</strong> (tree purchase AND achievement), so it reads as meta progression rather than a second price tag, and it mirrors the artifact gating including the <strong>run-pool freeze</strong> (the pool rides in the checkpoint). The spellbook names <em>which</em> gate is missing — "Earn <em>&lt;achievement&gt;</em> to learn this" rather than always claiming it's deeper in the tree, which is unactionable when the blocker is an achievement. Seeded example: <strong>Meteor Shower behind Exterminator (100 kills)</strong>, so meteors become a second-run reward; one key to move or remove.</li>
+</ul>
+<h3 id="012-every-system-does-what-it-says-todo">0.12 — Every system does what it says <span class="pill todo">Todo</span><a class="headerlink" href="#012-every-system-does-what-it-says-todo" title="Permanent link">&para;</a></h3>
+<p><em>No dead items, no placebo nodes.</em></p>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Item → effect coverage</strong>: every buyable/usable item does something.</li>
+<li><span class="pill todo">Todo</span> The <strong>~20 skill-tree nodes with no effect code</strong> (wet_conductor, wildfire, ricochet, boulder, shatter, …) — element-by-element sessions.</li>
+<li><span class="pill wip">WIP</span> <strong>Ultimates completed</strong>: Meteor Shower is v1 castable; FireWave / Arc Storm / Black-hole Lure effect code, spikes folded in as a Rock spell, per-spell costs, and the wizard-buff inheritance decision are still open.</li>
+<li><span class="pill todo">Todo</span> <strong>Elemental combos</strong>: Electric + Oil (arc conductor) — the next nearly-free one.</li>
+<li><span class="pill todo">Todo</span> Per-element enemy resistance/weakness system promoted from quick-test to real.</li>
+</ul>
+<h3 id="013-the-horde-wip">0.13 — The horde <span class="pill wip">WIP</span><a class="headerlink" href="#013-the-horde-wip" title="Permanent link">&para;</a></h3>
+<p><em>The enemy roster and the long game.</em></p>
+<ul>
+<li>
+<p><span class="pill wip">WIP</span> <strong>HEADLINE: the Spider Queen + the run arc</strong> (designed 2026-07-25, see <a href="../../game/bosses/">Bosses</a>) — boss every ~5 waves as the wall the snowball can't beat; first boss at wave 10 (rock-resistant shield = the "build beyond rock" exam); boss kills feed achievements → unlocks and become the shard source (<a href="../../systems/progression/">Progression</a>). Built on the enemy component system below — the Queen is its first real customer. <strong>v1 BUILT 2026-07-26</strong> (all six build-order steps: boss wave flag, Queen scene + shield, orbit-then-climb, brood + eggs, artifact webbing, Regicide achievement — build map on the Bosses page); needs the in-editor eyeball + numbers pass, and the Regicide reward is Yaro's pick.</p>
+</li>
+<li>
+<p><span class="pill wip">WIP</span> <strong>Enemy component system migration</strong> — <code>EnemyLocomotion</code>/<code>EnemyAttack</code>/<code>EnemyAbility[]</code> built and opt-in; A/B <code>Spider_v2</code>, port Snail, migrate the 5 subclasses, delete the legacy inline path all remain.</p>
+</li>
+<li><span class="pill wip">WIP</span> New enemies wired into waves: subclass scripts exist for <strong>termite, bombardier, carrier</strong> but none has a model/scene yet; centipede has a first pass (segment colliders, mid-split still open); <strong>turtle / fly / worm</strong> models are wired in but undesigned/unbehaviored.</li>
+<li><span class="pill todo">Todo</span> <strong>Elemental spiders</strong> (fire ~W3, trickle from ~W5) and the "only THIS element penetrates" layer.</li>
+<li><span class="pill todo">Todo</span> <strong>Waves beatable to ≥10</strong> tuning + late-game generator tuning (the C4 marathon list: frost buff, element cost rebalance, roller aim). <em>(The snowball itself is already killed — spikes/regen removed, the budget generator + spider HP cap are live — this is the fine-tuning pass on top.)</em></li>
+<li><span class="pill todo">Todo</span> Revamp Track 2 leftover: <strong>make early choices HIT</strong> (cheap dramatic first tiers, re-tune waves 1–5).</li>
+</ul>
+<h3 id="014-onboarding-todo">0.14 — Onboarding <span class="pill todo">Todo</span><a class="headerlink" href="#014-onboarding-todo" title="Permanent link">&para;</a></h3>
+<p><em>A stranger can learn the game without us in the room.</em> (Deliberately after 0.12/0.13 — the <a href="../revamp/">Revamp</a> parked the tutorial until the systems it teaches stop moving.)</p>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Tutorial mode finished</strong>: the full Track 1 curriculum (Blocks 0–5, 10–15 min, no game-over pressure), completion flag, first-launch nudge.</li>
+<li><span class="pill todo">Todo</span> <strong>Controls reference</strong> card + quick single-screen tutorial.</li>
+<li><span class="pill todo">Todo</span> Revamp Track 2 leftovers: <strong>telegraph upgrades loudly</strong> (gold-nudge, glowing shop entries) and the <strong>system reveal order</strong> pass.</li>
+<li><span class="pill todo">Todo</span> Tooltip / description copy fill + spellcheck.</li>
+</ul>
+<h3 id="015-runs-smooth-todo">0.15 — Runs smooth <span class="pill todo">Todo</span><a class="headerlink" href="#015-runs-smooth-todo" title="Permanent link">&para;</a></h3>
+<p><em>Wave 10+ doesn't chug on a tester's machine.</em></p>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Perf Phase 0</strong> quick wins (shadows, alloc flood, ragdoll caps — see <a href="../../tech/performance/">Performance</a>); sustained-cost profiling (double tower coats / FluidField).</li>
+<li><span class="pill done">Done</span> <strong>Restart-run crash</strong> — CLOSED 2026-07-25: never reproduced again across the 0.10 cycle; treated as a long-gone edge case. Crash logging (<code>user://logs/godot.log</code> bundled into <code>balance_logs/engine_logs/</code>) stays in place should it resurface.</li>
+<li><span class="pill todo">Todo</span> Game file size + load-time pass.</li>
+</ul>
+<h3 id="016-looks-sounds-polish-i-wip">0.16 — Looks &amp; sounds (polish I) <span class="pill wip">WIP</span><a class="headerlink" href="#016-looks-sounds-polish-i-wip" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill wip">WIP</span> <strong>Audio completion</strong>: <code>Sfx</code> autoload built and wired for clicks/coins/skill-unlock/spider-bite/pillbug-slam/wall-repair; still missing ultimate casts, item impacts, enemy deaths, wave-warning tie-in, and the music-intensity ramp.</li>
+<li><span class="pill todo">Todo</span> <strong>HUD readability pass</strong> (wave / HP / gold / loadout) + menu fog tuning.</li>
+<li><span class="pill todo">Todo</span> VFX debts: magical <strong>aim-line</strong> treatment, <strong>per-element beam identities</strong>, grass pop-back smoothing.</li>
+</ul>
+<h3 id="017-art-pass-polish-ii-todo">0.17 — Art pass (polish II) <span class="pill todo">Todo</span><a class="headerlink" href="#017-art-pass-polish-ii-todo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Stylized look settled</strong> (toon-shader decision executed; no outlines).</li>
+<li><span class="pill todo">Todo</span> Real models where placeholders remain: relic/artifact scenes (the catalogue <code>scene</code> key is ready), item cubes, the 3 modeler creatures textured, spellbook art.</li>
+<li><span class="pill todo">Todo</span> Goblin wizard extra animations (idle, hat-tip, ta-dah).</li>
+<li><span class="pill todo">Todo</span> The <a href="../backlog-3d/">3D backlog</a> burn-down (lantern/flag-post, night lighting final).</li>
+</ul>
+<h3 id="018-ship-prep-wip">0.18 — Ship prep <span class="pill wip">WIP</span><a class="headerlink" href="#018-ship-prep-wip" title="Permanent link">&para;</a></h3>
+<p><em>Everything Steam needs for a keys-based beta.</em> (App ID <strong>4987130</strong> exists — see <a href="../steam-store-assets/">Steam Store Assets</a>.)</p>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>SteamPipe build pipeline</strong>: automated export (Windows first) → depot upload → a <strong>private branch</strong>; versioned builds land on Steam instead of hand-shared zips.</li>
+<li><span class="pill wip">WIP</span> Export presets verified per target (Windows preset fully filled in 2026-07-24: version fields, icon, embedded PCK, shader baker); crash logging exists; the in-game feedback note (C) exists; still want a visible Discord/report link.</li>
+<li><span class="pill wip">WIP</span> <strong>RBL</strong>: working tree is <em>mostly</em> clean (2026-07-19) — <strong>EXCEPT the cursors, which are NOT CC0</strong> and are baked into every build. ⚠️ <strong>Replacing them gates the NEXT distributed build (demo or private playtest), not 0.20</strong> — a cursor ships inside the binary, so unlike the history purge it cannot trail (tracked on the board: <em>RBL: replace the mouse cursors</em>). The <strong>git-history purge</strong> stays the hard gate for anything <em>public or source</em> — a keys beta ships binaries only, so the purge may trail 0.20, but it must land before any public phase. Repo stays private regardless.</li>
+<li><span class="pill idea">Idea</span> Store assets (capsules, screenshots) are <strong>not</strong> required while the page is hidden — deferred until a public phase is scheduled.</li>
+</ul>
+<h3 id="019-beta-candidate-todo">0.19 — Beta candidate <span class="pill todo">Todo</span><a class="headerlink" href="#019-beta-candidate-todo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="pill todo">Todo</span> <strong>Feature freeze</strong> for the series; only fixes and tuning land.</li>
+<li><span class="pill todo">Todo</span> Bug bash across the board's open bugs + a full balance pass driven by BalanceLogger data.</li>
+<li><span class="pill todo">Todo</span> Candidate builds soak with the inner circle; the 0.20 checklist below gets ticked.</li>
+</ul>
+<h3 id="020-steam-private-beta-todo">0.20 — Steam private beta 🎉 <span class="pill todo">Todo</span><a class="headerlink" href="#020-steam-private-beta-todo" title="Permanent link">&para;</a></h3>
+<p><em>The testing phase begins.</em></p>
+<ul>
+<li><span class="pill todo">Todo</span> Builds distributed via <strong>Steam keys / private branch</strong> to a hand-picked circle; store page stays hidden.</li>
+<li><span class="pill todo">Todo</span> Entry checklist: save/profiles solid across updates (save-format versions honoured), meta loop rewarding, tutorial teaches, wave 10+ smooth, zero known crashes, feedback channel instrumented.</li>
+<li><span class="pill idea">Idea</span> What comes after 0.20 (public demo? Playtest? Early Access?) is a decision for during the beta — parked in <a href="../decisions/">Decisions</a>.</li>
+</ul>
+<h2 id="bigger-bets-not-scheduled-in-01x">Bigger bets (not scheduled in 0.1x)<a class="headerlink" href="#bigger-bets-not-scheduled-in-01x" title="Permanent link">&para;</a></h2>
+<p>Parked, not rejected — pull one in only by consciously displacing milestone content:</p>
+<ul>
+<li><strong>Buildable defenses &amp; traps</strong> (buy-then-throw into place) — the trap-family artifacts are the seed.</li>
+<li><strong>Flying enemies</strong> (moth, thief flyer) — parked on aimed-throw AA feel.</li>
+<li><strong>Menu tower wears your saved artifacts</strong> (depends on the save system + placed-artifact rework).</li>
+<li>Water element / new fluids, biomes, skins, mix-2-specialization wizards, cutscenes — the idea pile.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This roadmap is the <em>direction</em>; the <a href="../backlog/">Backlog</a> is the <em>inventory</em>. When a milestone ships, move its leftovers forward explicitly and tag the release — the fastest way to see what "now" means.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../decisions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Decision Log">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Decision Log
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../how-to-edit/" class="md-footer__link md-footer__link--next" aria-label="Next: How to Edit This Wiki">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                How to Edit This Wiki
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

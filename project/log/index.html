@@ -1,0 +1,1605 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Design wiki and single point of truth for TowerDrop, a stylized tower-defense game built in Godot.">
+      
+      
+      
+        <link rel="canonical" href="https://cap7n.github.io/towerdrop-docs/project/log/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Work Log - TowerDrop Design Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#work-log" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-header__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TowerDrop Design Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Work Log
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TowerDrop Design Wiki" class="md-nav__button md-logo" aria-label="TowerDrop Design Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TowerDrop Design Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cap7n/towerdrop-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Pillars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wave Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/waves-curated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curated Waves 1-50
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/tower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Tower & Base Defenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items & Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/enemies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enemies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/bosses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosses & The Run Arc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game/economy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy & Gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/combat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat, Status & Feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/ultimates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ultimates & Spellbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/mana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mana & The Grinder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/atmosphere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atmosphere & VFX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifacts & Relics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/artifact-catalogue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artifact Catalogue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/meta-progression-stats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta-Progression Stats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/art-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art Direction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asset Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine & Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/wiki-bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Task Bot (local LLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ Revamp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2D / UI Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-pack-catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VFX Pack Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steam-store-assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steam Store Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap & Priorities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Edit This Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/cap7n/towerdrop-docs/edit/main/docs/project/log.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="work-log">Work Log<a class="headerlink" href="#work-log" title="Permanent link">&para;</a></h1>
+<p>What happened, in order. Entries are appended by the task bot when a card is
+marked Done - the richness of an entry tracks the richness of the Done note,
+by design. Curated pages hold the WHY; this page holds the WHAT.
+Bot design: <a href="../../tech/wiki-bot/">The Task Bot</a>.</p>
+<ul>
+<li><strong>2026-08-08</strong> Captn finished <strong>Brick repair: 1 HP per click (upgradeable rate)</strong> <em>(task #1)</em></li>
+<li><strong>2026-08-08</strong> Captn finished <strong>Keep artifacts from your last run (meta stat)</strong> <em>(task #24, 0.11)</em></li>
+<li><strong>2026-08-09</strong> Captn finished <strong>Request ~12 Steam beta keys and hand out to playtesters</strong> <em>(task #82, 0.11)</em></li>
+<li><strong>2026-08-09</strong> Captn finished <strong>Cracked brick variants for tower damage states</strong> <em>(task #21)</em></li>
+<li><strong>2026-08-09</strong> Captn finished <strong>Pillbug (roller) aiming is un-fun</strong> <em>(task #45, 0.13)</em></li>
+<li><strong>2026-08-13</strong> Captn finished <strong>Wire per-level wizard costs into the shop UI</strong> <em>(task #33, 0.12)</em><ul>
+<li>The plan said: Wire per-level wizard costs into the shop UI. wizard_shop_ui._node_cost already reads the costs[] array for the element trees; this is the remaining per-LEVEL wiring so a node's 2nd and 3rd level charge their own prices rather than repeating the first. Rebalancing the actual numbers is a separate tuning job.</li>
+<li>Still open: Cost wired in, Cost now scales as displayed</li>
+</ul>
+</li>
+<li><strong>2026-08-13</strong> Captn finished <strong>Ground fluid v2: eyeball and tune</strong> <em>(task #68)</em></li>
+<li><strong>2026-08-13</strong> Captn finished <strong>Dead-code Pass 3: stop the rot</strong> <em>(task #73)</em></li>
+<li><strong>2026-08-13</strong> Captn finished <strong>Purge remaining dead recipe-era Items/Data .tres (~55 files)</strong> <em>(task #114)</em></li>
+<li><strong>2026-08-13</strong> Captn finished <strong>Slim enemy.gd down: split into files, strip dead code</strong> <em>(task #107, 0.13)</em><ul>
+<li>Did: Split enemy.gd 998 to ~420 lines into three code-created Components (no scene edits): enemy_statuses.gd (status dict, DoT tick, multipliers, spread), enemy_body_fx.gd (status overlays and effects, blood drip, powerup halo, belly tint), enemy_death_effects.gd (spread-death/shatter/overload bursts). Public API kept as facades; Vfx ragdoll tint repointed. Verified by direct level_1 headless boot, zero script errors.</li>
+<li>The plan said: Slim enemy.gd down: split into files, strip dead code. Follow-up to #53. After the legacy inline path is deleted, enemy.gd is still ~1300 lines of mixed concerns: status system, body/status VFX toggles, death juice (spread/shatter/overload), powerup auras, belly tint, coin payout, size roll. Break it into focused files (status handling, body VFX, death-side-effects at minimum), delete anything unreferenced once the components own their piece. The Components/ folder is the pattern to follow.</li>
+</ul>
+</li>
+<li><strong>2026-08-14</strong> Captn finished <strong>FIX; raytrace fix on tower cliping</strong> <em>(task #118, 0.11)</em><ul>
+<li>Did: you can not trow threw stuff anymore, Some cliping might happen but not distubingly so</li>
+<li>The plan said: FIX; raytrace fix on tower cliping. Fix the fact you can trow shit trew the tower.</li>
+</ul>
+</li>
+<li><strong>2026-08-14</strong> Captn finished <strong>Remove Colour shading from damaged Schell blocks</strong> <em>(task #115, 0.11)</em><ul>
+<li>Did: colour removed and fixed Some dependency</li>
+<li>The plan said: Remove Colour shading from damaged Schell blocks. They where just to test if dmg is actualy happening.</li>
+</ul>
+</li>
+<li><strong>2026-08-14</strong> Captn finished <strong>BUG: artifacts could be hung on missing bricks</strong> <em>(task #121, 0.11)</em><ul>
+<li>Did: Added ArtifactInventory._mount_brick(pos), now the single source of truth for both the ghost preview and the commit - when those disagreed you got a green ghost that mounted unlinked. It asks nearest_brick() with include_gone=true so the slot that geometrically OWNS the point answers (a hole reports itself as GONE instead of deflecting to a standing neighbour) and refuses a GONE slot. _update_ghost now paints HANG spots red over a gap; TOP mounts never link and are untouched. Also fixed a world/local mismatch in the same check: it compared a global artifact position against get_brick_transform().origin, which is shell-LOCAL, so it only held while the shell sat at the world origin - now uses get_brick_world_position(). Updated the stale linked_brick doc comment that described the hole as intended. Verified by reading the call paths (restore path still links, since RunCheckpoint mounts artifacts before bricks get raw HP); in-editor check is placing over a chewed gap.</li>
+<li>The plan said: BUG: artifacts could be hung on missing bricks. The placement ghost stayed green over a hole in the brick shell</li>
+</ul>
+</li>
+<li><strong>2026-08-15</strong> Silivio finished <strong>Artifact model: Quick Hands (passive trinket)</strong> <em>(task #18, 0.11)</em><ul>
+<li>Did: basic model made</li>
+<li>The plan said: Artifact model: Quick Hands (passive trinket). Currently a colour-tinted cube - it does not even have its own scene yet. Passive relic: -5% conjure time for the wizards. No moving parts, no effects, it just hangs on the tower and reads as a lucky charm. Gloves, nimble fingers, a spinning ring - whatever says "faster hands". Colour identity: light purple.</li>
+<li>Still open: Artifact model: Quick Hands (passive trinket). Currently a colour-tinted cube - it does not even have its own scene yet.</li>
+</ul>
+</li>
+<li><strong>2026-08-15</strong> Silivio finished <strong>Artifact model: Lure Beacon</strong> <em>(task #13, 0.11)</em><ul>
+<li>The plan said: Artifact model: Lure Beacon. Lure Beacon, Poison Vent and Shock Coil currently SHARE one grey sphere - three different artifacts that look identical on the tower. That is the worst readability hole in the artifact set, so these three are the top of the pile. What it does: when an enemy comes within 6 m it drops a Lure on the ground that pulls spiders towards it. Think bait dispenser / glowing hanging lantern-orb - something that reads as "come here". Colour identity: hot pink/magenta. Style: low-poly faceted, NO outlines, soft-matte. Roughly 0.6-1.0 m tall (the game rescales, so any size works). One shared texture is plenty; the game tints from the artifact colour. Mount contract: artifacts bolt onto the tower with +X pointing OUT of the wall. Easiest for me if you author it standing on the ground facing -Y in Blender - then I need one rotation and nothing else. Blend goes in "My blender models\", export to Blender/ARTI_<Name>.glb.</li>
+</ul>
+</li>
+<li><strong>2026-08-15</strong> Captn finished <strong>Tools button: open the skill-tree maker in a browser</strong> <em>(task #123)</em><ul>
+<li>Did: Added an Open tools button to the project rail, directly under Open website: renderer/index.html for the button, app.js show/hide in the same block that hides proj-site, a click handler beside its listener, and styles.css sharing the existing selector. Tools are declared in a PROJECT_TOOLS map keyed by project NAME rather than adding a tools_url column - one tool for one game did not justify a schema change, and name-keying is what stops board 2's project 1 inheriting a Tower Drop button. The URL is built absolute from location.origin; verified in-page that it passes main.js setWindowOpenHandler's ^https?:// test and that a relative path would have failed it silently in the Electron shell while working in a browser tab. Tool is served from renderer/tools/skill_tree_maker.html - 200 locally with no new route, since sendFile already serves anything under renderer/. APP_VERSION bumped to 2026-08-15a. Built and verified locally; deploy to the box is a separate step.</li>
+<li>The plan said: Tools button: open the skill-tree maker in a browser. Add a Tools button to the board that opens the skill-tree maker in the REAL browser. Not embedded - the board stays a task board, it just gains a launcher entry. Serving the page is FREE: server.js sendFile already serves anything under renderer/ (it guards on safe.startsWith(RENDERER_DIR)), so dropping skill_tree_maker.html in there makes it live at /skill_tree_maker.html with no new route, no db change and no smoke case. It inherits the no-cache header, which matters for a design tool - a teammate on a stale copy is exactly the it-looks-broken call APP_VERSION exists to diagnose. Note it is served WITHOUT the team key, same as index.html; the page holds no data, the DATA endpoint is what the key protects. The button plumbing already ships and already does this job for project websites: main.js setWindowOpenHandler calls shell.openExternal, renderer/app.js ~1994 calls window.open. No preload needed (USE_PRELOAD is false), works the same in the Electron shell and a plain LAN browser tab. GOTCHA: that handler only forwards ABSOLUTE http(s) urls. A relative path silently does nothing in the app while working fine in a browser - a split-brain bug. Build it from where the board is already loaded so nothing is hardcoded and it follows localhost / LAN / public IP automatically: window.open(new URL('/skill_tree_maker.html', location.origin).href, '_blank') OPEN DECISION: per-project (projects.url is the precedent, and it keeps a Tower Drop tool off board 2's screen) vs one fixed header button. Recommendation: per-project. ALSO DECIDE: where the tool SOURCE lives. It has to sit in renderer/ to ride the existing scp deploy line, which moves a Tower Drop design tool into the Tasks repo. Pick one home and copy at deploy - there is already a stale-mirror problem from the old cap7n-site copy that no longer exists.</li>
+</ul>
+</li>
+<li><strong>2026-08-15</strong> Captn finished <strong>Server-side storage for skill-tree tool data</strong> <em>(task #124)</em><ul>
+<li>Did: tool_state table, GET/PUT /tool-state, compare-and-swap, 409 on version mismatch, sync pill red, tool stops pushing, localStorage fallback, tool reads team key from tasks.cfg, npm run smoke passes with 9 assertions, correct URL, key header, body fields, 409 path</li>
+<li>The plan said: Server-side storage for skill-tree tool data. Move the skill-tree maker off file:// localStorage onto the server so the team shares one canvas instead of one private copy each. Shape: a tool_state table (key, json, updated_at, updated_by) following the existing PRAGMA table_info migration pattern in db.js; GET/PUT routes behind X-Team-Key like every other API route; and a smoke.js case (house rule: a server feature adds a smoke case). Living in tasks.db means db.backup() and the 04:00 nightly cover it for free - do NOT invent a side file, and never cp the db. THE REAL DESIGN ISSUE IS CONCURRENT EDITS. localStorage was single-user by accident. Two people with the tool open will clobber each other: last write wins, no warning, and a tree is an afternoon of work. The board itself dodges this because every write is a small scoped mutation, whereas a tree save is the WHOLE document. Minimum honest fix, and it has to be there from day one rather than added after the first lost afternoon: optimistic concurrency. Client sends the version it loaded, server 409s if it moved, tool says someone else saved - reload. Same shape as any compare-and-swap. Tool side: save() and load() swap localStorage for fetch, keeping a localStorage fallback so the tool still works offline on one machine. Independent of the Tools button task - the button can ship first with the tool still on localStorage (each teammate gets a private canvas: useless for collaboration, but it proves the plumbing)</li>
+</ul>
+</li>
+<li><strong>2026-08-15</strong> Silivio finished <strong>Artifact model: Poison Vent</strong> <em>(task #14, 0.11)</em><ul>
+<li>Did: ALREADY DONE</li>
+<li>The plan said: Artifact model: Poison Vent. Second of the three artifacts stuck sharing one grey sphere. Colour identity: sickly green. Style: low-poly faceted, NO outlines, soft-matte. Roughly 0.6-1.0 m tall. One shared texture is plenty; the game tints from the artifact colour. Mount contract: artifacts bolt onto the tower with +X pointing OUT of the wall. Easiest for me if you author it standing on the ground facing -Y in Blender - then I need one rotation and nothing else. Blend goes in "My blender models\", export to Blender/ARTI_<Name>.glb.</li>
+</ul>
+</li>
+<li><strong>2026-08-16</strong> Silivio finished <strong>Artifact model: Shock Coil</strong> <em>(task #15, 0.11)</em><ul>
+<li>Did: its done</li>
+<li>The plan said: Artifact model: Shock Coil. Third of the three artifacts stuck sharing one grey sphere. What it does: every 20 s it zaps EVERY enemy within 6 m at once (damage + stun). Long cooldown, big moment - so it can look like a charged-up capacitor: coils, prongs, something with a gap the arc could jump. Colour identity: electric yellow. Style: low-poly faceted, NO outlines, soft-matte. Roughly 0.6-1.0 m tall (the game rescales, so any size works). One shared texture is plenty; the game tints from the artifact colour. Mount contract: artifacts bolt onto the tower with +X pointing OUT of the wall. Easiest for me if you author it standing on the ground facing -Y in Blender - then I need one rotation and nothing else. Blend goes in "My blender models\", export to Blender/ARTI_<Name>.glb.</li>
+</ul>
+</li>
+<li><strong>2026-08-23</strong> Captn finished <strong>Gate ultimates by achievements too</strong> <em>(task #26, 0.11)</em><ul>
+<li>The plan said: Gate ultimates by achievements too. The Achievements DEFS reward field is data, so an "ultimate" reward key plus a check at the spellbook gate is the whole plan. Right now ultimates are gated only by owning the wizard tree node; achievements can gate them as a second axis (Cap7n asked for this right after the tracker landed). Mind the existing precedent: is_artifact_in_run_pool snapshots at run start so unlocks apply from the NEXT run - spells should follow the same rule rather than appearing mid-run. Adding a new gated ultimate = one DEFS row.</li>
+</ul>
+</li>
+<li><strong>2026-08-23</strong> Silivio finished <strong>Artifact model: Dart Spitter</strong> <em>(task #16, 0.11)</em><ul>
+<li>The plan said: Artifact model: Dart Spitter. Replaces a plain green box. Spits a poison dart at a nearby enemy every few seconds. It AIMS, so the barrel needs to be a separate part that can turn (same rig idea as the Frost Beam turret: a socket that yaws + a cradle that pitches, built as Empties so the hierarchy survives the export). Blowpipe / thorn-launcher energy. Colour identity: green. If it has a barrel/nozzle/spout, put an Empty at the business end - the code DERIVES the firing direction from it, so I never have to guess an angle. Hard rule from the Frost/Fire beams: the barrel direction and the two turn axes must be mutually perpendicular, or one joint silently freezes and half the turret looks broken. Style: low-poly faceted, NO outlines, soft-matte. Roughly 0.6-1.0 m tall (the game rescales, so any size works). One shared texture is plenty; the game tints from the artifact colour. Mount contract: artifacts bolt onto the tower with +X pointing OUT of the wall. Easiest for me if you author it standing on the ground facing -Y in Blender - then I need one rotation and nothing else. Blend goes in "My blender models\", export to Blender/ARTI_<Name>.glb.</li>
+</ul>
+</li>
+<li><strong>2026-08-27</strong> Captn finished <strong>VFX for the three new emitter artifacts (Shock Coil, Poison Vent, Lure Beacon)</strong> <em>(task #155, 0.13)</em><ul>
+<li>The plan said: VFX for the three new emitter artifacts (Shock Coil, Poison Vent, Lure Beacon). The models landed 2026-08-23 (dedicated scenes artifact_shock_coil / artifact_poison_vent / artifact_lure_beacon, all running artifact_emitter.gd). Their firing moments need VFX: Shock Coil = charge-up glow + discharge flash/arcs on its 20s pulse, Poison Vent = a green puff burst when it vents, Lure Beacon = a drop sparkle or pulse when it spawns a lure. Shop the Binbun packs first (wiki vfx-pack-catalog + vfx-checklist map moments to pack scenes). Remember VfxUtil.localize_materials before any recolor, and scene-authored effects stay in the artifact scene per the frost beam rule.</li>
+<li>Still open: Split into #156 #157 #158 (one per emitter) - bite-sized per Captn</li>
+</ul>
+</li>
+<li><strong>2026-08-27</strong> Captn finished <strong>Meta unlock routes 1 + 3: playtime and shards</strong> <em>(task #25, 0.11)</em></li>
+<li><strong>2026-08-27</strong> Captn finished <strong>Gate tower ultimates deep in the wizard tree</strong> <em>(task #30, 0.12)</em></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

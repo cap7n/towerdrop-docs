@@ -1,0 +1,41 @@
+/* TowerDrop Design Wiki — dark polish + status pills.
+   Mirrors the Ariadna/OTR wiki styling. */
+
+/* Deepen the slate (dark) background toward a near-black, slightly green-tinted void. */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0e1210;
+  --md-accent-fg-color: #ffca62;
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #141a17;
+}
+
+/* Tighter, heavier headings for the "design deck" feel. */
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* -----------------------------------------------------------------
+   Status pills — used in the backlog legend and on every item.
+   Usage in markdown:  <span class="pill wip">WIP</span> ...
+   ----------------------------------------------------------------- */
+.pill {
+  display: inline-block;
+  padding: 0.05em 0.55em;
+  border-radius: 1em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.pill.done  { background: #1f6b3a33; color: #4cc27a; }  /* shipped / complete */
+.pill.wip   { background: #b8891733; color: #e0a53a; }  /* in progress */
+.pill.todo  { background: #55555533; color: #9aa0a6; }  /* not started */
+.pill.idea  { background: #5b46b933; color: #b3a4f2; }  /* undecided idea */
+.pill.check { background: #1f6b6b33; color: #52c4c4; }  /* may already be done */
+.pill.risk  { background: #b8341733; color: #e2645a; }  /* needs a decision */
+.pill.parked{ background: #44506633; color: #8fa3c4; }  /* shelved / deferred */
