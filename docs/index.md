@@ -29,8 +29,8 @@ The division of labour: **this wiki describes the game in the present tense** �
 | [Wave Loop](game/waves.md) | <span class="pill done">DONE</span> | Telegraph → assault → rest, signal-flare sector telegraph, auto-next option. |
 | [Curated Waves 1–50](game/waves-curated.md) | <span class="pill done">DONE</span> | Waves 1–10 curated (Queen at 10); 11+ come from the threat-budget generator. |
 | [The Cart](game/cart.md) | <span class="pill done">DONE</span> | Tap-toss, hold-pour, drag-reorder, scroll-select, right-click cannon shot. |
-| [Tower & Base Defenses](game/tower.md) | <span class="pill wip">WIP</span> | Brick armour (10 HP/brick) + click-to-repair live. The spike ring exists but has no spell; its Rock-tree nodes are buyable-but-inert. |
-| [Items & Elements](game/items.md) | <span class="pill wip">WIP</span> | All six trees built and wired (coverage audit 2026-08-13); the numbers are first-pass. |
+| [Tower & Base Defenses](game/tower.md) | <span class="pill wip">WIP</span> | Wall MATERIAL ladder live (2026-08-27): runs start on the meta tree's `wall_material` tier — Sticks/Wood/Braced Wood/Rock/Reinforced Rock/Metal (1-20 HP/brick, Sticks free at Lv0, colour-coded for now, looks = task #169; naked-core tier cut same day). Climbers hug the core where no brick stands. Click-to-repair live (1g/HP flat). Spike ring exists but has no spell; its Rock-tree nodes buyable-but-inert. |
+| [Items & Elements](game/items.md) | <span class="pill wip">WIP</span> | Trees REBUILT in the team's skill-tree maker and synced into the game 2026-08-17 (`sync_trees.py`, tool = source of truth); every element now has 3 spells + ultimate + dials authored, ~67 new nodes await their effects (board #138-#153). |
 | [Enemies](game/enemies.md) | <span class="pill wip">WIP</span> | Composed architecture (core + components). Spider, snail, pillbug, queen, egg live. Turtle/fly/worm exist as static models only. |
 | [Bosses & The Run Arc](game/bosses.md) | <span class="pill wip">WIP</span> | Spider Queen v1 lives at wave 10, playtested; she has no reward drop. |
 | [Economy & Gold](game/economy.md) | <span class="pill done">DONE</span> | HP-scaled gold curve; the balance logger records every run. |
@@ -42,10 +42,11 @@ The division of labour: **this wiki describes the game in the present tense** �
 |---|---|---|
 | [Combat, Status & Feedback](systems/combat.md) | <span class="pill done">DONE</span> | StatusDB + six damage types, damage numbers, ragdolls, chain lightning, cloud pools. |
 | [Progression](systems/progression.md) | <span class="pill wip">WIP</span> | Save system complete (3 profiles + run checkpoint); achievements v1 + compendium live. Ultimates are not achievement-gated. |
-| [Ultimates & Spellbook](systems/ultimates.md) | <span class="pill wip">WIP</span> | Book UI live; oil, frost, slime, meteors, living stone castable. FireWave, Arc Storm and Black-hole exist only as wip book entries. |
+| [Ultimates & Spellbook](systems/ultimates.md) | <span class="pill wip">WIP</span> | Book UI live; oil, frost, slime, meteors, living stone castable. FireWave, Arc Storm and Black-hole exist only as wip book entries. Flat 15g cast cost dies when the mana layer lands. |
+| [Mana & The Grinder](systems/mana.md) | <span class="pill todo">Todo</span> | DESIGN LOCKED 2026-08-28: gold builds, mana casts. Capped bar fed by kills; spells and ultimates cost mana, not gold; Lucky Coin removed, its grinder model becomes the Mana Grinder artifact (boosts gain/cap; base gain exists without it). Killed by tester data: nonstop repair-spell casting + a 15k Lucky Coin wave. |
 | [Atmosphere & VFX](systems/atmosphere.md) | <span class="pill done">DONE</span> | Day/night, ground-fluid v2, fire-is-fluid, depth fog, living grass. |
 | [Artifacts & Relics](systems/artifacts.md) | <span class="pill done">DONE</span> | Bag + placeable artifacts + after-every-wave 3-card draft. Whole [catalogue](systems/artifact-catalogue.md) verified wired 2026-08-13. |
-| [Meta-Progression Stats](systems/meta-progression-stats.md) | <span class="pill idea">IDEA</span> | Achievements feed it; the meta layer itself is still design. |
+| [Meta-Progression Stats](systems/meta-progression-stats.md) | <span class="pill wip">WIP</span> | Meta layer LIVE + verified (2026-08-27): shards (1/wave clear, boss +10) spend in the full-screen MetaTreeScreen (game-over splash diamond + main-menu button, tool-authored layout via sync_trees.py). `wall_material` ladder = the run-length governor; first real purchase confirmed in play. Most other node GRANTS still to wire (#150-#152). |
 
 ### Tech
 

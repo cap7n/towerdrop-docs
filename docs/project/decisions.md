@@ -8,6 +8,12 @@ Decisions worth not re-litigating, **with the why**. When a real decision is mad
 - **Enemy count target: 200–250, smooth on most machines.** Not thousands. A modest cap preserves the feel-rich per-enemy effects (fire, ragdoll, shell pop-off) a massive-horde architecture would force us to cut. See [Performance](../tech/performance.md).
 - **Base-game fun before progression cleanup.** The messy upgrade/economy systems are parked, not rejected. See [Design Pillars](../pillars.md).
 
+## Economy & casting (locked 2026-08-28)
+
+- **Gold builds, mana casts.** Spells and ultimates move off gold onto a capped mana bar fed by kills. Why: no gold price can fix cast-spam — rich players cast infinitely at any price (both first testers ran nonstop repair casts), poor players never cast. The CAP is the load-bearing piece (use-it-or-lose-it encourages casting, prevents hoard-then-trivialize) and is sacred: raise it with upgrades, never remove it. See [Mana & The Grinder](../systems/mana.md).
+- **Lucky Coin removed, model becomes the Mana Grinder.** +1 gold/kill/coin was a money press at 100-kill waves (a tester wave printed ~15k) and unbalanceable forever. Coin Maker stays as THE economy artifact. Base mana gain exists without the Grinder so draft luck can't brick a spell build.
+- **Pre-release saves are disposable.** No migration/grandfathering work until live (Cap7n: "we are not live, player saves matter nothing").
+
 ## Combat & feedback
 
 - **Damage numbers removed.** Both a taste call (physical feedback over floating UI) and a perf win (they were a top per-frame allocator).
