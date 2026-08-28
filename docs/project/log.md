@@ -67,3 +67,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-28** Captn finished **Fluid atlas world-scale at any height** _(task #189)_
     - Did: flame licks at world scale on the stub tower, slime wrap clean, no more squished fire pancake or sleeve tears
     - The plan said: Fluid atlas world-scale at any height. The wall fluid atlas no longer squishes on short towers: field rows scale with the profile arc so a texel always covers the same world distance, the oil shader samples its flame/warp noise in world units, frost rock and slime seed densities scale with the wall span, and the sleeve conformance no longer tears on stub towers.
+- **2026-08-28** Captn finished **Run-start fade-in + camera snap** _(task #190)_
+    - Did: Cap7n: no more weird glitches on load, perfectly swept under the rug. Fade hold and duration are two consts in wave_manager
+    - The plan said: Run-start fade-in + camera snap. Runs now fade in from black (about 3 s) so the load-in settle (tower sinking, cart teleporting, artifacts remounting) happens unseen, and the camera re-snaps to its composed shot before the black lifts. Covers any future load-in pop for free.
