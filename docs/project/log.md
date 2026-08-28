@@ -73,3 +73,7 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-28** Captn finished **Menu safeguards: backdrop + New Run popup** _(task #191)_
     - Did: Menu vignette (goblin lounging in the cart) now stable on every path; overwrite popup defaults focus to Cancel so an Enter-masher keeps their run.
     - The plan said: Menu safeguards: backdrop + New Run popup. The menu backdrop now always shows the full Height-10 tower on every path into the menu (the game state finally returns to MENU, closing the floating-vignette bug), and pressing Play with a banked Continue run now asks before overwriting: your current run will be overwritten, start a new run?
+- **2026-08-28** Captn finished **Docked spiders burn and coat** _(task #192)_
+    - Did: _wall_fluid_tick closes the docked blind spot for fire, oil and slime at once
+    - The plan said: Docked spiders burn and coat. Spiders dug in at the wall never sampled the fluid field, so they sat fireproof in a burning oil slick. Climbing and docked modes now share one wall-fluid check: the burn front reaching the rim sets the dug-in swarm alight, and slime/oil coat them too. They burn in place; a panic-drop stays an open design option.
+    - Still open: Found from Cap7n noticing some spiders not burning on the lit slick
