@@ -81,3 +81,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - Did: Probe measured fire 17 ms + sim 10 ms per frame before the rewrite; re-test pending to confirm the drop, then the temp probe comes out.
     - The plan said: FluidField burn performance rewrite. The burning oil slick held 15-25 fps in an empty sandbox. A per-section probe named the fire and oil sims; both were rewritten (passes fused, neighbour spread inlined, buffer swaps instead of copies) and the catch-up step loop capped so low fps can no longer feed itself more sim work. Probe left in temporarily for verification.
     - Still open: Probe measured fire 17 ms + sim 10 ms per frame before the rewrite; re-test pending to confirm the drop, then the temp probe comes out.
+- **2026-08-28** Captn finished **Oil runoff now coats the ground** _(task #194)_
+    - Did: Found because the perf probe showed ground 0.0 ms during a full burn; the lazily-built ground grid is now born from wall runoff too.
+    - The plan said: Oil runoff now coats the ground. The wall-to-ground runoff bridge only ran when the ground grid already existed, and only a ground splash could create it, so the oil ultimate alone never made a burning ground ring. The bridge now builds the grid on first runoff: a poured coat visibly pools out around the base and can be set alight there.
