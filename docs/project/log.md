@@ -57,3 +57,7 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-27** Captn finished **Gate tower ultimates deep in the wizard tree** _(task #30, 0.12)_
 - **2026-08-28** Captn finished **Sunken tower: meta Height system** _(task #186)_
     - The plan said: Sunken tower: meta Height system. The tower now starts one ring tall and grows with meta progression: 10 Height buys push the whole tower up one brick ring each, out of the ground. Single source Globals.tower_top_y(), riser in TowerCore, buried bricks undamageable, checkpoints keep the height the run started at.
+- **2026-08-28** Captn finished **Meta tree: Height spine + Excavation gates** _(task #187)_
+    - Did: Synced from tool v2324 with reveal gates live; F4 Height gates button runs the time gates at x10/x100 for testing. Costs still placeholder, Cap7n tunes in the tool.
+    - The plan said: Meta tree: Height spine + Excavation gates. Height 1-10 synced from the tool (v2324), parent-chained up the spine and revealed by new Excavation playtime achievements (3 min for the first, 2.5 h total for the last). Meta tree now supports visible-but-locked parent gating. Shard costs are placeholders to tune in the tool.
+    - Still open: Shard costs are placeholders to tune in the tool.
