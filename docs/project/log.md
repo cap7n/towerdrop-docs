@@ -64,3 +64,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-28** Captn finished **Exact one-ring growth steps** _(task #188)_
     - Did: Cap7n caught the 2.7 m step creeping the mound seat deeper per level; ladder is now sink = 27 - 3 x level, verified in game up to the 11-ring Height 10.
     - The plan said: Exact one-ring growth steps. Height ladder reworked to exact 3 m ring steps with a consistent mound seat at every level; Height 9 is the authored tower and Height 10 unearths the 11th column. Wall, base barrel and ground stones now ride the sink (the ghost foot standing over the sunken tower is gone). Dirt skirt disabled until the per-brick dirt pass.
+- **2026-08-28** Captn finished **Fluid atlas world-scale at any height** _(task #189)_
+    - Did: flame licks at world scale on the stub tower, slime wrap clean, no more squished fire pancake or sleeve tears
+    - The plan said: Fluid atlas world-scale at any height. The wall fluid atlas no longer squishes on short towers: field rows scale with the profile arc so a texel always covers the same world distance, the oil shader samples its flame/warp noise in world units, frost rock and slime seed densities scale with the wall span, and the sleeve conformance no longer tears on stub towers.
