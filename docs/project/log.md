@@ -61,3 +61,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - Did: Synced from tool v2324 with reveal gates live; F4 Height gates button runs the time gates at x10/x100 for testing. Costs still placeholder, Cap7n tunes in the tool.
     - The plan said: Meta tree: Height spine + Excavation gates. Height 1-10 synced from the tool (v2324), parent-chained up the spine and revealed by new Excavation playtime achievements (3 min for the first, 2.5 h total for the last). Meta tree now supports visible-but-locked parent gating. Shard costs are placeholders to tune in the tool.
     - Still open: Shard costs are placeholders to tune in the tool.
+- **2026-08-28** Captn finished **Exact one-ring growth steps** _(task #188)_
+    - Did: Cap7n caught the 2.7 m step creeping the mound seat deeper per level; ladder is now sink = 27 - 3 x level, verified in game up to the 11-ring Height 10.
+    - The plan said: Exact one-ring growth steps. Height ladder reworked to exact 3 m ring steps with a consistent mound seat at every level; Height 9 is the authored tower and Height 10 unearths the 11th column. Wall, base barrel and ground stones now ride the sink (the ghost foot standing over the sunken tower is gone). Dirt skirt disabled until the per-brick dirt pass.
