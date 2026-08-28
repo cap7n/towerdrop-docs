@@ -77,3 +77,7 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - Did: _wall_fluid_tick closes the docked blind spot for fire, oil and slime at once
     - The plan said: Docked spiders burn and coat. Spiders dug in at the wall never sampled the fluid field, so they sat fireproof in a burning oil slick. Climbing and docked modes now share one wall-fluid check: the burn front reaching the rim sets the dug-in swarm alight, and slime/oil coat them too. They burn in place; a panic-drop stays an open design option.
     - Still open: Found from Cap7n noticing some spiders not burning on the lit slick
+- **2026-08-28** Captn finished **FluidField burn performance rewrite** _(task #193)_
+    - Did: Probe measured fire 17 ms + sim 10 ms per frame before the rewrite; re-test pending to confirm the drop, then the temp probe comes out.
+    - The plan said: FluidField burn performance rewrite. The burning oil slick held 15-25 fps in an empty sandbox. A per-section probe named the fire and oil sims; both were rewritten (passes fused, neighbour spread inlined, buffer swaps instead of copies) and the catch-up step loop capped so low fps can no longer feed itself more sim work. Probe left in temporarily for verification.
+    - Still open: Probe measured fire 17 ms + sim 10 ms per frame before the rewrite; re-test pending to confirm the drop, then the temp probe comes out.
