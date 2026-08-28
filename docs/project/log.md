@@ -55,3 +55,5 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - Still open: Split into #156 #157 #158 (one per emitter) - bite-sized per Captn
 - **2026-08-27** Captn finished **Meta unlock routes 1 + 3: playtime and shards** _(task #25, 0.11)_
 - **2026-08-27** Captn finished **Gate tower ultimates deep in the wizard tree** _(task #30, 0.12)_
+- **2026-08-28** Captn finished **Sunken tower: meta Height system** _(task #186)_
+    - The plan said: Sunken tower: meta Height system. The tower now starts one ring tall and grows with meta progression: 10 Height buys push the whole tower up one brick ring each, out of the ground. Single source Globals.tower_top_y(), riser in TowerCore, buried bricks undamageable, checkpoints keep the height the run started at.
