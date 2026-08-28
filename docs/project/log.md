@@ -70,3 +70,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-28** Captn finished **Run-start fade-in + camera snap** _(task #190)_
     - Did: Cap7n: no more weird glitches on load, perfectly swept under the rug. Fade hold and duration are two consts in wave_manager
     - The plan said: Run-start fade-in + camera snap. Runs now fade in from black (about 3 s) so the load-in settle (tower sinking, cart teleporting, artifacts remounting) happens unseen, and the camera re-snaps to its composed shot before the black lifts. Covers any future load-in pop for free.
+- **2026-08-28** Captn finished **Menu safeguards: backdrop + New Run popup** _(task #191)_
+    - Did: Menu vignette (goblin lounging in the cart) now stable on every path; overwrite popup defaults focus to Cancel so an Enter-masher keeps their run.
+    - The plan said: Menu safeguards: backdrop + New Run popup. The menu backdrop now always shows the full Height-10 tower on every path into the menu (the game state finally returns to MENU, closing the floating-vignette bug), and pressing Play with a banked Continue run now asks before overwriting: your current run will be overwritten, start a new run?
