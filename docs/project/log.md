@@ -84,3 +84,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-28** Captn finished **Oil runoff now coats the ground** _(task #194)_
     - Did: Found because the perf probe showed ground 0.0 ms during a full burn; the lazily-built ground grid is now born from wall runoff too.
     - The plan said: Oil runoff now coats the ground. The wall-to-ground runoff bridge only ran when the ground grid already existed, and only a ground splash could create it, so the oil ultimate alone never made a burning ground ring. The bridge now builds the grid on first runoff: a poured coat visibly pools out around the base and can be set alight there.
+- **2026-08-28** Captn finished **Brick debris pooled, cap doubled** _(task #195)_
+    - Did: pooled bodies had to leave the live list on release or the cap jammed after the first 32 shards. Steady 1-in-10 cap skips under heavy bursts are by design.
+    - The plan said: Brick debris pooled, cap doubled. Brick shard debris bodies are now pooled and reused instead of built and freed per break (steady node churn during massacre waves on Sticks walls), and the concurrent cap doubled from 32 to 64. Overflow shards still fire their dust puff and thud.
