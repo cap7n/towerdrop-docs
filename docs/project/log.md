@@ -109,3 +109,5 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - The plan said: Fix Blood Blobs. Simple Round blood is not exacly pretty, Spaters? or keep it PG?
 - **2026-08-30** Captn finished **Fill content survey + age rating (Ratings tab)** _(task #88, Steam launch)_
     - The plan said: Fill content survey + age rating (Ratings tab). Required to pass the release checklist. Complete the content and age-rating questionnaire on the store page Ratings tab.
+- **2026-08-30** Captn finished **Replace RBL repair hammer cursor** _(task #196)_
+    - The plan said: Replace RBL repair hammer cursor. GameUI/cursor_hammer.png (the rotating repair-mode cursor) is the last RBL-licensed cursor asset and must be replaced before launch. Brief for Jenifer's cursor round 2: a hammer/trowel at 33x33 in the style of her arrow set. When it lands, also worth revisiting context cursors (targeting crosshair with a centre hotspot, menu hover) — the postponed design is noted in settings_menu.gd.
