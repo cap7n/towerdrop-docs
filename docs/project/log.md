@@ -104,3 +104,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - Still open: base_spikes is still not in the spellbook at all - buying the node changes nothing and no spell appears. Unchanged since this card was written.
 - **2026-08-30** Captn finished **Build the Arc Storm ultimate (+ more_starts node)** _(task #28, 0.12)_
     - The plan said: Build the Arc Storm ultimate (+ more_starts node). Electric's spellbook entry, unbuilt. Its more_starts tree node is a parameter of it and stays dead until the spell exists. Same shape as the other ultimates: gold cost, duration, clean revert, hidden in the book until a wizard of that element owns the ultimate_* node.
+- **2026-08-30** Captn finished **Fix Blood Blobs** _(task #106, 0.11)_
+    - Did: Blood is green now
+    - The plan said: Fix Blood Blobs. Simple Round blood is not exacly pretty, Spaters? or keep it PG?
