@@ -107,3 +107,5 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-30** Captn finished **Fix Blood Blobs** _(task #106, 0.11)_
     - Did: Blood is green now
     - The plan said: Fix Blood Blobs. Simple Round blood is not exacly pretty, Spaters? or keep it PG?
+- **2026-08-30** Captn finished **Fill content survey + age rating (Ratings tab)** _(task #88, Steam launch)_
+    - The plan said: Fill content survey + age rating (Ratings tab). Required to pass the release checklist. Complete the content and age-rating questionnaire on the store page Ratings tab.
