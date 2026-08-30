@@ -92,3 +92,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-30** Captn finished **Spellbook casts cost mana, not gold** _(task #174, 0.13)_
     - Did: Spells now cost mana
     - The plan said: Spellbook casts cost mana, not gold. Replace the flat 15g spell cost in UltimateBook with mana costs per spell (wiki systems/mana.md): small spells ~15, living stone repair ~25, ultimates ~50 of a 60 cap. Casting spends no gold at all. Rest-period casting stays legal (the bar just wont refill without kills - that IS the balance). Refuse cast + feedback when the bar is short. Kills the tester repair-spam loop.
+- **2026-08-30** Captn finished **RBL check: confirm grass are licence-clean before public build** _(task #83, Steam launch)_
+    - Did: Checked, The grass is not a problem anymore
+    - The plan said: confirm grass are licence-clean before public build. verify the remaining in-use assets (rock atlas, grass) are CC0 or owned, and replace any that are not. Goal: the first public build and every screenshot contain zero unverifiable-licence assets. See the RBL audit.
