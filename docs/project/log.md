@@ -102,3 +102,5 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - Did: Spikes sell in and working
     - The plan said: base_spikes / poisoned_spikes are the last two unwired Defense-branch nodes (buyable, do nothing). Make them a timed cast like Living Stone, not a permanent ring. SpikeRing machinery + _ensure_spikes still live in shop_graph BUT its _apply cases use the OLD misspelled ids (spiks / posioned_spikes) while the Rock tree uses base_spikes / poisoned_spikes: map them explicitly, do not assume they line up.
     - Still open: base_spikes is still not in the spellbook at all - buying the node changes nothing and no spell appears. Unchanged since this card was written.
+- **2026-08-30** Captn finished **Build the Arc Storm ultimate (+ more_starts node)** _(task #28, 0.12)_
+    - The plan said: Build the Arc Storm ultimate (+ more_starts node). Electric's spellbook entry, unbuilt. Its more_starts tree node is a parameter of it and stays dead until the spell exists. Same shape as the other ultimates: gold cost, duration, clean revert, hidden in the book until a wizard of that element owns the ultimate_* node.
