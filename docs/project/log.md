@@ -89,3 +89,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - The plan said: Brick debris pooled, cap doubled. Brick shard debris bodies are now pooled and reused instead of built and freed per break (steady node churn during massacre waves on Sticks walls), and the concurrent cap doubled from 32 to 64. Overflow shards still fire their dust puff and thud.
 - **2026-08-30** Captn finished **Lucky Coin becomes the Mana Grinder** _(task #175, 0.13)_
     - Did: lucky coin is now mana grindr
+- **2026-08-30** Captn finished **Spellbook casts cost mana, not gold** _(task #174, 0.13)_
+    - Did: Spells now cost mana
+    - The plan said: Spellbook casts cost mana, not gold. Replace the flat 15g spell cost in UltimateBook with mana costs per spell (wiki systems/mana.md): small spells ~15, living stone repair ~25, ultimates ~50 of a 60 cap. Casting spends no gold at all. Rest-period casting stays legal (the bar just wont refill without kills - that IS the balance). Refuse cast + feedback when the bar is short. Kills the tester repair-spam loop.
