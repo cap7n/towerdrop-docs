@@ -87,3 +87,5 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-28** Captn finished **Brick debris pooled, cap doubled** _(task #195)_
     - Did: pooled bodies had to leave the live list on release or the cap jammed after the first 32 shards. Steady 1-in-10 cap skips under heavy bursts are by design.
     - The plan said: Brick debris pooled, cap doubled. Brick shard debris bodies are now pooled and reused instead of built and freed per break (steady node churn during massacre waves on Sticks walls), and the concurrent cap doubled from 32 to 64. Overflow shards still fire their dust puff and thud.
+- **2026-08-30** Captn finished **Lucky Coin becomes the Mana Grinder** _(task #175, 0.13)_
+    - Did: lucky coin is now mana grindr
