@@ -95,3 +95,6 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-30** Captn finished **RBL check: confirm grass are licence-clean before public build** _(task #83, Steam launch)_
     - Did: Checked, The grass is not a problem anymore
     - The plan said: confirm grass are licence-clean before public build. verify the remaining in-use assets (rock atlas, grass) are CC0 or owned, and replace any that are not. Goal: the first public build and every screenshot contain zero unverifiable-licence assets. See the RBL audit.
+- **2026-08-30** Captn finished **Dart Spitter: animate the turret + dart flight VFX** _(task #177, 0.13)_
+    - The plan said: animate the turret + dart flight VFX. The new model (wired 2026-08-28, Blender/ARTI_DartSpitter.glb) came with Yaw + Pitch empties - wire them to track targets like the fire beam gimbal (artifact_laser yaw_path/pitch_path; remember: muzzle empty is MISSING from this export, so either ask Silivio to add one at the spout or rely on the head_aim_offset fallback). Plus: visible dart projectile, small recoil on fire, green impact puff.
+    - Still open: Animated, works like the fire turret with Pitch and Yaw
