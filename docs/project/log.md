@@ -98,3 +98,7 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
 - **2026-08-30** Captn finished **Dart Spitter: animate the turret + dart flight VFX** _(task #177, 0.13)_
     - The plan said: animate the turret + dart flight VFX. The new model (wired 2026-08-28, Blender/ARTI_DartSpitter.glb) came with Yaw + Pitch empties - wire them to track targets like the fire beam gimbal (artifact_laser yaw_path/pitch_path; remember: muzzle empty is MISSING from this export, so either ask Silivio to add one at the spout or rely on the head_aim_offset fallback). Plus: visible dart projectile, small recoil on fire, green impact puff.
     - Still open: Animated, works like the fire turret with Pitch and Yaw
+- **2026-08-30** Captn finished **Spikes as a Rock spell (mind the old id mismatch)** _(task #5, 0.12)_
+    - Did: Spikes sell in and working
+    - The plan said: base_spikes / poisoned_spikes are the last two unwired Defense-branch nodes (buyable, do nothing). Make them a timed cast like Living Stone, not a permanent ring. SpikeRing machinery + _ensure_spikes still live in shop_graph BUT its _apply cases use the OLD misspelled ids (spiks / posioned_spikes) while the Rock tree uses base_spikes / poisoned_spikes: map them explicitly, do not assume they line up.
+    - Still open: base_spikes is still not in the spellbook at all - buying the node changes nothing and no spell appears. Unchanged since this card was written.
