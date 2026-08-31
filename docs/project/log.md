@@ -111,3 +111,7 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - The plan said: Fill content survey + age rating (Ratings tab). Required to pass the release checklist. Complete the content and age-rating questionnaire on the store page Ratings tab.
 - **2026-08-30** Captn finished **Replace RBL repair hammer cursor** _(task #196)_
     - The plan said: Replace RBL repair hammer cursor. GameUI/cursor_hammer.png (the rotating repair-mode cursor) is the last RBL-licensed cursor asset and must be replaced before launch. Brief for Jenifer's cursor round 2: a hammer/trowel at 33x33 in the style of her arrow set. When it lands, also worth revisiting context cursors (targeting crosshair with a centre hotspot, menu hover) — the postponed design is noted in settings_menu.gd.
+- **2026-08-31** Quilv finished **Flag design for the tower banner** _(task #22)_
+    - Did: Made some basic icons, idea could be that people choose their flag color, if there's a border line or not and an icon in the middle?
+    - The plan said: Flag design for the tower banner. The banner on the flag post is a flat solid orange right now. It wants an actual design: crest, sigil or pattern, as a texture or material. It is the one piece of heraldry the player stares at all run, so it is a cheap identity win. Same concept shot as the lantern task shows the current plain banner.
+    - Still open: plan B is elemental clans or something and you choose 1 premade flag (some icons are elemental)
