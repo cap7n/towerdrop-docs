@@ -115,3 +115,5 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - Did: Made some basic icons, idea could be that people choose their flag color, if there's a border line or not and an icon in the middle?
     - The plan said: Flag design for the tower banner. The banner on the flag post is a flat solid orange right now. It wants an actual design: crest, sigil or pattern, as a texture or material. It is the one piece of heraldry the player stares at all run, so it is a cheap identity win. Same concept shot as the lantern task shows the current plain banner.
     - Still open: plan B is elemental clans or something and you choose 1 premade flag (some icons are elemental)
+- **2026-08-31** Captn finished **Fire AoE stat should grow the painted fire blob** _(task #165, 0.12)_
+    - The plan said: Fire AoE stat should grow the painted fire blob. Playtest 2026-08-27: AoE upgrades do not change the size of the fire blob painted on the ground. Fire is fluid (ground fluid v2, Cartesian grid) - the paint radius should read the item's aoe stat at the point where the impact paints FluidField. Check oil/ice for the same miss while in there.
