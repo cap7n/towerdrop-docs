@@ -119,3 +119,5 @@ Bot design: [The Task Bot](../tech/wiki-bot.md).
     - The plan said: Fire AoE stat should grow the painted fire blob. Playtest 2026-08-27: AoE upgrades do not change the size of the fire blob painted on the ground. Fire is fluid (ground fluid v2, Cartesian grid) - the paint radius should read the item's aoe stat at the point where the impact paints FluidField. Check oil/ice for the same miss while in there.
 - **2026-09-01** Captn finished **HotKeys** _(task #219, 0.12)_
     - The plan said: HotKeys. Add a way to hotkey spels
+- **2026-09-03** Captn finished **Connect the 4 free-floating skill tree nodes in the tool** _(task #160, 0.12)_
+    - The plan said: Connect the 4 free-floating skill tree nodes in the tool. wildfire, ultimate_firewave, miasma and ball_lightning have no drawn parent edges, so in game they hang disconnected/unreachable. In the tool: click the PARENT (root-side) node FIRST, then the child. After connecting, run Tools/sync_trees.py in the game repo to import.
